@@ -1,0 +1,53 @@
+#' Fit a simple mediation model
+#'
+#' Given a dataframe, an IV, a DV and a mediator, fit a mediation model
+#'
+#' @param data dataframe
+#' @param IV IV
+#' @param Mediator Mediator
+#' @param DV DV
+#' @export
+
+simple_mediation <- function(...) {
+  UseMethod("simple_mediation")
+}
+
+#' @export
+simple_mediation.data.frame <- function(data,
+                                       IV,
+                                       DV,
+                                       Mediator) {
+
+  IV_var <- enquo(IV)
+  DV_var <- enquo(DV)
+  M_var  <- enquo(Mediator)
+
+  model1 <-
+    stats::as.formula(glue::glue("{M} ~ {IV}",
+                                 IV = rlang::f_text(IV_var),
+                                 M  = rlang::f_text(M_var)))
+
+  model2 <-
+    stats::as.formula(glue::glue("{DV} ~ {IV} + {M}",
+                                 DV = rlang::f_text(DV_var),
+                                 IV = rlang::f_text(IV_var),
+                                 M  = rlang::f_text(M_var)))
+
+  mediation_model <-
+    tibble::lst(
+      type      = "simple mediation",
+      method    = "Joint significant",
+      model     = list("IV" = rlang::f_text(IV_var),
+                       "DV" = rlang::f_text(DV_var),
+                       "M"  = rlang::f_text(M_var)),
+      CI        = FALSE,
+      js_models =
+        list("X -> M"     = model1,
+             "X + M -> Y" = model2) %>%
+        purrr::map(~lm(.x, data)),
+      js_models_summary =
+        purrr::map(js_models, ~broom::tidy(.x))
+    )
+
+  as_mediation_model(mediation_model)
+}
