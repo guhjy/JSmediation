@@ -1,11 +1,13 @@
 #' Helper to extract models from a mediation object
 #'
 #' With joint significant approach, different models are fitted to the data.
-#' This function helps you access the data that have been fit when using
+#' This function helps you access the models that have been fit when using
 #' \code{mediation_model()}.
 #'
 #' @param mediation_model A mediation model fitted with \code{mediation_model}
 #'   method.
+#'
+#' @return A list of \code{lm} objects.
 #'
 #' @export
 
