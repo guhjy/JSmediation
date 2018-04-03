@@ -11,6 +11,6 @@ print.mediation_model <- function(x, ...) {
   print(summary(x$js_models[[1]]))
   cat("----------------------------------------------\n")
   cat("Test of X + M -> Y\n")
-  print(summary(x$js_models[[1]]))
+  print(summary(x$js_models[[2]]))
 }
 
