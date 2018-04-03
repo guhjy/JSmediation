@@ -8,12 +8,12 @@
 #' @param DV DV
 #' @export
 
-simple_mediation <- function(...) {
-  UseMethod("simple_mediation")
+mdt_simple <- function(...) {
+  UseMethod("mdt_simple")
 }
 
 #' @export
-simple_mediation.data.frame <- function(data,
+mdt_simple.data.frame <- function(data,
                                        IV,
                                        DV,
                                        Mediator) {
