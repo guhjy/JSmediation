@@ -9,6 +9,10 @@
 #' @param DV DV
 #' @param Moderator Moderator
 #'
+#' @references Muller, D., Judd, C. M., & Yzerbyt, V. Y. (2005). When moderation
+#'   is mediated and mediation is moderated. \textit{Journal of Personality and
+#'   Social Psychology}, 89(6), 852‑863. doi: 10.1037/0022-3514.89.6.852
+#'
 #' @export
 
 mdt_moderated <- function(...) {
