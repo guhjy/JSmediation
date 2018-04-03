@@ -47,8 +47,8 @@ add_ci.mediation_model <- function(mediation_model, iter = 5000, alpha = .05) {
                     mu = c(a, b),
                     Sigma =
                       matrix(
-                        c(sea, 0,
-                          0, seb),
+                        c(sea^2, 0,
+                          0, seb^2),
                         nrow = 2
                       ))
 
