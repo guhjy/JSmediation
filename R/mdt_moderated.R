@@ -61,8 +61,8 @@ mdt_moderated.data.frame <- function(data,
                        "Moderator" = rlang::f_text(Moderator_var)),
       CI        = FALSE,
       js_models =
-        list("X * Mod -> Y"     = model1,
-             "X * Mod -> M"     = model2,
+        list("X * Mod -> Y"       = model1,
+             "X * Mod -> M"       = model2,
              "(X + M) * Mod -> Y" = model3) %>%
         purrr::map(~lm(.x, data)),
       js_models_summary =
