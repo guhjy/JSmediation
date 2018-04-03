@@ -11,9 +11,11 @@ mdt_moderated(...)
 
 \item{IV}{IV}
 
-\item{Mediator}{Mediator}
+\item{M}{Mediator}
 
 \item{DV}{DV}
+
+\item{Moderator}{Moderator}
 }
 \description{
 Given a dataframe, an IV, a DV, a mediator and a moderator, fit a moderated

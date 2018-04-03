@@ -5,8 +5,10 @@
 #'
 #' @param data dataframe
 #' @param IV IV
-#' @param Mediator Mediator
+#' @param M Mediator
 #' @param DV DV
+#' @param Moderator Moderator
+#'
 #' @export
 
 mdt_moderated <- function(...) {
