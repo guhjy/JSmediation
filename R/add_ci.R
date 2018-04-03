@@ -34,13 +34,16 @@ add_ci.mediation_model <- function(mediation_model, iter = 5000, alpha = .05) {
   {
     models_summary <- mediation_model$js_models_summary
 
-    model1 <- models_summary[[1]]
-    model2 <- models_summary[[2]]
+    model1 <- models_summary[["X -> M"]]
+    model2 <- models_summary[["X + M -> Y"]]
 
-    a   <- model1[model1$term == mediation_model$model$IV, "estimate"]
-    sea <- model1[model1$term == mediation_model$model$IV, "std.error"]
-    b   <- model2[model2$term == mediation_model$model$M,   "estimate"]
-    seb <- model2[model2$term == mediation_model$model$M,  "std.error"]
+    IV <- mediation_model$model$IV
+    M  <- mediation_model$model$M
+
+    a   <- model1[model1$term == IV, "estimate"]
+    sea <- model1[model1$term == IV, "std.error"]
+    b   <- model2[model2$term == M,   "estimate"]
+    seb <- model2[model2$term == M,  "std.error"]
 
     ab_sampling <-
       MASS::mvrnorm(n  = iter,
