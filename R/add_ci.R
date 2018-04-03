@@ -57,9 +57,11 @@ add_ci.mediation_model <- function(mediation_model, iter = 5000, alpha = .05) {
     contains_zero <- (CI[[1]] < 0 & CI[[2]] > 0)
 
     mediation_model$CI <- as_indirect_CI(list(method = "Monte Carlo",
-                                              CI,
-                                              contains_zero,
-                                              indirect_sampling))
+                                              CI     = CI,
+                                              contains_zero     =
+                                                contains_zero,
+                                              indirect_sampling =
+                                                indirect_sampling))
 
   }
 
