@@ -13,10 +13,10 @@ Imports:
     rlang (>= 0.1.2),
     dplyr,
     magrittr,
-    modelr,
     purrr,
     glue,
     broom,
     tibble,
     stats,
-    MASS
+    MASS,
+    reshape2
