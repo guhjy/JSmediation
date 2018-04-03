@@ -23,11 +23,16 @@ simple_mediation.data.frame <- function(data,
   M_var  <- enquo(Mediator)
 
   model1 <-
+    stats::as.formula(glue::glue("{DV} ~ {IV}",
+                                 IV = rlang::f_text(IV_var),
+                                 DV = rlang::f_text(DV_var)))
+
+  model2 <-
     stats::as.formula(glue::glue("{M} ~ {IV}",
                                  IV = rlang::f_text(IV_var),
                                  M  = rlang::f_text(M_var)))
 
-  model2 <-
+  model3 <-
     stats::as.formula(glue::glue("{DV} ~ {IV} + {M}",
                                  DV = rlang::f_text(DV_var),
                                  IV = rlang::f_text(IV_var),
@@ -42,8 +47,9 @@ simple_mediation.data.frame <- function(data,
                        "M"  = rlang::f_text(M_var)),
       CI        = FALSE,
       js_models =
-        list("X -> M"     = model1,
-             "X + M -> Y" = model2) %>%
+        list("X -> Y"     = model1,
+             "X -> M"     = model2,
+             "X + M -> Y" = model3) %>%
         purrr::map(~lm(.x, data)),
       js_models_summary =
         purrr::map(js_models, ~broom::tidy(.x))
