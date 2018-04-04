@@ -3,11 +3,29 @@
 #' Given a dataframe, an IV, a DV, a mediator and a moderator, fit a moderated
 #'   mediation model.
 #'
-#' @param data dataframe
-#' @param IV IV
-#' @param M Mediator
-#' @param DV DV
-#' @param Moderator Moderator
+#' @details This function is an helper to fit linear models needed to test a
+#'   moderated mediation model. The Joint Significant formal approach has been
+#'   described in Muller, Judd, & Yzerbyt (2005).
+#'
+#'   Three models will be fit:
+#'
+#'   \deqn{\hat{Y_i} = \Beta_0 + \Beta_1 X_i + \Beta_2 Mod_i + \Beta_3
+#'      X_i Mod_i}{Yi = B0 + B1X + B2Mod + B3XMod}
+#'   \deqn{\hat{M_i} = \Beta_0 + \Beta_1 X_i + \Beta_2 Mod_i + \Beta_3
+#'      X_i Mod_i}{Yi = B0 + B1X + B2Mod + B3XMod}
+#'
+#'   \deqn{\hat{M_i} = \Beta_0 + \Beta_1 X_i + \Beta_2 Mod_i + \Beta_3
+#'      X_i Mod_i}{Yi = B0 + B1X + B2Mod + B3XMod}
+#'
+#' @param data a dataframe containing the variables in the model.
+#' @param IV an unquoted variable in the data frame which will be used
+#'             as independant variable.
+#' @param M an unquoted variable in the data frame which will be used
+#'             as mediator.
+#' @param DV an unquoted variable in the data frame which will be used
+#'             as dependant variable.
+#' @param Moderator an unquoted variable in the data frame which will be used
+#'                    as moderator.
 #'
 #' @references Muller, D., Judd, C. M., & Yzerbyt, V. Y. (2005). When moderation
 #'   is mediated and mediation is moderated. \textit{Journal of Personality and

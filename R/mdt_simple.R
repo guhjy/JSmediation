@@ -2,10 +2,14 @@
 #'
 #' Given a dataframe, an IV, a DV and a mediator, fit a mediation model
 #'
-#' @param data dataframe
-#' @param IV IV
-#' @param Mediator Mediator
-#' @param DV DV
+#' @param data a dataframe containing the variables in the model.
+#' @param IV an unquoted variable in the data frame which will be used
+#'             as independant variable.
+#' @param M an unquoted variable in the data frame which will be used
+#'             as mediator.
+#' @param DV an unquoted variable in the data frame which will be used
+#'             as dependant variable.
+#'
 #' @export
 
 mdt_simple <- function(...) {

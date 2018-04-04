@@ -7,13 +7,16 @@
 mdt_simple(...)
 }
 \arguments{
-\item{data}{dataframe}
+\item{data}{a dataframe containing the variables in the model.}
 
-\item{IV}{IV}
+\item{IV}{an unquoted variable in the data frame which will be used
+as independant variable.}
 
-\item{Mediator}{Mediator}
+\item{M}{an unquoted variable in the data frame which will be used
+as mediator.}
 
-\item{DV}{DV}
+\item{DV}{an unquoted variable in the data frame which will be used
+as dependant variable.}
 }
 \description{
 Given a dataframe, an IV, a DV and a mediator, fit a mediation model

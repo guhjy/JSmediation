@@ -7,22 +7,41 @@
 mdt_moderated(...)
 }
 \arguments{
-\item{data}{dataframe}
+\item{data}{a dataframe containing the variables in the model.}
 
-\item{IV}{IV}
+\item{IV}{an unquoted variable in the data frame which will be used
+as independant variable.}
 
-\item{M}{Mediator}
+\item{M}{an unquoted variable in the data frame which will be used
+as mediator.}
 
-\item{DV}{DV}
+\item{DV}{an unquoted variable in the data frame which will be used
+as dependant variable.}
 
-\item{Moderator}{Moderator}
+\item{Moderator}{an unquoted variable in the data frame which will be used
+as moderator.}
 }
 \description{
 Given a dataframe, an IV, a DV, a mediator and a moderator, fit a moderated
 mediation model.
 }
+\details{
+This function is an helper to fit linear models needed to test a
+moderated mediation model. The Joint Significant formal approach has been
+described in Muller, Judd, & Yzerbyt (2005).
+
+Three models will be fit:
+
+\deqn{\hat{Y_i} = \Beta_0 + \Beta_1 X_i + \Beta_2 Mod_i + \Beta_3
+     X_i Mod_i}{Yi = B0 + B1X + B2Mod + B3XMod}
+\deqn{\hat{M_i} = \Beta_0 + \Beta_1 X_i + \Beta_2 Mod_i + \Beta_3
+     X_i Mod_i}{Yi = B0 + B1X + B2Mod + B3XMod}
+
+\deqn{\hat{M_i} = \Beta_0 + \Beta_1 X_i + \Beta_2 Mod_i + \Beta_3
+     X_i Mod_i}{Yi = B0 + B1X + B2Mod + B3XMod}
+}
 \references{
 Muller, D., Judd, C. M., & Yzerbyt, V. Y. (2005). When moderation
-is mediated and mediation is moderated. Journal of Personality and Social
-Psychology, 89(6), 852‑863. doi: 10.1037/0022-3514.89.6.852
+is mediated and mediation is moderated. \textit{Journal of Personality and
+Social Psychology}, 89(6), 852‑863. doi: 10.1037/0022-3514.89.6.852
 }
