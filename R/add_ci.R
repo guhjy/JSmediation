@@ -59,12 +59,14 @@ add_ci.mediation_model <- function(mediation_model, iter = 5000, alpha = .05) {
     CI <- stats::quantile(indirect_sampling, c(alpha / 2, 1 - alpha / 2))
     contains_zero <- (CI[[1]] < 0 & CI[[2]] > 0)
 
-    mediation_model$CI <- as_indirect_CI(list(method = "Monte Carlo",
-                                              CI     = CI,
-                                              contains_zero     =
-                                                contains_zero,
-                                              indirect_sampling =
-                                                indirect_sampling))
+    mediation_model$CI <- TRUE
+    mediation_model$CI_infos <-
+      as_indirect_CI(list(method = "Monte Carlo",
+                          CI     = CI,
+                          contains_zero     =
+                            contains_zero,
+                          indirect_sampling =
+                            indirect_sampling))
 
   }
 
