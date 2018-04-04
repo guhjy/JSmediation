@@ -66,7 +66,9 @@ mdt_moderated.data.frame <- function(data,
              "(X + M) * Mod -> Y" = model3) %>%
         purrr::map(~lm(.x, data)),
       js_models_summary =
-        purrr::map(js_models, ~broom::tidy(.x))
+        purrr::map(js_models, ~broom::tidy(.x)),
+      data =
+        data
     )
 
   as_mediation_model(mediation_model)

@@ -52,7 +52,9 @@ mdt_simple.data.frame <- function(data,
              "X + M -> Y" = model3) %>%
         purrr::map(~lm(.x, data)),
       js_models_summary =
-        purrr::map(js_models, ~broom::tidy(.x))
+        purrr::map(js_models, ~broom::tidy(.x)),
+      data =
+        data
     )
 
   as_mediation_model(mediation_model)
