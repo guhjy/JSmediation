@@ -18,13 +18,13 @@ mdt_simple <- function(...) {
 
 #' @export
 mdt_simple.data.frame <- function(data,
-                                       IV,
-                                       DV,
-                                       Mediator) {
+                                  IV,
+                                  DV,
+                                  M) {
 
   IV_var <- enquo(IV)
   DV_var <- enquo(DV)
-  M_var  <- enquo(Mediator)
+  M_var  <- enquo(M)
 
   model1 <-
     stats::as.formula(glue::glue("{DV} ~ {IV}",
