@@ -55,6 +55,20 @@ mdt_moderated.data.frame <- function(data,
   M_name   <- rlang::quo_name(M_var)
   Mod_name <- rlang::quo_name(Mod_var)
 
+  IV_data  <- data %>% dplyr::pull( !! IV_var )  %>% as.numeric()
+  Mod_data <- data %>% dplyr::pull( !! Mod_var ) %>% as.numeric()
+  M_data   <- data %>% dplyr::pull( !! M_var )   %>% as.numeric()
+
+  if(!(is_centered(IV_data) | is_contrast(IV_data)))
+    stop(glue::glue("Warning:\n To apply JS method, {IV_name} should be either centred or contrast-coded."))
+
+  if(!(is_centered(Mod_data) | is_contrast(Mod_data)))
+    stop(glue::glue("Warning:\n To apply JS method, {Mod_name} should be either centred or contrast-coded."))
+
+  if(!is_centered(M_data))
+    stop(glue::glue("Warning:\n To apply JS method, {M_name} should be centred."))
+
+  # write models' formula
   model1 <-
     stats::as.formula(glue::glue("{DV} ~ {IV} * {Mod}",
                                  IV  = IV_name,
