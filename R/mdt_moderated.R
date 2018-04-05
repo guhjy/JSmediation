@@ -55,6 +55,7 @@ mdt_moderated.data.frame <- function(data,
   M_name   <- rlang::quo_name(M_var)
   Mod_name <- rlang::quo_name(Mod_var)
 
+  # check if variables are contrast-coded or centered
   IV_data  <- data %>% dplyr::pull( !! IV_var )  %>% as.numeric()
   Mod_data <- data %>% dplyr::pull( !! Mod_var ) %>% as.numeric()
   M_data   <- data %>% dplyr::pull( !! M_var )   %>% as.numeric()
@@ -88,6 +89,7 @@ mdt_moderated.data.frame <- function(data,
                                  M   = M_name,
                                  Mod = Mod_name))
 
+  # build mediation_model object
   mediation_model <-
     tibble::lst(
       type      = "moderated mediation",
