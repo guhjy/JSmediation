@@ -38,11 +38,7 @@ mdt_moderated <- function(...) {
 }
 
 #' @export
-mdt_moderated.data.frame <- function(data,
-                                     IV,
-                                     DV,
-                                     M,
-                                     Moderator) {
+mdt_moderated.data.frame <- function(data, IV, DV, M, Moderator) {
 
   # create object needed because of NSE
   IV_var  <- enquo(IV)
