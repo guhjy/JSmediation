@@ -36,29 +36,33 @@ mdt_simple.data.frame <- function(data,
   DV_var <- enquo(DV)
   M_var  <- enquo(M)
 
+  IV_name <- rlang::quo_name(IV_var)
+  DV_name <- rlang::quo_name(DV)
+  M_name  <- rlang::quo_name(M_var)
+
   model1 <-
     stats::as.formula(glue::glue("{DV} ~ {IV}",
-                                 IV = rlang::f_text(IV_var),
-                                 DV = rlang::f_text(DV_var)))
+                                 IV = IV_name,
+                                 DV = DV_name))
 
   model2 <-
     stats::as.formula(glue::glue("{M} ~ {IV}",
-                                 IV = rlang::f_text(IV_var),
-                                 M  = rlang::f_text(M_var)))
+                                 IV = IV_name,
+                                 M  = M_name))
 
   model3 <-
     stats::as.formula(glue::glue("{DV} ~ {IV} + {M}",
-                                 DV = rlang::f_text(DV_var),
-                                 IV = rlang::f_text(IV_var),
-                                 M  = rlang::f_text(M_var)))
+                                 DV = DV_name,
+                                 IV = IV_name,
+                                 M  = M_name))
 
   mediation_model <-
     tibble::lst(
       type      = "simple mediation",
       method    = "Joint significant",
-      model     = list("IV" = rlang::f_text(IV_var),
-                       "DV" = rlang::f_text(DV_var),
-                       "M"  = rlang::f_text(M_var)),
+      model     = list("IV" = DV_name,
+                       "DV" = IV_name,
+                       "M"  = M_name),
       CI        = FALSE,
       js_models =
         list("X -> Y"     = model1,
