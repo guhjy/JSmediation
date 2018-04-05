@@ -44,39 +44,44 @@ mdt_moderated.data.frame <- function(data,
                                      M,
                                      Moderator) {
 
-  IV_var        <- enquo(IV)
-  DV_var        <- enquo(DV)
-  M_var         <- enquo(M)
-  Moderator_var <- enquo(Moderator)
+  # create object needed because of NSE
+  IV_var  <- enquo(IV)
+  DV_var  <- enquo(DV)
+  M_var   <- enquo(M)
+  Mod_var <- enquo(Moderator)
 
+  IV_name  <- rlang::quo_name(IV_var)
+  DV_name  <- rlang::quo_name(DV_var)
+  M_name   <- rlang::quo_name(M_var)
+  Mod_name <- rlang::quo_name(Mod_var)
 
   model1 <-
     stats::as.formula(glue::glue("{DV} ~ {IV} * {Mod}",
-                                 IV  = rlang::f_text(IV_var),
-                                 DV  = rlang::f_text(DV_var),
-                                 Mod = rlang::f_text(Moderator_var)))
+                                 IV  = IV_name,
+                                 DV  = M_name,
+                                 Mod = Mod_name))
 
   model2 <-
     stats::as.formula(glue::glue("{M} ~ {IV} * {Mod}",
-                                 IV  = rlang::f_text(IV_var),
-                                 M   = rlang::f_text(M_var),
-                                 Mod = rlang::f_text(Moderator_var)))
+                                 IV  = IV_name,
+                                 M   = M_name,
+                                 Mod = Mod_name))
 
   model3 <-
     stats::as.formula(glue::glue("{DV} ~ ({IV} + {M}) * {Mod}",
-                                 DV  = rlang::f_text(DV_var),
-                                 IV  = rlang::f_text(IV_var),
-                                 M   = rlang::f_text(M_var),
-                                 Mod = rlang::f_text(Moderator_var)))
+                                 DV  = DV_name,
+                                 IV  = IV_name,
+                                 M   = M_name,
+                                 Mod = Mod_name))
 
   mediation_model <-
     tibble::lst(
       type      = "moderated mediation",
       method    = "Joint significant",
-      model     = list("IV" = rlang::f_text(IV_var),
-                       "DV" = rlang::f_text(DV_var),
-                       "M"  = rlang::f_text(M_var),
-                       "Moderator" = rlang::f_text(Moderator_var)),
+      model     = list("IV"  = IV_name,
+                       "DV"  = DV_name,
+                       "M"   = M_name,
+                       "Mod" = Mod_name),
       CI        = FALSE,
       js_models =
         list("X * Mod -> Y"       = model1,
