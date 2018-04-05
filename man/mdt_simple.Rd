@@ -2,7 +2,7 @@
 % Please edit documentation in R/mdt_simple.R
 \name{mdt_simple}
 \alias{mdt_simple}
-\title{Fit a simple mediation model}
+\title{Simple mediation model}
 \usage{
 mdt_simple(...)
 }
@@ -19,5 +19,14 @@ as mediator.}
 as dependant variable.}
 }
 \description{
-Given a dataframe, an IV, a DV and a mediator, fit a mediation model
+\code{mdt_simple} fits a simple mediation model using joint significance
+method (Judd, Yzerbyt, & Muller, 2014).
+}
+\details{
+Given a dataframe, an IV, a DV and a mediator, fits a mediation model.
+}
+\references{
+Judd, C. M., Yzerbyt, V. Y., & Muller, D. (2014). Mediation
+and moderation. Handbook of research methods in
+social and personality psychology, 2, 653–676.
 }
