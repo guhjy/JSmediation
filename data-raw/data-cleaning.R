@@ -1,7 +1,7 @@
 library(haven)
 library(tidyverse)
 
-dataset <-
+linkedfate <-
   read_spss("data-raw/Study3_dataforYzerbyt_withcontrolcond.sav") %>%
   mutate(condition =
            case_when(condit == 1 ~ "Low discrimination",
@@ -9,6 +9,8 @@ dataset <-
                      condit == 3 ~ "No-article control")) %>%
   select(condition,
          linked_fate = lfate,
-         hypodescent = hypo)
+         hypodescent = hypo) %>%
+  filter(!(condition %in% c("No-article control"))) %>%
+  as.data.frame()
 
-usethis::use_data(dataset)
+usethis::use_data(linkedfate, overwrite = TRUE)

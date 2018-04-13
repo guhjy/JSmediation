@@ -1,0 +1,28 @@
+#' @title Data set showing simple and moderated mediation analysis.
+#'
+#' @description A data set containing data from Experiment 3 from Ho, Kteiley,
+#'   and Chen (2017). In this experiment, authors hypothised that presenting
+#'   a text stating that Black-White biracials were discriminated would lead
+#'   Black participants to associate Black-White biracials more with their
+#'   lower status parent group than their higher status parent group,
+#'   according to the rule of \emph{hypodescent}. In this experiment,
+#'   the authors tested if this effect was mediated by the sense of linked fate
+#'   between discriminated Black-White participants and Black participants.
+#'
+#' @format A data frame with
+#' \describe{
+#'   \item{condition}{Experimental condition (High discrimination vs. Low
+#'     discrimination)}
+#'   \item{linkedfate}{Score at an 8-item linked fate measure}
+#'   \item{hypodescent}{Score at a 3-item measure of hypodescent}
+#' }
+#'
+#' @references Ho, A. K., Kteily, N. S., & Chen, J. M. (2017). “You’re one of
+#'    us”: Black Americans’ use of hypodescent and its association with
+#'     egalitarianism. \emph{Journal of Personality and Social Psychology},
+#'      \emph{113}(5), 753‑768. https://doi.org/10.1037/pspi0000107
+#'
+#' @usage data("linkedfate")
+
+
+"linkedfate"
