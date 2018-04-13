@@ -34,7 +34,7 @@ mdt_simple.data.frame <- function(data, IV, DV, M) {
   M_var  <- enquo(M)
 
   IV_name <- rlang::quo_name(IV_var)
-  DV_name <- rlang::quo_name(DV)
+  DV_name <- rlang::quo_name(DV_var)
   M_name  <- rlang::quo_name(M_var)
 
   model1 <-
