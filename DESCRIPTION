@@ -25,4 +25,4 @@ Imports:
     tibble,
     stats,
     MASS,
-    reshape2
+    data.table

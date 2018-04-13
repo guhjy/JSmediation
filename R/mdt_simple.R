@@ -60,8 +60,8 @@ mdt_simple.data.frame <- function(data,
     tibble::lst(
       type      = "simple mediation",
       method    = "Joint significant",
-      model     = list("IV" = DV_name,
-                       "DV" = IV_name,
+      model     = list("IV" = IV_name,
+                       "DV" = DV_name,
                        "M"  = M_name),
       CI        = FALSE,
       js_models =
