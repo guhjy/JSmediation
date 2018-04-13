@@ -123,6 +123,19 @@ print.mediation_model <- function(x, ...) {
       )
       cat("\n")
     }
+    if(type == "moderated mediation") {
+      cat(glue::glue(
+        "{method} stage {stage} {percentage}% Conditional Index ({iterations} iterations):
+                    [{CIL}; {CIU}]",
+        method     = x[["CI_infos"]][["method"]],
+        stage      = x[["CI_infos"]][["stage"]],
+        percentage = 100 - 100 * x[["CI_infos"]][["alpha"]],
+        iterations = x[["CI_infos"]][["iterations"]],
+        CIL = round(x[["CI_infos"]][["CI"]][[1]], 3),
+        CIU = round(x[["CI_infos"]][["CI"]][[2]], 3))
+      )
+      cat("\n")
+    }
   }
 
   cat("\nModels' summaries\n")
