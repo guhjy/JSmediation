@@ -15,6 +15,8 @@ method.}
 \item{iter}{Number of iteration for the Monte Carlo CI method.}
 
 \item{alpha}{Alpha threshold to use when computing Monte Carlo CI.}
+
+\item{stage}{Stage on which you want do c}
 }
 \value{
 An object of the same class as \code{mediation_model}, but with
