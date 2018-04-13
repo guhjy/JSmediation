@@ -1,5 +1,5 @@
 is_contrast <- function(x) {
-  length(unique(x)) == 2 & sum(unique(x)) == 0
+  length(unique(x)) == 2L & sum(unique(x)) == 0
 }
 
 is_centered <- function(x) {
