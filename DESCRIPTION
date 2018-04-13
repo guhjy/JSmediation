@@ -1,8 +1,14 @@
-Package: tidymediation
+Package: JSmediation
 Version: 0.0.0.9000
-Title: What the Package Does (One Line, Title Case)
-Description: What the package does (one paragraph).
-Authors@R: person("First", "Last", , "first.last@example.com", c("aut", "cre"))
+Title: Mediation Analysis Using Joint Significance
+Authors@R: c(
+    person("Cedric", "Batailler", email = "cedric.batailler@univ-grenoble-alpes.fr", role = c("aut", "cre")),
+    person("Dominique", "Muller", email = "dominique.muller@univ-grenoble-alpes.fr", role = "aut"),
+    person("Vincent", "Yzerbyt", email = "vincent.yzerbyt@uclouvain.be", role = "aut"),
+    person("Charles", "Judd", email = "charles.judd@colorado.edu", role = "aut")
+    )
+Description: A set of helper functions to conduct mediation alaysis using the 
+    joint significance approach and tidy eval.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
