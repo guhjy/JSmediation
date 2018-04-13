@@ -27,10 +27,7 @@ mdt_simple <- function(...) {
 }
 
 #' @export
-mdt_simple.data.frame <- function(data,
-                                  IV,
-                                  DV,
-                                  M) {
+mdt_simple.data.frame <- function(data, IV, DV, M) {
 
   IV_var <- enquo(IV)
   DV_var <- enquo(DV)
