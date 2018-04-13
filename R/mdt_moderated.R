@@ -24,7 +24,7 @@
 #'             as mediator.
 #' @param DV an unquoted variable in the data frame which will be used
 #'             as dependant variable.
-#' @param Moderator an unquoted variable in the data frame which will be used
+#' @param Mod an unquoted variable in the data frame which will be used
 #'                    as moderator.
 #'
 #' @references Muller, D., Judd, C. M., & Yzerbyt, V. Y. (2005). When moderation
@@ -38,13 +38,13 @@ mdt_moderated <- function(...) {
 }
 
 #' @export
-mdt_moderated.data.frame <- function(data, IV, DV, M, Moderator) {
+mdt_moderated.data.frame <- function(data, IV, DV, M, Mod) {
 
   # create object needed because of NSE
   IV_var  <- enquo(IV)
   DV_var  <- enquo(DV)
   M_var   <- enquo(M)
-  Mod_var <- enquo(Moderator)
+  Mod_var <- enquo(Mod)
 
   IV_name  <- rlang::quo_name(IV_var)
   DV_name  <- rlang::quo_name(DV_var)

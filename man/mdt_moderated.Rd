@@ -18,7 +18,7 @@ as mediator.}
 \item{DV}{an unquoted variable in the data frame which will be used
 as dependant variable.}
 
-\item{Moderator}{an unquoted variable in the data frame which will be used
+\item{Mod}{an unquoted variable in the data frame which will be used
 as moderator.}
 }
 \description{
