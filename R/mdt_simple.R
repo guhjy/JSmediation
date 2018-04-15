@@ -48,7 +48,7 @@ mdt_simple.data.frame <- function(data, IV, DV, M) {
                     IV ({IV_name}) must be numeric (see build_contrast() to
                     convert a character vector to a contrast code)."))
 
-  #building models
+  # building models -----------------------------------------------------------
   model1 <-
     stats::as.formula(glue::glue("{DV} ~ {IV}",
                                  IV = IV_name,
