@@ -1,0 +1,67 @@
+---
+title: "mediation analysis with JSmediation"
+author: "Cédric Batailler"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{mediation analysis with JSmediation}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+# Fit a simple mediation analysis
+## Joint Significance approach
+$$ \hat{Y_i} = \beta_0 + \beta_1 X_i$$ 
+$$ \hat{M_i} = \beta_0 + \beta_1 X_i$$ 
+$$ \hat{Y_i} = \beta_0 + \beta_1 X_i + \beta_2 M_i$$ 
+
+## R implementation
+
+`JSmediation` offers helpers to use Joint Significance approach.  With this 
+package, you can type a mediation model the way you think it, `JSmediation` 
+dealing with fitting underlying models.
+
+```{r}
+library(JSmediation)
+```
+
+```{r}
+head(linkedfate)
+```
+
+```{r}
+linkedfate$condition_c <- build_contrast(linkedfate$condition,
+                                         "Low discrimination",
+                                         "High discrimination")
+```
+
+
+
+```{r}
+my_model <- mdt_simple(linkedfate,
+                       IV = condition_c,
+                       DV = hypodescent,
+                       M  = linked_fate)
+```
+
+```{r}
+my_model
+```
+## Confidence interval
+
+```{r}
+add_ci(my_model)
+```
+
+# Helper functions
+
+## Building a contrast code
+
+## Extracting individual models
