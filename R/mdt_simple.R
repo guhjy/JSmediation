@@ -37,6 +37,17 @@ mdt_simple.data.frame <- function(data, IV, DV, M) {
   DV_name <- rlang::quo_name(DV_var)
   M_name  <- rlang::quo_name(M_var)
 
+  IV_data <- data %>% dplyr::pull( !! IV_var )
+  DV_data <- data %>% dplyr::pull( !! DV_var )
+  M_data  <- data %>% dplyr::pull( !! M_var )
+
+  # checking type of variable
+  if(!is.numeric(IV_data))
+    stop(glue::glue("Warning:
+                    IV ({IV_name}) must be numeric (see build_contrast() to
+                    convert a character vector to a contrast code)."))
+
+  #building models
   model1 <-
     stats::as.formula(glue::glue("{DV} ~ {IV}",
                                  IV = IV_name,
