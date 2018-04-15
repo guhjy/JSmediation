@@ -64,6 +64,9 @@ mdt_simple.data.frame <- function(data, IV, DV, M) {
                                  IV = IV_name,
                                  M  = M_name))
 
+
+  # bulding mediation model object.
+
   mediation_model <-
     tibble::lst(
       type      = "simple mediation",
