@@ -29,6 +29,7 @@ mdt_simple <- function(data, IV, DV, M) {
 #' @export
 mdt_simple.data.frame <- function(data, IV, DV, M) {
 
+  # nse -----------------------------------------------------------------------
   IV_var <- enquo(IV)
   DV_var <- enquo(DV)
   M_var  <- enquo(M)
@@ -41,7 +42,7 @@ mdt_simple.data.frame <- function(data, IV, DV, M) {
   DV_data <- data %>% dplyr::pull( !! DV_var )
   M_data  <- data %>% dplyr::pull( !! M_var )
 
-  # checking type of variable
+  # checking type of variable -------------------------------------------------
   if(!is.numeric(IV_data))
     stop(glue::glue("Warning:
                     IV ({IV_name}) must be numeric (see build_contrast() to
@@ -65,8 +66,7 @@ mdt_simple.data.frame <- function(data, IV, DV, M) {
                                  M  = M_name))
 
 
-  # bulding mediation model object.
-
+  # bulding mediation model object --------------------------------------------
   mediation_model <-
     tibble::lst(
       type      = "simple mediation",
