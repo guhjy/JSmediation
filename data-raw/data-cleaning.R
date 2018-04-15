@@ -8,7 +8,7 @@ linkedfate <-
                      condit == 2 ~ "High discrimination",
                      condit == 3 ~ "No-article control")) %>%
   select(condition,
-         linked_fate = lfate,
+         linkedfate = lfate,
          hypodescent = hypo) %>%
   filter(!(condition %in% c("No-article control"))) %>%
   as.data.frame()
