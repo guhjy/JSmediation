@@ -22,7 +22,7 @@
 #'
 #' @export
 
-mdt_simple <- function(...) {
+mdt_simple <- function(data, IV, DV, M) {
   UseMethod("mdt_simple")
 }
 
