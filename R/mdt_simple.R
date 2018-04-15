@@ -72,26 +72,28 @@ mdt_simple.data.frame <- function(data, IV, DV, M) {
                                  IV = IV_name,
                                  M  = M_name))
 
+  # models fitting and cleaning -----------------------------------------------
+  js_models <-
+    list("X -> Y"     = model1,
+         "X -> M"     = model2,
+         "X + M -> Y" = model3) %>%
+    purrr::map(~lm(.x, data))
+
+  js_models_summary <-
+    purrr::map(js_models, ~broom::tidy(.x))
 
   # bulding mediation model object --------------------------------------------
   mediation_model <-
-    tibble::lst(
+    list(
       type      = "simple mediation",
       method    = "Joint significant",
       model     = list("IV" = IV_name,
                        "DV" = DV_name,
                        "M"  = M_name),
       CI        = FALSE,
-      js_models =
-        list("X -> Y"     = model1,
-             "X -> M"     = model2,
-             "X + M -> Y" = model3) %>%
-        purrr::map(~lm(.x, data)),
-      js_models_summary =
-        purrr::map(js_models, ~broom::tidy(.x)),
-      data =
-        data
-    )
+      js_models = js_models,
+      js_models_summary = js_models_summary,
+      data = data)
 
   as_mediation_model(mediation_model)
 }
