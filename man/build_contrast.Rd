@@ -9,7 +9,7 @@ build_contrast(vector, cond_a, cond_b)
 \arguments{
 \item{vector}{a character vector.}
 
-\item{cond_a}{a character string to be recoded -0.5}
+\item{cond_a}{a character string to be coded -0.5}
 
-\item{cond_b}{a character string to be recoded  0.5}
+\item{cond_b}{a character string to be coded  0.5}
 }

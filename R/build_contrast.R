@@ -1,10 +1,8 @@
 #' @title build a contrast code from character vector
 #'
-#' @description
-#'
 #' @param vector a character vector.
-#' @param cond_a a character string to be recoded -0.5
-#' @param cond_b a character string to be recoded  0.5
+#' @param cond_a a character string to be coded -0.5
+#' @param cond_b a character string to be coded  0.5
 #'
 #' @export
 build_contrast <- function(vector, cond_a, cond_b) {
