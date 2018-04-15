@@ -88,3 +88,4 @@ mdt_simple.data.frame <- function(data, IV, DV, M) {
 
   as_mediation_model(mediation_model)
 }
+

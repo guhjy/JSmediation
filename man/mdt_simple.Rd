@@ -4,7 +4,7 @@
 \alias{mdt_simple}
 \title{Simple mediation model}
 \usage{
-mdt_simple(...)
+mdt_simple(data, IV, DV, M)
 }
 \arguments{
 \item{data}{a dataframe containing the variables in the model.}
@@ -12,11 +12,11 @@ mdt_simple(...)
 \item{IV}{an unquoted variable in the data frame which will be used
 as independant variable.}
 
-\item{M}{an unquoted variable in the data frame which will be used
-as mediator.}
-
 \item{DV}{an unquoted variable in the data frame which will be used
 as dependant variable.}
+
+\item{M}{an unquoted variable in the data frame which will be used
+as mediator.}
 }
 \description{
 \code{mdt_simple} fits a simple mediation model using joint significance
