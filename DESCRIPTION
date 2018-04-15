@@ -26,3 +26,7 @@ Imports:
     stats,
     MASS,
     data.table
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
