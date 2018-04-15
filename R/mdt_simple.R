@@ -52,9 +52,10 @@ mdt_simple.data.frame <- function(data, IV, DV, M) {
     stop(glue::glue("Warning:
                     Mediator ({M_name}) must be numeric."))
 
-  if(!is.numeric(M_data))
+  if(!is.numeric(DV_data))
     stop(glue::glue("Warning:
                     DV ({DV_name}) must be numeric."))
+
   # building models -----------------------------------------------------------
   model1 <-
     stats::as.formula(glue::glue("{DV} ~ {IV}",
@@ -79,21 +80,24 @@ mdt_simple.data.frame <- function(data, IV, DV, M) {
          "X + M -> Y" = model3) %>%
     purrr::map(~lm(.x, data))
 
-  js_models_summary <-
-    purrr::map(js_models, ~broom::tidy(.x))
+  # paths ---------------------------------------------------------------------
+  paths <-
+    list("a" = create_path(js_models, "X -> M", IV_name),
+         "b" = create_path(js_models, "X + M -> Y", M_name),
+         "c" = create_path(js_models, "X -> Y", IV_name),
+         "c'"= create_path(js_models, "X + M -> Y", IV_name))
 
   # bulding mediation model object --------------------------------------------
   mediation_model <-
-    list(
-      type      = "simple mediation",
-      method    = "Joint significant",
-      model     = list("IV" = IV_name,
-                       "DV" = DV_name,
-                       "M"  = M_name),
-      CI        = FALSE,
-      js_models = js_models,
-      js_models_summary = js_models_summary,
-      data = data)
+    list(type      = "simple mediation",
+         method    = "Joint significant",
+         params    = list("IV" = IV_name,
+                          "DV" = DV_name,
+                          "M"  = M_name),
+         paths     = paths,
+         CI        = FALSE,
+         js_models = js_models,
+         data = data)
 
   as_mediation_model(mediation_model)
 }

@@ -40,32 +40,44 @@ mdt_moderated <- function(...) {
 #' @export
 mdt_moderated.data.frame <- function(data, IV, DV, M, Mod) {
 
-  # create object needed because of NSE
+  # nse -----------------------------------------------------------------------
   IV_var  <- enquo(IV)
   DV_var  <- enquo(DV)
   M_var   <- enquo(M)
   Mod_var <- enquo(Mod)
 
-  IV_name  <- rlang::quo_name(IV_var)
-  DV_name  <- rlang::quo_name(DV_var)
-  M_name   <- rlang::quo_name(M_var)
-  Mod_name <- rlang::quo_name(Mod_var)
+  IV_name    <- rlang::quo_name(IV_var)
+  DV_name    <- rlang::quo_name(DV_var)
+  M_name     <- rlang::quo_name(M_var)
+  Mod_name   <- rlang::quo_name(Mod_var)
+  IVMod_name <- glue::glue("{IV_name}:{Mod_name}")
+  MMod_name  <- glue::glue("{M_name}:{Mod_name}")
 
-  # check if variables are contrast-coded or centered
   IV_data  <- data %>% dplyr::pull( !! IV_var )  %>% as.numeric()
-  Mod_data <- data %>% dplyr::pull( !! Mod_var ) %>% as.numeric()
   M_data   <- data %>% dplyr::pull( !! M_var )   %>% as.numeric()
+  DV_data  <- data %>% dplyr::pull( !! DV_var )  %>% as.numeric()
+  Mod_data <- data %>% dplyr::pull( !! Mod_var ) %>% as.numeric()
 
-  if(!(is_centered(IV_data) | is_contrast(IV_data)))
-    stop(glue::glue("Warning:\n To apply JS method, {IV_name} should be either centred or contrast-coded."))
 
-  if(!(is_centered(Mod_data) | is_contrast(Mod_data)))
-    stop(glue::glue("Warning:\n To apply JS method, {Mod_name} should be either centred or contrast-coded."))
+  # type check ----------------------------------------------------------------
+  if(!is.numeric(IV_data))
+    stop(glue::glue("Warning:
+                    IV ({IV_name}) must be numeric (see build_contrast() to
+                    convert a character vector to a contrast code)."))
 
-  if(!is_centered(M_data))
-    stop(glue::glue("Warning:\n To apply JS method, {M_name} should be centred."))
+  if(!is.numeric(M_data))
+    stop(glue::glue("Warning:
+                    Mediator ({M_name}) must be numeric."))
 
-  # write models' formula
+  if(!is.numeric(DV_data))
+    stop(glue::glue("Warning:
+                    DV ({DV_name}) must be numeric."))
+
+  if(!is.numeric(DV_data))
+    stop(glue::glue("Warning:
+                    Moderator ({DV_name}) must be numeric."))
+
+  # building models -----------------------------------------------------------
   model1 <-
     stats::as.formula(glue::glue("{DV} ~ {IV} * {Mod}",
                                  IV  = IV_name,
@@ -85,26 +97,37 @@ mdt_moderated.data.frame <- function(data, IV, DV, M, Mod) {
                                  M   = M_name,
                                  Mod = Mod_name))
 
-  # build mediation_model object
+  # model fitting and cleaning ------------------------------------------------
+  js_models <-
+    list("X * Mod -> Y"       = model1,
+         "X * Mod -> M"       = model2,
+         "(X + M) * Mod -> Y" = model3) %>%
+    purrr::map(~lm(.x, data))
+
+  # paths ---------------------------------------------------------------------
+  paths <-
+    list("a"       = create_path(js_models, "X * Mod -> M", IV_name),
+         "a * Mod" = create_path(js_models, "X * Mod -> M", IVMod_name),
+         "b"       = create_path(js_models, "(X + M) * Mod -> Y", M_name),
+         "b * Mod" = create_path(js_models, "(X + M) * Mod -> Y", M_name),
+         "c"       = create_path(js_models, "X * Mod -> Y", IV_name),
+         "c * Mod" = create_path(js_models, "X * Mod -> Y", IVMod_name),
+         "c'"      = create_path(js_models, "(X + M) * Mod -> Y", IV_name),
+         "c' * Mod"= create_path(js_models, "(X + M) * Mod -> Y", IVMod_name))
+
+
+  # bulding mediation model object --------------------------------------------
   mediation_model <-
-    tibble::lst(
-      type      = "moderated mediation",
-      method    = "Joint significant",
-      model     = list("IV"  = IV_name,
-                       "DV"  = DV_name,
-                       "M"   = M_name,
-                       "Mod" = Mod_name),
-      CI        = FALSE,
-      js_models =
-        list("X * Mod -> Y"       = model1,
-             "X * Mod -> M"       = model2,
-             "(X + M) * Mod -> Y" = model3) %>%
-        purrr::map(~lm(.x, data)),
-      js_models_summary =
-        purrr::map(js_models, ~broom::tidy(.x)),
-      data =
-        data
-    )
+    list(type      = "moderated mediation",
+         method    = "Joint significant",
+         params    = list("IV"  = IV_name,
+                          "DV"  = DV_name,
+                          "M"   = M_name,
+                          "Mod" = Mod_name),
+         paths     = paths,
+         CI        = FALSE,
+         js_models = js_models,
+         data = data)
 
   as_mediation_model(mediation_model)
 }
