@@ -48,6 +48,13 @@ mdt_simple.data.frame <- function(data, IV, DV, M) {
                     IV ({IV_name}) must be numeric (see build_contrast() to
                     convert a character vector to a contrast code)."))
 
+  if(!is.numeric(M_data))
+    stop(glue::glue("Warning:
+                    Mediator ({M_name}) must be numeric."))
+
+  if(!is.numeric(M_data))
+    stop(glue::glue("Warning:
+                    DV ({DV_name}) must be numeric."))
   # building models -----------------------------------------------------------
   model1 <-
     stats::as.formula(glue::glue("{DV} ~ {IV}",
