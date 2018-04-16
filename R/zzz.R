@@ -13,13 +13,13 @@ create_path <- function(model_list, model_name, term_name) {
          purrr::pluck(model_name) %>%
          broom::tidy() %>%
          dplyr::filter(term == term_name) %>%
-         pull(estimate),
+         dplyr::pull(estimate),
        se  =
          model_list %>%
          purrr::pluck(model_name) %>%
          broom::tidy() %>%
          dplyr::filter(term == term_name) %>%
-         pull(std.error),
+         dplyr::pull(std.error),
        APA =
          model_list %>%
          purrr::pluck(model_name) %>%
