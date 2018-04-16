@@ -2,12 +2,14 @@
 #'
 #' @param mediation_model A mediation model fitted with \code{mediation_model}
 #'   method.
-#' @param ...   Further argument to pass to the different methods.
-#' @param iter  Number of iteration for the Monte Carlo CI method.
+#' @param CI a boolean indecating if CI should be computed. Defaults to
+#'   \code{FALSE}.
+#' @param iter number of iteration for the Monte Carlo CI method.
 #' @param alpha Alpha threshold to use when computing Monte Carlo CI.
-#' @param stage Stage on which you want do c
+#' @param stage Stage on which you want to compute conditional index for
+#'   moderated mediation models.
 #'
-#' @return An object of the same class as \code{mediation_model}, but with
+#' @return An object of the same class as \code{mediation_model}, dbut with
 #'   confidence interval for the indirect effect estimation added for later
 #'   use.
 #'
@@ -26,25 +28,17 @@ add_index.mediation_model <- function(mediation_model, iter = 5000, alpha = .05,
   model_type <- mediation_model$type
 
   supported_models <-
-    c("simple mediation", "moderated mediation")
+    c("simple mediation")
 
   if(!(model_type %in% supported_models))
     stop(glue::glue("Error:\n {model_type} model is not supported."))
 
   if(model_type == "simple mediation")
   {
-    models_summary <- mediation_model$js_models_summary
-
-    model1 <- models_summary[["X -> M"]]
-    model2 <- models_summary[["X + M -> Y"]]
-
-    IV <- mediation_model$model$IV
-    M  <- mediation_model$model$M
-
-    a   <- model1[model1$term == IV, "estimate"]
-    sea <- model1[model1$term == IV, "std.error"]
-    b   <- model2[model2$term == M,   "estimate"]
-    seb <- model2[model2$term == M,  "std.error"]
+    a   <- purrr::pluck(mediation_model, "paths", "a", "point_estimate")
+    sea <- purrr::pluck(mediation_model, "paths", "a", "se")
+    b   <- purrr::pluck(mediation_model, "paths", "b", "point_estimate")
+    seb <- purrr::pluck(mediation_model, "paths", "b", "se")
 
     ab_sampling <-
       MASS::mvrnorm(n  = iter,
@@ -83,38 +77,16 @@ add_index.mediation_model <- function(mediation_model, iter = 5000, alpha = .05,
         "Warning:\n You have to explicite the stage on which you want to compute the moderated mediation index with the stage argument."
         )
 
-    models_summary <- mediation_model$js_models_summary
-
-    model1 <- models_summary[["X * Mod -> M"]]
-    model2 <- models_summary[["(X + M) * Mod -> Y"]]
-
-    IV    <- mediation_model$model$IV
-    M     <- mediation_model$model$M
-    Mod   <- mediation_model$model$Mod
-    IVMod <- glue::glue("{IV}:{Mod}")
-    MMod  <- glue::glue("{M}:{Mod}")
-
-
-    b_51_e  <- model1[model1$term == IV, "estimate"]
-    b_51_se <- model1[model1$term == IV, "std.error"]
-    b_53_e  <- model1[model1$term == IVMod, "estimate"]
-    b_53_se <- model1[model1$term == IVMod, "std.error"]
-
-    b_64_e  <- model2[model2$term == M, "estimate"]
-    b_64_se <- model2[model2$term == M, "std.error"]
-    b_65_e  <- model2[model2$term == MMod, "estimate"]
-    b_65_se <- model2[model2$term == MMod, "std.error"]
-
     if(stage == 1) {
-      a   <- b_53_e
-      sea <- b_53_se
-      b   <- b_64_e
-      seb <- b_64_se
+      a   <- purrr::pluck(mediation_model, "paths", "a * Mod", "point_estimate")
+      sea <- purrr::pluck(mediation_model, "paths", "a * Mod", "se")
+      b   <- purrr::pluck(mediation_model, "paths", "b", "point_estimate")
+      seb <- purrr::pluck(mediation_model, "paths", "b", "se")
     } else if(stage == 2) {
-      a   <- b_51_e
-      sea <- b_51_se
-      b   <- b_65_e
-      seb <- b_65_se
+      a   <- purrr::pluck(mediation_model, "paths", "a", "point_estimate")
+      sea <- purrr::pluck(mediation_model, "paths", "a", "se")
+      b   <- purrr::pluck(mediation_model, "paths", "b * Mod", "point_estimate")
+      seb <- purrr::pluck(mediation_model, "paths", "b * Mod", "se")
     } else {
       stop("Warning:\nagument stage must be either 1 or 2.")
     }
