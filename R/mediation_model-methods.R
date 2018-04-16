@@ -1,7 +1,11 @@
-#' Print a summary for a mediation model represented by a \code{mediation_model}
+#' @title Print a summary for a mediation model represented by a \code{mediation_model}
 #'   object.
 #'
-#' @author Cédric Batailler \email{cedric.batailler@gmail.com}
+#' @description Print a summary for a mediation model represented by a
+#'   \code{mediation_model} object.
+#'
+#' @param x      An object of class \code{mediation_model}.
+#' @param digits How many significant digits are to be used for numerics.
 #'
 #' @export
 print.mediation_model <- function(x, digits = 3) {

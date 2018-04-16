@@ -7,10 +7,12 @@ object.}
 \usage{
 \method{print}{mediation_model}(x, digits = 3)
 }
-\description{
-Print a summary for a mediation model represented by a \code{mediation_model}
-object.
+\arguments{
+\item{x}{An object of class \code{mediation_model}.}
+
+\item{digits}{How many significant digits are to be used for numerics.}
 }
-\author{
-Cédric Batailler \email{cedric.batailler@gmail.com}
+\description{
+Print a summary for a mediation model represented by a
+\code{mediation_model} object.
 }
