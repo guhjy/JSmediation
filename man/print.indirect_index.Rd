@@ -7,10 +7,12 @@ method.}
 \usage{
 \method{print}{indirect_index}(x, digits = 3)
 }
-\description{
-Print a summary for an indirect effect index created with \code{add_index()}
-method.
+\arguments{
+\item{x}{An object of class \code{indirect_index}.}
+
+\item{digits}{How many significant digits are to be used for numerics.}
 }
-\author{
-Cédric Batailler \email{cedric.batailler@gmail.com}
+\description{
+Print a summary for an indirect effect index created with
+\code{add_index()} method.
 }
