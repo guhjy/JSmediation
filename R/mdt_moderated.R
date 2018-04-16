@@ -9,14 +9,6 @@
 #'
 #'   Three models will be fit:
 #'
-#'   \deqn{\hat{Y_i} = \Beta_0 + \Beta_1 X_i + \Beta_2 Mod_i + \Beta_3
-#'      X_i Mod_i}{Yi = B0 + B1X + B2Mod + B3XMod}
-#'   \deqn{\hat{M_i} = \Beta_0 + \Beta_1 X_i + \Beta_2 Mod_i + \Beta_3
-#'      X_i Mod_i}{Yi = B0 + B1X + B2Mod + B3XMod}
-#'
-#'   \deqn{\hat{M_i} = \Beta_0 + \Beta_1 X_i + \Beta_2 Mod_i + \Beta_3
-#'      X_i Mod_i}{Yi = B0 + B1X + B2Mod + B3XMod}
-#'
 #' @references Muller, D., Judd, C. M., & Yzerbyt, V. Y. (2005). When moderation
 #'   is mediated and mediation is moderated. \emph{Journal of Personality and
 #'   Social Psychology}, 89(6), 852‑863. doi: 10.1037/0022-3514.89.6.852

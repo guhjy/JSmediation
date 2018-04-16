@@ -31,6 +31,5 @@ and moderation. Handbook of research methods in
 social and personality psychology, 2, 653–676.
 }
 \seealso{
-Other mediation models: \code{\link{mdt_moderated}},
-  \code{\link{mdt_within}}
+Other mediation models: \code{\link{mdt_moderated}}
 }
