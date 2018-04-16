@@ -26,7 +26,7 @@ add_index.mediation_model <- function(mediation_model, iter = 5000, alpha = .05,
   model_type <- mediation_model$type
 
   supported_models <-
-    c("simple mediation")
+    c("simple mediation", "moderated mediation")
 
   if(!(model_type %in% supported_models))
     stop(glue::glue("Error:\n {model_type} model is not supported."))
@@ -104,15 +104,16 @@ add_index.mediation_model <- function(mediation_model, iter = 5000, alpha = .05,
     contains_zero <- (CI[[1]] < 0 & CI[[2]] > 0)
 
     indirect_index_infos <-
-      list(method            = "Monte Carlo",
-           CI                = CI,
-           alpha             = alpha,
-           stage             = stage,
-           iterations        = iter,
-           contains_zero     = contains_zero,
-           indirect_sampling = indirect_sampling)
+      list(type          = glue::glue("Conditional index (Stage {stage})"),
+           method        = "Monte Carlo",
+           estimate      = a * b,
+           CI            = CI,
+           alpha         = alpha,
+           iterations    = iter,
+           contains_zero = contains_zero,
+           sampling      = indirect_sampling)
 
-    mediation_model$indirect_inex <- TRUE
+    mediation_model$indirect_index <- TRUE
     mediation_model$indirect_index_infos <-
       as_indirect_index(indirect_index_infos)
 
