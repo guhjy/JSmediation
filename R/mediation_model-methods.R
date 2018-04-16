@@ -1,9 +1,10 @@
-#' Print a summary for a mediation model represented by a \code{mediation_model} object
+#' Print a summary for a mediation model represented by a \code{mediation_model}
+#'   object.
 #'
 #' @author Cédric Batailler \email{cedric.batailler@gmail.com}
 #'
 #' @export
-print.mediation_model <- function(x, digits = 3, ...) {
+print.mediation_model <- function(x, digits = 3) {
 
   # object  -------------------------------------------------------------------
   type <- x$type

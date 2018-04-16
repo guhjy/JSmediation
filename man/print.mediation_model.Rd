@@ -2,12 +2,14 @@
 % Please edit documentation in R/mediation_model-methods.R
 \name{print.mediation_model}
 \alias{print.mediation_model}
-\title{Print a summary for a mediation model represented by a \code{mediation_model} object}
+\title{Print a summary for a mediation model represented by a \code{mediation_model}
+object.}
 \usage{
-\method{print}{mediation_model}(x, ...)
+\method{print}{mediation_model}(x, digits = 3)
 }
 \description{
-Print a summary for a mediation model represented by a \code{mediation_model} object
+Print a summary for a mediation model represented by a \code{mediation_model}
+object.
 }
 \author{
 Cédric Batailler \email{cedric.batailler@gmail.com}
