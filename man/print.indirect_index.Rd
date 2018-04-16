@@ -5,12 +5,14 @@
 \title{Print a summary for an indirect effect index created with \code{add_index()}
 method.}
 \usage{
-\method{print}{indirect_index}(x, digits = 3)
+\method{print}{indirect_index}(x, digits = 3, ...)
 }
 \arguments{
 \item{x}{An object of class \code{indirect_index}.}
 
 \item{digits}{How many significant digits are to be used for numerics.}
+
+\item{...}{Further arguments.}
 }
 \description{
 Print a summary for an indirect effect index created with

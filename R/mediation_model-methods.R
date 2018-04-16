@@ -6,9 +6,10 @@
 #'
 #' @param x      An object of class \code{mediation_model}.
 #' @param digits How many significant digits are to be used for numerics.
+#' @param ...    Further arguments.
 #'
 #' @export
-print.mediation_model <- function(x, digits = 3) {
+print.mediation_model <- function(x, digits = 3, ...) {
 
   # object  -------------------------------------------------------------------
   type <- x$type

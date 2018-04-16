@@ -5,12 +5,14 @@
 \title{Print a summary for a mediation model represented by a \code{mediation_model}
 object.}
 \usage{
-\method{print}{mediation_model}(x, digits = 3)
+\method{print}{mediation_model}(x, digits = 3, ...)
 }
 \arguments{
 \item{x}{An object of class \code{mediation_model}.}
 
 \item{digits}{How many significant digits are to be used for numerics.}
+
+\item{...}{Further arguments.}
 }
 \description{
 Print a summary for a mediation model represented by a
