@@ -18,7 +18,7 @@
 #' mediation_model <- add_ci(mediation_model)
 #' }
 #' @export
-add_index <- function(mediation_model, ...) {
+add_index <- function(mediation_model, iter = 5000, alpha = .05, stage = NULL) {
   UseMethod("add_index")
 }
 

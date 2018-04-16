@@ -4,7 +4,7 @@
 \alias{add_index}
 \title{Add index for the indirect effect to a fitted mediation model}
 \usage{
-add_index(mediation_model, ...)
+add_index(mediation_model, iter = 5000, alpha = 0.05, stage = NULL)
 }
 \arguments{
 \item{mediation_model}{A mediation model fitted with \code{mediation_model}
