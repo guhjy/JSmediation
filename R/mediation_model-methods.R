@@ -19,19 +19,20 @@ print.mediation_model <- function(x, digits = 3) {
 
   cat("\nVariables:\n")
 
-  map2(params,
-       names(params),
-       ~ cat(glue::glue("{.x} ({.y})\n\n")))
+  purrr::map2(params,
+              names(params),
+              ~ cat(glue::glue("{.x} ({.y})\n\n")))
 
   cat("\nPaths:\n")
 
-  map2(paths,
-       names(paths),
-       ~ cat(.y, ": ",
-             format(pluck(.x, "point_estimate"), digits = digits),
-             "(", format(pluck(.x, "se"), digits = digits), ")",
-             pluck(.x, "APA"),
-             "\n"))
+  purrr::map2(paths,
+              names(paths),
+              ~ cat(.y, ": ",
+                    format(purrr::pluck(.x, "point_estimate"), digits = digits),
+                    " (", format(purrr::pluck(.x, "se"), digits = digits), "), ",
+                    purrr::pluck(.x, "APA"),
+                    "\n",
+                    sep = ""))
 
   cat("---\n* estimate (standard error), signficance test")
 
