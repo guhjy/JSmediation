@@ -7,9 +7,25 @@
 build_contrast(vector, cond_a, cond_b)
 }
 \arguments{
-\item{vector}{a character vector.}
+\item{vector}{A character vector.}
 
-\item{cond_a}{a character string to be coded -0.5}
+\item{cond_a}{A character string to be coded -0.5}
 
-\item{cond_b}{a character string to be coded  0.5}
+\item{cond_b}{A character string to be coded  0.5}
+}
+\value{
+A numeric vector.
+}
+\description{
+This helper function helps you build a contrast code from a
+character variable.
+}
+\examples{
+  data(linkedfate)
+
+  linkedfate$condition_contrast <- build_contrast(linkedfate$condition,
+                                                  "Low discrimination",
+                                                  "High discrimination")
+
+ head(linkedfate)
 }
