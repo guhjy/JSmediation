@@ -34,7 +34,7 @@ print.mediation_model <- function(x, digits = 3) {
                     "\n",
                     sep = ""))
 
-  cat("---\n* estimate (standard error), signficance test")
+  cat("---\n* estimate (standard error), significance test\n")
 
   cat("\nIndirect effect index:\n")
 
