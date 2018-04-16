@@ -1,7 +1,7 @@
-#' Fit a moderated mediation model
+#' @title Fit a moderated mediation model
 #'
-#' Given a dataframe, an IV, a DV, a mediator and a moderator, fit a moderated
-#'   mediation model.
+#' @description Given a dataframe, an IV, a DV, a mediator and a moderator, fit
+#'   a moderated mediation model.
 #'
 #' @details This function is an helper to fit linear models needed to test a
 #'   moderated mediation model. The Joint Significant formal approach has been
@@ -21,21 +21,21 @@
 #'   is mediated and mediation is moderated. \emph{Journal of Personality and
 #'   Social Psychology}, 89(6), 852‑863. doi: 10.1037/0022-3514.89.6.852
 #'
-#' @param data a dataframe containing the variables in the model.
-#' @param IV an unquoted variable in the data frame which will be used
-#'             as independant variable.
-#' @param M an unquoted variable in the data frame which will be used
-#'             as mediator.
-#' @param DV an unquoted variable in the data frame which will be used
-#'             as dependant variable.
-#' @param Mod an unquoted variable in the data frame which will be used
-#'                    as moderator.
+#' @param data A dataframe containing the variables in the model.
+#' @param IV An unquoted variable in the data frame which will be used
+#'   as independant variable.
+#' @param M An unquoted variable in the data frame which will be used
+#'   as mediator.
+#' @param DV An unquoted variable in the data frame which will be used
+#'   as dependant variable.
+#' @param Mod An unquoted variable in the data frame which will be used
+#'   as moderator.
 #'
 #' @family mediation models
 #'
 #' @export
 
-mdt_moderated <- function(...) {
+mdt_moderated <- function(data, IV, DV, M, Mod) {
   UseMethod("mdt_moderated")
 }
 

@@ -4,26 +4,26 @@
 \alias{mdt_moderated}
 \title{Fit a moderated mediation model}
 \usage{
-mdt_moderated(...)
+mdt_moderated(data, IV, DV, M, Mod)
 }
 \arguments{
-\item{data}{a dataframe containing the variables in the model.}
+\item{data}{A dataframe containing the variables in the model.}
 
-\item{IV}{an unquoted variable in the data frame which will be used
+\item{IV}{An unquoted variable in the data frame which will be used
 as independant variable.}
 
-\item{M}{an unquoted variable in the data frame which will be used
-as mediator.}
-
-\item{DV}{an unquoted variable in the data frame which will be used
+\item{DV}{An unquoted variable in the data frame which will be used
 as dependant variable.}
 
-\item{Mod}{an unquoted variable in the data frame which will be used
+\item{M}{An unquoted variable in the data frame which will be used
+as mediator.}
+
+\item{Mod}{An unquoted variable in the data frame which will be used
 as moderator.}
 }
 \description{
-Given a dataframe, an IV, a DV, a mediator and a moderator, fit a moderated
-mediation model.
+Given a dataframe, an IV, a DV, a mediator and a moderator, fit
+a moderated mediation model.
 }
 \details{
 This function is an helper to fit linear models needed to test a
