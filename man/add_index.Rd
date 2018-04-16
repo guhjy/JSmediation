@@ -10,9 +10,6 @@ add_index(mediation_model, iter = 5000, alpha = 0.05, stage = NULL)
 \item{mediation_model}{A mediation model fitted with \code{mediation_model}
 method.}
 
-\item{CI}{a boolean indecating if CI should be computed. Defaults to
-\code{FALSE}.}
-
 \item{iter}{number of iteration for the Monte Carlo CI method.}
 
 \item{alpha}{Alpha threshold to use when computing Monte Carlo CI.}

@@ -2,8 +2,6 @@
 #'
 #' @param mediation_model A mediation model fitted with \code{mediation_model}
 #'   method.
-#' @param CI a boolean indecating if CI should be computed. Defaults to
-#'   \code{FALSE}.
 #' @param iter number of iteration for the Monte Carlo CI method.
 #' @param alpha Alpha threshold to use when computing Monte Carlo CI.
 #' @param stage Stage on which you want to compute conditional index for
