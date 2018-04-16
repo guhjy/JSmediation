@@ -97,9 +97,9 @@ mdt_simple.data.frame <- function(data, IV, DV, M) {
                           "DV" = DV_name,
                           "M"  = M_name),
          paths     = paths,
-         CI        = FALSE,
          js_models = js_models,
          data = data)
+         indirect_index = FALSE,
 
   as_mediation_model(mediation_model)
 }

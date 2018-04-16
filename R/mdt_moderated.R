@@ -127,9 +127,9 @@ mdt_moderated.data.frame <- function(data, IV, DV, M, Mod) {
                           "M"   = M_name,
                           "Mod" = Mod_name),
          paths     = paths,
-         CI        = FALSE,
          js_models = js_models,
          data = data)
+         indirect_index = FALSE,
 
   as_mediation_model(mediation_model)
 }
