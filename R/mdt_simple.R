@@ -20,6 +20,8 @@
 #' @param DV an unquoted variable in the data frame which will be used
 #'             as dependant variable.
 #'
+#' @family mediation models
+#'
 #' @export
 
 mdt_simple <- function(data, IV, DV, M) {

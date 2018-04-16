@@ -30,3 +30,7 @@ Judd, C. M., Yzerbyt, V. Y., & Muller, D. (2014). Mediation
 and moderation. Handbook of research methods in
 social and personality psychology, 2, 653–676.
 }
+\seealso{
+Other mediation models: \code{\link{mdt_moderated}},
+  \code{\link{mdt_within}}
+}
