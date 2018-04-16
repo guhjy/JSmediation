@@ -37,6 +37,12 @@ print.mediation_model <- function(x, digits = 3) {
   cat("---\n* estimate (standard error), significance test\n")
 
   cat("\nIndirect effect index:\n")
+  if(! x$indirect_index)
+    cat("Indirect effect index is not computed by default.",
+        "Please use add_index() to compute it.",
+        sep = "\n")
+  else
+    print(x$indirect_index_infos, digits = digits)
 
   cat("\nModels' summaries\n")
   cat("==============================================\n")
