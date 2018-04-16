@@ -120,16 +120,16 @@ mdt_moderated.data.frame <- function(data, IV, DV, M, Mod) {
 
   # bulding mediation model object --------------------------------------------
   mediation_model <-
-    list(type      = "moderated mediation",
-         method    = "Joint significant",
-         params    = list("IV"  = IV_name,
-                          "DV"  = DV_name,
-                          "M"   = M_name,
-                          "Mod" = Mod_name),
-         paths     = paths,
-         js_models = js_models,
-         data = data)
+    list(type           = "moderated mediation",
+         method         = "Joint significant",
+         params         = list("IV"  = IV_name,
+                               "DV"  = DV_name,
+                               "M"   = M_name,
+                               "Mod" = Mod_name),
+         paths          = paths,
          indirect_index = FALSE,
+         js_models      = js_models,
+         data           = data)
 
   as_mediation_model(mediation_model)
 }
