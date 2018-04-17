@@ -14,7 +14,7 @@
 #' variable by dummy coding them. Dummy coding can make interpretation of
 #' regression coefficent hard or at least harder than contrast coding.
 #' Contrast-coded-variable coefficients interpretation is particularly useful
-#' when applying mediation analysis joint significance approach.
+#' when conducting a joint significant test.
 #'
 #' @examples
 #'   data(linkedfate)

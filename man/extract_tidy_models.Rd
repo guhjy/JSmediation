@@ -14,7 +14,7 @@ method.}
 A data.frame with models information.
 }
 \description{
-With joint significant approach, different models are fitted to the data.
-This function helps you access the models that have been fit when using
-\code{mediation_model()}.
+When conducting a joint significant test, different models are
+fitted to the data. This function helps you access the models that have been
+used in an object of class \code{mediation_model}.
 }
