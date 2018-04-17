@@ -1,12 +1,12 @@
-#' @title build a contrast code from character vector
+#' @title Build a contrast code from character vector
 #'
 #' @description This helper function helps you build a contrast code from a
-#'   character variable. It is useful when you need to recode a two-categories
-#'   character variable to a numeric one.
+#' character variable. It is useful when you need to recode a two-categories
+#' character variable to a numeric one.
 #'
 #' @param vector A character vector.
-#' @param cond_a A character string to be coded -0.5
-#' @param cond_b A character string to be coded  0.5
+#' @param cond_a A character string to be coded -0.5.
+#' @param cond_b A character string to be coded  0.5.
 #'
 #' @return A numeric vector.
 #'

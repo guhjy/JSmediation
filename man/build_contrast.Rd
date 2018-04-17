@@ -2,16 +2,16 @@
 % Please edit documentation in R/build_contrast.R
 \name{build_contrast}
 \alias{build_contrast}
-\title{build a contrast code from character vector}
+\title{Build a contrast code from character vector}
 \usage{
 build_contrast(vector, cond_a, cond_b)
 }
 \arguments{
 \item{vector}{A character vector.}
 
-\item{cond_a}{A character string to be coded -0.5}
+\item{cond_a}{A character string to be coded -0.5.}
 
-\item{cond_b}{A character string to be coded  0.5}
+\item{cond_b}{A character string to be coded  0.5.}
 }
 \value{
 A numeric vector.
