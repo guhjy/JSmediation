@@ -20,8 +20,8 @@
 #' direct of \eqn{X} on \eqn{Y}, and \eqn{ab} is the indirect effect of \eqn{X}
 #' on \eqn{Y} through {M}.
 #'
-#' To asses if the indirect effect is different from the null, one has to
-#' asses the significance against the null for both \eqn{a} (the effect of
+#' To assess if the indirect effect is different from the null, one has to
+#' assess the significance against the null for both \eqn{a} (the effect of
 #' \eqn{X} on \eqn{M}) for and \eqn{b} (effect of \eqn{M} on \eqn{Y} controlling
 #' for the effect of \eqn{X}) through the following set of linear models:
 #'
@@ -52,7 +52,7 @@
 #'
 #' @examples
 #' \dontrun{
-#' mdt_simple(data = dataset, IV = X, DV = Y, M = Mediator)
+#' my_model <- mdt_simple(data = dataset, IV = X, DV = Y, M = Mediator)
 #' }
 #' @export
 

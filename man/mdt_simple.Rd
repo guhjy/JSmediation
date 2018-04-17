@@ -54,7 +54,7 @@ hypothesis behind this test is that \eqn{X} has an effect on \eqn{M} which
 has an effect on \eqn{Y}: meaning that \eqn{X} has an indrect effect on
 \eqn{Y} through \eqn{M}.
 
-Effect of \eqn{X} on \eqn{Y} can be described the following way:
+Total effect of \eqn{X} on \eqn{Y} can be described the following way:
 
 \deqn{c = c' + ab}
 
@@ -62,8 +62,8 @@ where \eqn{c} is the total effect of \eqn{X} on \eqn{Y}, \eqn{c'} is the
 direct of \eqn{X} on \eqn{Y}, and \eqn{ab} is the indirect effect of \eqn{X}
 on \eqn{Y} through {M}.
 
-To asses if the indirect effect is different from the null, one has to
-asses the significance against the null for both \eqn{a} (the effect of
+To assess if the indirect effect is different from the null, one has to
+assess the significance against the null for both \eqn{a} (the effect of
 \eqn{X} on \eqn{M}) for and \eqn{b} (effect of \eqn{M} on \eqn{Y} controlling
 for the effect of \eqn{X}) through the following set of linear models:
 
@@ -77,7 +77,7 @@ significance of the indirect effect.
 }
 \examples{
 \dontrun{
-mdt_simple(data = dataset, IV = X, DV = Y, M = Mediator)
+my_model <- mdt_simple(data = dataset, IV = X, DV = Y, M = Mediator)
 }
 }
 \references{
