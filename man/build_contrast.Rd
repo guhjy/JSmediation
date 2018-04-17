@@ -18,7 +18,15 @@ A numeric vector.
 }
 \description{
 This helper function helps you build a contrast code from a
-character variable.
+character variable. It is useful when you need to recode a two-categories
+character variable to a numeric one.
+}
+\details{
+On \code{R}, \code{\link{lm}} method supports factor and characters
+variable by dummy coding them. Dummy coding can make interpretation of
+regression coefficent hard or at least harder than contrast coding.
+Contrast-coded-variable coefficients interpretation is particularly useful
+when applying mediation analysis joint significance approach.
 }
 \examples{
   data(linkedfate)
@@ -28,4 +36,8 @@ character variable.
                                                   "High discrimination")
 
  head(linkedfate)
+
+}
+\seealso{
+\code{\link{scale}} for centering continuous numeric variable.
 }
