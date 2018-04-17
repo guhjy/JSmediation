@@ -3,6 +3,7 @@
 S3method(add_index,mediation_model)
 S3method(apastylr,lm)
 S3method(build_contrast,character)
+S3method(build_contrast,default)
 S3method(extract_models,mediation_model)
 S3method(extract_tidy_models,mediation_model)
 S3method(mdt_moderated,data.frame)

@@ -33,6 +33,19 @@ build_contrast <- function(vector, cond_a, cond_b) {
 }
 
 #' @export
+build_contrast.default <- function(vector, cond_a, cond_b) {
+  # coercing to character
+  vector <- as.character(vector)
+
+  # recode
+  vector[vector == cond_a] <- -.5
+  vector[vector == cond_b] <-  .5
+
+  # return
+  as.numeric(vector)
+}
+
+#' @export
 build_contrast.character <- function(vector, cond_a, cond_b) {
   # recode
   vector[vector == cond_a] <- -.5
