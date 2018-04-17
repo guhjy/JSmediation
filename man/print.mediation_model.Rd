@@ -2,8 +2,7 @@
 % Please edit documentation in R/mediation_model-methods.R
 \name{print.mediation_model}
 \alias{print.mediation_model}
-\title{Print a summary for a mediation model represented by a \code{mediation_model}
-object.}
+\title{Print method for object of class \code{mediation_model}}
 \usage{
 \method{print}{mediation_model}(x, digits = 3, ...)
 }
