@@ -23,6 +23,8 @@
 #' @param Mod An unquoted variable in the data frame which will be used
 #'   as moderator.
 #'
+#' @template mediation_model
+#'
 #' @family mediation models
 #'
 #' @export
