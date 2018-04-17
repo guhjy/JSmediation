@@ -2,7 +2,7 @@
 % Please edit documentation in R/add_index.R
 \name{add_index}
 \alias{add_index}
-\title{Add index for the indirect effect to a fitted mediation model}
+\title{Add mediation index to a fitted mediation model}
 \usage{
 add_index(mediation_model, iter = 5000, alpha = 0.05, stage = NULL)
 }
@@ -18,15 +18,15 @@ method.}
 moderated mediation models.}
 }
 \value{
-An object of the same class as \code{mediation_model}, dbut with
+An object of the same class as \code{mediation_model}, but with
 confidence interval for the indirect effect estimation added for later
 use.
 }
 \description{
-Add index for the indirect effect to a fitted mediation model
+Add mediation index to a fitted mediation model.
 }
 \examples{
 \dontrun{
-mediation_model <- add_ci(mediation_model)
+my_model <- add_ci(my_model)
 }
 }
