@@ -2,8 +2,7 @@
 % Please edit documentation in R/apastylr.R
 \name{apastylr}
 \alias{apastylr}
-\title{Create an APA formated report from the test of a specific term in a
-linear model}
+\title{Create an APA formatted character from a significance test}
 \usage{
 apastylr(model, term)
 }
@@ -13,9 +12,16 @@ apastylr(model, term)
 \item{term}{A character string representing a term in the linear model}
 }
 \value{
-Ana APA formated character string.
+Ana APA formatted character string.
 }
 \description{
-Create an APA formated report from the test of a specific term in a
-linear model
+Create an APA formated report from the test of a specific term
+in a linear model.
+}
+\examples{
+
+data(linkedfate)
+test <- lm(hypodescent ~ linkedfate, linkedfate)
+apastylr(test, "linkedfate")
+
 }

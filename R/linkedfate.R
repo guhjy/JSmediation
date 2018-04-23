@@ -9,7 +9,7 @@
 #'   the authors tested if this effect was mediated by the sense of linked fate
 #'   between discriminated Black-White participants and Black participants.
 #'
-#' @format A data frame with
+#' @format A data frame with TODO
 #' \describe{
 #'   \item{condition}{Experimental condition (High discrimination vs. Low
 #'     discrimination)}
@@ -20,7 +20,7 @@
 #' @references Ho, A. K., Kteily, N. S., & Chen, J. M. (2017). “You’re one of
 #'    us”: Black Americans’ use of hypodescent and its association with
 #'    egalitarianism. \emph{Journal of Personality and Social Psychology},
-#'    \emph{113}(5), 753‑768. https://doi.org/10.1037/pspi0000107
+#'    \emph{113}(5), 753‑768. doi: 10.1037/pspi0000107
 #'
 #' @usage data("linkedfate")
 

@@ -9,21 +9,76 @@ mdt_simple(data, IV, DV, M)
 \arguments{
 \item{data}{a dataframe containing the variables in the model.}
 
-\item{IV}{an unquoted variable in the data frame which will be used
+\item{IV}{an unquoted numeric variable in the data frame which will be used
 as independant variable.}
 
-\item{DV}{an unquoted variable in the data frame which will be used
+\item{DV}{an unquoted numeric variable in the data frame which will be used
 as dependant variable.}
 
-\item{M}{an unquoted variable in the data frame which will be used
+\item{M}{an unquoted numeric variable in the data frame which will be used
 as mediator.}
 }
+\value{
+Returns an object of class "\code{mediation_model}" object.
+
+An object of class "\code{mediation_model}" is a least containing at list the
+components:
+
+  \item{type}{A character string containing the type of model that has been
+    conducted (e.g., \code{"simple mediation"}).}
+  \item{method}{A character string containing the approach that has been
+    used to conduct the mediation analysis (usually
+    \code{"joint significance"}).}
+  \item{params}{Score at a 3-item measure of hypodescent}
+  \item{paths}{Score at a 3-item measure of hypodescent}
+  \item{indirect_index}{A boolean indicating wether mediation index has been
+    computed. Defaults to \code{FALSE}. See \code{\link{add_index}} to
+    compute mediation index.}
+  \item{indirect_index_infos}{(Optional) An object of class
+    \code{"indirect_index"}. Appears when one apply \code{\link{add_index}}
+    method to an object of class \code{"mediation_model"}.}
+  \item{js_models}{A list of objects of class \code{"lm"}. Contains every
+    model fitted to apply joint significance approach.}
+  \item{data}{The original data frame that has been been passed through
+    \code{data} argument.}
+}
 \description{
-\code{mdt_simple} fits a simple mediation model using joint significance
-method (Judd, Yzerbyt, & Muller, 2014).
+Given a dataframe, an IV (\code{IV}), a DV (\code{DV}) and a mediator
+(\code{M}), \code{mdt_simple} fits a simple mediation model using joint
+significance method (Judd, Yzerbyt, & Muller, 2014).
 }
 \details{
-Given a dataframe, an IV, a DV and a mediator, fits a mediation model.
+In a simple mediation analysis, researchers are intrested in finding if the
+effect of \eqn{X} on \eqn{Y} involve a third variable \eqn{M}. The basic
+hypothesis behind this test is that \eqn{X} has an effect on \eqn{M} which
+has an effect on \eqn{Y}: meaning that \eqn{X} has an indrect effect on
+\eqn{Y} through \eqn{M}.
+
+Total effect of \eqn{X} on \eqn{Y} can be described the following way:
+
+\deqn{c = c' + ab}
+
+where \eqn{c} is the total effect of \eqn{X} on \eqn{Y}, \eqn{c'} is the
+direct of \eqn{X} on \eqn{Y}, and \eqn{ab} is the indirect effect of \eqn{X}
+on \eqn{Y} through {M}.
+
+To assess if the indirect effect is different from the null, one has to
+assess the significance against the null for both \eqn{a} (the effect of
+\eqn{X} on \eqn{M}) for and \eqn{b} (effect of \eqn{M} on \eqn{Y} controlling
+for the effect of \eqn{X}) through the following set of linear models:
+
+\deqn{Y_i = \beta_{01} + c X_i}{Yi = \beta_01 + c*Xi}
+\deqn{M_i = \beta_{02} + a X_i}{Mi = \beta_02 + a*Xi}
+\deqn{Y_i = \beta_{03} + c' X_i + b M_i}{Yi = \beta_03 + c'*Xi + b*Mi}
+
+In joint significance mediation analysis approach, bot \eqn{a} and \eqn{b}
+must be significantly different from the null to conclude on the
+significance of the indirect effect.
+}
+\examples{
+\dontrun{
+my_model <- mdt_simple(data = dataset, IV = X, DV = Y, M = Mediator)
+}
 }
 \references{
 Judd, C. M., Yzerbyt, V. Y., & Muller, D. (2014). Mediation

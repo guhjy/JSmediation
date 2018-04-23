@@ -1,10 +1,18 @@
-#' Create an APA formated report from the test of a specific term in a
-#' linear model
+#' @title Create an APA formatted character from a significance test
+#'
+#' @description Create an APA formated report from the test of a specific term
+#'   in a linear model.
 #'
 #' @param model A linear model created using \code{lm()}.
 #' @param term A character string representing a term in the linear model
 #'
-#' @return Ana APA formated character string.
+#' @return Ana APA formatted character string.
+#'
+#' @examples
+#'
+#' data(linkedfate)
+#' test <- lm(hypodescent ~ linkedfate, linkedfate)
+#' apastylr(test, "linkedfate")
 #'
 #' @export
 apastylr <- function(model, term) {

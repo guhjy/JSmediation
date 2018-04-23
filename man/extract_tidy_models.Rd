@@ -2,19 +2,22 @@
 % Please edit documentation in R/extract_models.R
 \name{extract_tidy_models}
 \alias{extract_tidy_models}
-\title{Helper to extract tidy models from a mediation object}
+\title{Extract models from a mediation object as a data frame}
 \usage{
 extract_tidy_models(mediation_model)
 }
 \arguments{
-\item{mediation_model}{A mediation model fitted with \code{mediation_model}
-method.}
+\item{mediation_model}{An object of class \code{mediation_model}.}
 }
 \value{
-A data.frame with models information.
+A data frame with models information.
 }
 \description{
-With joint significant approach, different models are fitted to the data.
-This function helps you access the models that have been fit when using
-\code{mediation_model()}.
+When conducting a joint significant test, different models are
+fitted to the data. This function helps you access the models that have been
+used in an object of class \code{mediation_model}.
+}
+\seealso{
+\code{\link{extract_models}} to access to models used for joint
+significant test as a list of object of class \code{lm}.
 }
