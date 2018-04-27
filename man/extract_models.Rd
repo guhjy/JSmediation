@@ -2,19 +2,28 @@
 % Please edit documentation in R/extract_models.R
 \name{extract_models}
 \alias{extract_models}
-\title{Helper to extract models from a mediation object}
+\title{Extract models from a mediation object}
 \usage{
 extract_models(mediation_model)
 }
 \arguments{
-\item{mediation_model}{A mediation model fitted with \code{mediation_model}
-method.}
+\item{mediation_model}{An object of class \code{mediation_model}.}
 }
 \value{
 A list of \code{lm} objects.
 }
 \description{
-With joint significant approach, different models are fitted to the data.
-This function helps you access the models that have been fit when using
-\code{mediation_model()}.
+When conducting a joint significant test, different models are
+fitted to the data. This function helps you access the models that have been
+used in an object of class \code{mediation_model}.
+}
+\examples{
+\dontrun{
+extract_models(my_model)
+}
+
+}
+\seealso{
+\code{\link{extract_models}} to access to models used for joint
+significant test as a data frame.
 }

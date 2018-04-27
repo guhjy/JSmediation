@@ -1,4 +1,4 @@
-#' @title Data set showing simple and moderated mediation analysis.
+#' @title Data set showing simple and moderated mediation analysis
 #'
 #' @description A data set containing data from Experiment 3 from Ho, Kteiley,
 #'   and Chen (2017). In this experiment, authors hypothised that presenting
@@ -9,10 +9,12 @@
 #'   the authors tested if this effect was mediated by the sense of linked fate
 #'   between discriminated Black-White participants and Black participants.
 #'
-#' @format A data frame with
+#' @format A data frame with 824 rows and 5 variables:
 #' \describe{
+#'   \item{id}{An incremental index}
 #'   \item{condition}{Experimental condition (High discrimination vs. Low
 #'     discrimination)}
+#'   \item{sdo}{Score at an SDO scale}
 #'   \item{linkedfate}{Score at an 8-item linked fate measure}
 #'   \item{hypodescent}{Score at a 3-item measure of hypodescent}
 #' }
@@ -20,8 +22,8 @@
 #' @references Ho, A. K., Kteily, N. S., & Chen, J. M. (2017). “You’re one of
 #'    us”: Black Americans’ use of hypodescent and its association with
 #'    egalitarianism. \emph{Journal of Personality and Social Psychology},
-#'    \emph{113}(5), 753‑768. https://doi.org/10.1037/pspi0000107
+#'    \emph{113}(5), 753‑768. doi: 10.1037/pspi0000107
 #'
 #' @usage data("linkedfate")
 
-"linkedfate"
+"ho_et_al"

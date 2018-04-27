@@ -7,8 +7,8 @@ Authors@R: c(
     person("Vincent", "Yzerbyt", email = "vincent.yzerbyt@uclouvain.be", role = "aut"),
     person("Charles", "Judd", email = "charles.judd@colorado.edu", role = "aut")
     )
-Description: A set of helper functions to conduct mediation alaysis using the 
-    joint significance approach and tidy eval.
+Description: A set of helper functions to conduct joint significant test for 
+  mediation analysis.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true

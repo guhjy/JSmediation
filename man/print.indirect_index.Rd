@@ -2,8 +2,7 @@
 % Please edit documentation in R/indirect_effect-methods.R
 \name{print.indirect_index}
 \alias{print.indirect_index}
-\title{Print a summary for an indirect effect index created with \code{add_index()}
-method.}
+\title{Print method for object of class \code{indirect_index}}
 \usage{
 \method{print}{indirect_index}(x, digits = 3, ...)
 }

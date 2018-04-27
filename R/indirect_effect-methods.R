@@ -1,5 +1,4 @@
-#' @title Print a summary for an indirect effect index created with \code{add_index()}
-#'   method.
+#' @title Print method for object of class \code{indirect_index}
 #'
 #' @description Print a summary for an indirect effect index created with
 #'   \code{add_index()} method.

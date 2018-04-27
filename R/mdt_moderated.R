@@ -23,6 +23,8 @@
 #' @param Mod An unquoted variable in the data frame which will be used
 #'   as moderator.
 #'
+#' @template mediation_model
+#'
 #' @family mediation models
 #'
 #' @export
@@ -113,7 +115,7 @@ mdt_moderated.data.frame <- function(data, IV, DV, M, Mod) {
   # bulding mediation model object --------------------------------------------
   mediation_model <-
     list(type           = "moderated mediation",
-         method         = "Joint significant",
+         method         = "joint significant",
          params         = list("IV"  = IV_name,
                                "DV"  = DV_name,
                                "M"   = M_name,
