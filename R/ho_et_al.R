@@ -23,7 +23,6 @@
 #'    us”: Black Americans’ use of hypodescent and its association with
 #'    egalitarianism. \emph{Journal of Personality and Social Psychology},
 #'    \emph{113}(5), 753‑768. doi: 10.1037/pspi0000107
-#'
-#' @usage data("linkedfate")
 
+#' @usage data("ho_et_al")
 "ho_et_al"

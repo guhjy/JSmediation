@@ -29,13 +29,13 @@ Contrast-coded-variable coefficients interpretation is particularly useful
 when conducting a joint significant test.
 }
 \examples{
-  data(linkedfate)
+  data(ho_et_al)
 
-  linkedfate$condition_contrast <- build_contrast(linkedfate$condition,
-                                                  "Low discrimination",
-                                                  "High discrimination")
+  ho_et_al$condition_contrast <- build_contrast(ho_et_al$condition,
+                                                "Low discrimination",
+                                                "High discrimination")
 
- head(linkedfate)
+ head(ho_et_al)
 
 }
 \seealso{

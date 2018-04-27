@@ -10,8 +10,8 @@
 #'
 #' @examples
 #'
-#' data(linkedfate)
-#' test <- lm(hypodescent ~ linkedfate, linkedfate)
+#' data(ho_et_al)
+#' test <- lm(hypodescent ~ linkedfate, ho_et_al)
 #' apastylr(test, "linkedfate")
 #'
 #' @export
