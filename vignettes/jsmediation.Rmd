@@ -33,11 +33,11 @@ library(JSmediation)
 ```
 
 ```{r}
-head(linkedfate)
+head(ho_et_al)
 ```
 
 ```{r}
-linkedfate$condition_c <- build_contrast(linkedfate$condition,
+ho_et_al$condition_c <- build_contrast(ho_et_al$condition,
                                          "Low discrimination",
                                          "High discrimination")
 ```
@@ -45,7 +45,7 @@ linkedfate$condition_c <- build_contrast(linkedfate$condition,
 
 
 ```{r}
-my_model <- mdt_simple(linkedfate,
+my_model <- mdt_simple(ho_et_al,
                        IV = condition_c,
                        DV = hypodescent,
                        M  = linkedfate)

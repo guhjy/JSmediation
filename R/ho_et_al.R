@@ -26,4 +26,4 @@
 #'
 #' @usage data("linkedfate")
 
-"ho_et_al_2017"
+"ho_et_al"

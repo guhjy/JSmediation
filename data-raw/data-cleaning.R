@@ -1,7 +1,7 @@
 library(haven)
 library(tidyverse)
 
-ho_et_al_2017 <-
+ho_et_al <-
   read_spss("data-raw/Study3_dataforYzerbyt_withcontrolcond.sav") %>%
   mutate(condition =
            case_when(condit == 1 ~ "Low discrimination",
@@ -17,4 +17,4 @@ ho_et_al_2017 <-
   filter(!(condition %in% c("No-article control"))) %>%
   as.data.frame()
 
-usethis::use_data(ho_et_al_2017, overwrite = TRUE)
+usethis::use_data(ho_et_al, overwrite = TRUE)
