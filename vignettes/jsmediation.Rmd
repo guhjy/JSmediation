@@ -16,52 +16,116 @@ knitr::opts_chunk$set(
 )
 ```
 
-# Fit a simple mediation analysis
-## Joint Significance approach
-$$ \hat{Y_i} = \beta_0 + \beta_1 X_i$$ 
-$$ \hat{M_i} = \beta_0 + \beta_1 X_i$$ 
-$$ \hat{Y_i} = \beta_0 + \beta_1 X_i + \beta_2 M_i$$ 
+# R implementation
 
-## R implementation
+`JSmediation` offers helpers to conduct a joint significant mediation test. 
+With this package, you can type a mediation model the way you think it, 
+`JSmediation` dealing with fitting underlying models.
 
-`JSmediation` offers helpers to use Joint Significance approach.  With this 
-package, you can type a mediation model the way you think it, `JSmediation` 
-dealing with fitting underlying models.
+First, we will load the `JSmediation` package in our environnement so we can use
+its functions.
 
 ```{r}
 library(JSmediation)
 ```
 
+We will use a data set from Ho, Kteily and Chen (2017). In this experiment, 
+authors hypothised that presenting a text stating that Black-White biracials 
+were discriminated would lead Black participants to associate Black-White 
+biracials more with their lower status parent group than their higher status 
+parent group, according to the rule of hypodescent. In this experiment, the 
+authors tested if this effect was mediated by the sense of linked fate between 
+discriminated Black-White participants and Black participants. This data set 
+is shipped with the `JSmediation` and is called `ho_et_al`.
+
 ```{r}
 head(ho_et_al)
 ```
+
+The first step to test for a mediation of discrimination on hypodescent by 
+linked fate is to build a new variable which will represent the discrimination
+condition, but with a contrast code. To do so, we will use the `build_contrast` 
+function.
 
 ```{r}
 ho_et_al$condition_c <- build_contrast(ho_et_al$condition,
                                          "Low discrimination",
                                          "High discrimination")
+
+head(ho_et_al)
 ```
 
-
+Now that we have a data frame we can use for the analysis, we will use the 
+`mdt_simple` function to fit a simple mediation model. Note that any model 
+`JSmediation` support is implemented in a `mdt_*` function.
 
 ```{r}
-my_model <- mdt_simple(ho_et_al,
-                       IV = condition_c,
-                       DV = hypodescent,
-                       M  = linkedfate)
+my_model <- 
+  mdt_simple(ho_et_al,
+             IV = condition_c,
+             DV = hypodescent,
+             M  = linkedfate)
 ```
+
+We now have an object of class `mediation_model`, we can now wether our data 
+support a simple moderation. 
+
+Before looking into the results, we will check for OLS assumptions because 
+underlying models used in a joint significant test are actually linear models.
+
+We will extract one model and plot diagnostic plots using the `plot` method for 
+object of class `lm`. To do so, we will use the `extract_models` method. To use
+this function, we will use the `index` argument which allow us to ask for a 
+specific model. Note that `index` allow name of model as well as integer value
+to be requested.
+
+```{r}
+model_1 <- extract_models(my_model, index = "X -> M")
+
+plot(model_1, ask = FALSE)
+```
+
+Now that we check for our assumptions, we can interpret our model. To do so,
+we just have to call for `my_model`. The structure of objects of class 
+`mediation_model` is rather complex but there is a `print` method for these
+objects.
 
 ```{r}
 my_model
 ```
-## Confidence interval
+
+In this summary, both a and b paths are significant, we could conclude that 
+the indirect effect of discrimination on hypodesscent by linked fate is 
+significant according to the joint significant test. 
+
+We could choose to compute the Monte Carlo moderation index using `add_index` 
+function. This functions adds the indrect effect to the `mediation_model` 
+object which is print directly.
 
 ```{r}
 add_index(my_model)
 ```
 
-# Helper functions
+# Miscellaneous
 
-## Building a contrast code
+Note that `JSmediation` contains some helper function to ease mediation 
+analysis.
 
-## Extracting individual models
+`display_models` print a summary of each `lm` object fitted during the joint 
+significant test.
+
+```{r}
+display_models(my_model)
+```
+
+
+`extract_tidy_models` returns a data frame containing models summary 
+information.
+
+```{r}
+extract_tidy_models(my_model)
+```
+
+# References 
+
+Ho, A. K., Kteily, N. S., & Chen, J. M. (2017). “You’re one of us”: Black Americans’ use of hypodescent and its association with egalitarianism. _Journal of Personality and Social Psychology_, _113_(5), 753‑768. doi:10.1037/pspi0000107
