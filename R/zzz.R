@@ -25,3 +25,10 @@ create_path <- function(model_list, model_name, term_name) {
          purrr::pluck(model_name) %>%
          apastylr(term_name))
 }
+
+.onLoad <- function(libname, pkgname){
+  message(
+"Be careful, JSmediation is not currently stable and you should cross-check any
+results it produces."
+)
+}
