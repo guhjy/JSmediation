@@ -48,13 +48,7 @@ print.mediation_model <- function(x, digits = 3, ...) {
   else
     print(x$indirect_index_infos, digits = digits)
 
-  cat("\nModels' summaries\n")
-  cat("==============================================\n")
-
-  for(i in 1:length(models)) {
-    cat(names(models)[[i]])
-    cat("\n----------------------------------------------\n")
-    print(summary(models[[i]]))
-  }
+  cat("\nFitted models:\n\n")
+  names(models) %>%
+    purrr::map(~cat("-", .x, "\n"))
 }
-
