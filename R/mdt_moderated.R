@@ -77,7 +77,7 @@ mdt_moderated.data.frame <- function(data, IV, DV, M, Mod) {
   model1 <-
     stats::as.formula(glue::glue("{DV} ~ {IV} * {Mod}",
                                  IV  = IV_name,
-                                 DV  = M_name,
+                                 DV  = DV_name,
                                  Mod = Mod_name))
 
   model2 <-
@@ -105,7 +105,7 @@ mdt_moderated.data.frame <- function(data, IV, DV, M, Mod) {
     list("a"       = create_path(js_models, "X * Mod -> M", IV_name),
          "a * Mod" = create_path(js_models, "X * Mod -> M", IVMod_name),
          "b"       = create_path(js_models, "(X + M) * Mod -> Y", M_name),
-         "b * Mod" = create_path(js_models, "(X + M) * Mod -> Y", M_name),
+         "b * Mod" = create_path(js_models, "(X + M) * Mod -> Y", MMod_name),
          "c"       = create_path(js_models, "X * Mod -> Y", IV_name),
          "c * Mod" = create_path(js_models, "X * Mod -> Y", IVMod_name),
          "c'"      = create_path(js_models, "(X + M) * Mod -> Y", IV_name),
