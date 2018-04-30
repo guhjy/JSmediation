@@ -14,7 +14,7 @@ discrimination)}
 \item{hypodescent}{Score at a 3-item measure of hypodescent}
 }}
 \usage{
-data("linkedfate")
+data("ho_et_al")
 }
 \description{
 A data set containing data from Experiment 3 from Ho, Kteiley,

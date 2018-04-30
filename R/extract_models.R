@@ -8,8 +8,10 @@
 #' significant test as a data frame.
 #'
 #' @param mediation_model An object of class \code{mediation_model}.
+#' @param index An integer or a string corresponding to the index of the model
+#' to access.
 #'
-#' @return A list of \code{lm} objects.
+#' @return Either a list of \code{lm} objects or an \code{lm} object.
 #'
 #' @examples
 #' \dontrun{
@@ -18,14 +20,17 @@
 #'
 #' @export
 
-extract_models <- function(mediation_model) {
+extract_models <- function(mediation_model, index = NULL) {
   UseMethod("extract_models")
 }
 
 #' @export
 
-extract_models.mediation_model <- function(mediation_model) {
-  purrr::pluck(mediation_model, "js_models")
+extract_models.mediation_model <- function(mediation_model, index = NULL) {
+  if(is.null(index))
+    purrr::pluck(mediation_model, "js_models")
+  else
+    purrr::pluck(mediation_model, "js_models", index)
 }
 
 #' @title Extract models from a mediation object as a data frame

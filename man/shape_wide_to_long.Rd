@@ -4,9 +4,11 @@
 \alias{shape_wide_to_long}
 \title{Shape a data frame from wide to long format.}
 \usage{
-shape_wide_to_long(x, DV_A, DV_B, M_A)
+shape_wide_to_long(data, DV_A, DV_B, M_A, M_B)
 }
 \arguments{
+\item{data}{A \code{data.frame}}
+
 \item{DV_A}{An unquoted variable name in data containing DV value for A
 condition of IV.}
 
@@ -15,8 +17,6 @@ condition of IV.}
 
 \item{M_A}{An unquoted variable name in data containing DV value for A
 condition of mediator.}
-
-\item{data}{A \code{data.frame}}
 
 \item{M_B}{An unquoted variable name in data containing DV value for B
 condition of mediator.}

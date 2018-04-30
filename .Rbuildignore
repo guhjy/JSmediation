@@ -1,5 +1,6 @@
-^tidymediation\.Rproj$
+^JSmediation\.Rproj$
 ^\.Rproj\.user$
 ^LICENSE\.md$
 ^data-raw$
 ^\.travis\.yml$
+man-roxygen
