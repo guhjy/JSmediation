@@ -24,11 +24,11 @@
 #' \dontrun{
 #' }
 #' @export
-shape_wide_to_long <- function(x, DV_A, DV_B, M_A) {
+shape_wide_to_long <- function(data, DV_A, DV_B, M_A, M_B) {
   UseMethod("reshape_wide_to_long")
 }
 
 #' @export
-rhape_wide_to_long.data.frame <- function(x, ...) {
+shape_wide_to_long.data.frame <- function(data, DV_A, DV_B, M_A, M_B) {
 warning("not yet implemented.")
 }

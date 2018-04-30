@@ -104,7 +104,7 @@ mdt_within.data.frame <- function(data, IV, DV, M, grouping) {
   data_long <-
     data_long %>%
     dplyr::mutate(!! M_mean_name :=
-                    scale((!! sym(M_cond_1_name) + !! sym(M_cond_2_name))/2 , scale = FALSE))
+                    scale((!! sym(M_cond_1_name) + !! sym(M_cond_2_name))/2, scale = FALSE))
 
   # bulding models ------------------------------------------------------------
   model1 <-
@@ -130,20 +130,24 @@ mdt_within.data.frame <- function(data, IV, DV, M, grouping) {
 
   # paths ---------------------------------------------------------------------
   paths <-
-    list("a" = create_path(js_models, "1 -> M_diff", "(Intercept)"),
-         "b" = create_path(js_models, "1 + M_diff + M_mean -> DV_diff", M_diff_name))
+    list("a"  = create_path(js_models, "1 -> M_diff", "(Intercept)"),
+         "b"  = create_path(js_models, "1 + M_diff + M_mean -> DV_diff", M_diff_name),
+         "c"  = create_path(js_models, "1 -> DV_diff", "(Intercept)"),
+         "c'" = create_path(js_models, "1 + M_diff + M_mean -> DV_diff", "(Intercept)"))
 
   # bulding mediation model object --------------------------------------------
   mediation_model <-
-    list(type           = "within-mediation",
-         method         = "joint significant",
-         params         = list("IV" = IV_name,
-                               "DV" = DV_name,
-                               "M"  = M_name),
-         paths          = paths,
-         indirect_index = FALSE,
-         js_models      = js_models,
-         data           = data)
+    structure(
+      list(type           = "within-mediation",
+           method         = "joint significant",
+           params         = list("IV" = IV_name,
+                                 "DV" = DV_name,
+                                 "M"  = M_name),
+           paths          = paths,
+           indirect_index = FALSE,
+           js_models      = js_models,
+           data           = data),
+      class = "mediation_model")
 
-  as_mediation_model(mediation_model)
+  mediation_model
 }
