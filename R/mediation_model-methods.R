@@ -21,28 +21,29 @@ print.mediation_model <- function(x, digits = 3, ...) {
   cat(glue::glue("Test of mediation ({type})\n\n"))
   cat("==============================================\n")
 
-  cat("\nVariables:\n")
+  cat("\nVariables:\n\n")
 
   purrr::map2(params,
               names(params),
-              ~ cat(glue::glue("{.x} ({.y})\n\n")))
+              ~ cat(glue::glue("- {.y}: {.x} \n\n")))
 
-  cat("\nPaths:\n")
+  cat("\nPaths:")
 
-  purrr::map2(paths,
-              names(paths),
-              ~ cat(.y, ": ",
-                    format(purrr::pluck(.x, "point_estimate"), digits = digits),
-                    " (", format(purrr::pluck(.x, "se"), digits = digits), "), ",
-                    purrr::pluck(.x, "APA"),
-                    "\n",
-                    sep = ""))
+  purrr::map2_df(paths,
+                as.character(names(paths)),
+                ~data.frame(Path = .y,
+                            PE   = purrr::pluck(.x, "point_estimate"),
+                            SE   = purrr::pluck(.x, "se"),
+                            APA  = as.character(purrr::pluck(.x, "APA")),
+                            stringsAsFactors = FALSE)) %>%
+    knitr::kable(col.names = c("Path", "Point estimate", "SE", "APA"),
+                 digits = digits,
+                 format = "rst") %>%
+    print()
 
-  cat("---\n* estimate (standard error), significance test\n")
-
-  cat("\nIndirect effect index:\n")
+  cat("\nMediation index:\n\n")
   if(! x$indirect_index)
-    cat("Indirect effect index is not computed by default.",
+    cat("Mediation index is not computed by default.",
         "Please use add_index() to compute it.",
         sep = "\n")
   else
