@@ -26,4 +26,9 @@ create_path <- function(model_list, model_name, term_name) {
          apastylr(term_name))
 }
 
+access_data <- function(mediation_model, variable) {
+  variable_q <- enquo(variable)
+
+  purrr::pluck(mediation_model, "data") %>%
+    pull( !! variable_q )
 }

@@ -27,6 +27,8 @@ print.mediation_model <- function(x, digits = 3, ...) {
               names(params),
               ~ cat(glue::glue("- {.y}: {.x} \n\n")))
 
+  check_variables(x)
+
   cat("\nPaths:")
 
   purrr::map2_df(paths,
