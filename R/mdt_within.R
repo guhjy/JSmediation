@@ -156,7 +156,7 @@ mdt_within.data.frame <- function(data, IV, DV, M, grouping) {
 }
 
 #' @export
-add_index.within_subject_mediation <- function(mediation_model, iter = 5000, alpha = .05) {
+add_index.within_subject_mediation <- function(mediation_model, iter = 5000, alpha = .05, stage = NULL) {
 
     a   <- purrr::pluck(mediation_model, "paths", "a", "point_estimate")
     sea <- purrr::pluck(mediation_model, "paths", "a", "se")
