@@ -138,16 +138,23 @@ mdt_within.data.frame <- function(data, IV, DV, M, grouping) {
   # bulding mediation model object --------------------------------------------
   mediation_model <-
     structure(
-      list(type           = "within-mediation",
-           method         = "joint significant",
-           params         = list("IV" = IV_name,
-                                 "DV" = DV_name,
-                                 "M"  = M_name),
-           paths          = paths,
-           indirect_index = FALSE,
-           js_models      = js_models,
-           data           = data),
-      class = "mediation_model")
+      list(
+        type           = "within-mediation",
+        method         = "joint significant",
+        params         = list("IV" = IV_name,
+                              "DV" = DV_name,
+                              "M"  = M_name),
+        paths          = paths,
+        indirect_index = FALSE,
+        js_models      = js_models,
+        data           = data
+      ),
+      class = c("within_subject_mediation", "mediation_model")
+    )
+
+  mediation_model
+}
+
 
   mediation_model
 }
