@@ -9,6 +9,10 @@
 #'   the authors tested if this effect was mediated by the sense of linked fate
 #'   between discriminated Black-White participants and Black participants.
 #'
+#'   Note that this data set does not include participants who were in the
+#'   discrimination control condition in the study conducted by Ho, Kteiley and
+#'   Chen (2017).
+#'
 #' @format A data frame with 824 rows and 5 variables:
 #' \describe{
 #'   \item{id}{An incremental index}
