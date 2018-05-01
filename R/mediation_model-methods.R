@@ -41,9 +41,9 @@ print.mediation_model <- function(x, digits = 3, ...) {
                  format = "rst") %>%
     print()
 
-  cat("\nMediation index:\n\n")
+  cat("\nIndirect effect index:\n\n")
   if(! x$indirect_index)
-    cat("Mediation index is not computed by default.",
+    cat("Indirect effect index is not computed by default.",
         "Please use add_index() to compute it.",
         sep = "\n")
   else
