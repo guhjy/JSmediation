@@ -27,6 +27,6 @@ Add mediation index to a fitted mediation model.
 }
 \examples{
 \dontrun{
-my_model <- add_ci(my_model)
+my_model <- add_index(my_model)
 }
 }
