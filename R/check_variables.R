@@ -27,9 +27,10 @@ check_variables.moderated_mediation <- function(model) {
   if(length(Var_n_check) != 0) {
     message("\nMessage:")
     message(
-      "It appears that the following variables are not
+"It appears that the following variables are not
 contrast-coded or centred, please make sure it
-is intended:"
+is intended as regression coefficients depends on
+the variables' coding:"
     )
     for(var in Var_n_check) {
       message(glue::glue("- {var}"))
