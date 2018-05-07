@@ -16,8 +16,10 @@ knitr::opts_chunk$set(
 
 [![Travis build status](https://travis-ci.org/cedricbatailler/JSmediation.svg?branch=master)](https://travis-ci.org/cedricbatailler/JSmediation)
 
-The goal of JSmediation is to provide a set of functions to conduct a 
-joint significant test in a context of moderation analysis.
+The goal of `JSmediation` is to provide a set of functions to conduct a 
+joint significant test in a context of moderation analysis. Note that 
+`JSmediation` is still under active developement.
+
 
 ## Installation
 
@@ -35,4 +37,47 @@ You can install the development version from [GitHub](https://github.com/) with:
 devtools::install_github("cedricbatailler/JSmediation")
 ```
 
-## Example
+## How to use JSmediation
+
+```{r}
+library(JSmediation)
+```
+
+The `JSmediation` package contains several functions as well as an example data 
+set (`ho_et_al`) that can be used as an example. This data set comes from 
+Ho et al. (2017; Exp. 3) and contains variables to test a simple mediation. As a
+simple example, we will conduct a joint significance test of the indirect effect
+of discrimination on hypodescent passing by linked fate. 
+
+We will first recode `condition` variable which is a character to a contrast 
+code using the `build_contrast` function.
+
+```{r}
+data("ho_et_al")
+
+ho_et_al$condition_c <- build_contrast(ho_et_al$condition, 
+                                       "High discrimination",
+                                       "Low discrimination")
+
+head(ho_et_al)
+```
+
+Now, we can conduct a joint significant test using the `mdt_simple` function.
+
+```{r}
+JS_model <- mdt_simple(ho_et_al, 
+                       DV = hypodescent, 
+                       IV = condition_c, 
+                       M  = linkedfate)
+
+JS_model
+```
+
+
+
+## References
+
+Ho, A. K., Kteily, N. S., & Chen, J. M. (2017). “You’re one of us”: Black 
+Americans’ use of hypodescent and its association with egalitarianism. 
+_Journal of Personality and Social Psychology_, _113_(5), 753‑768. doi:
+10.1037/pspi0000107
