@@ -9,7 +9,13 @@ mdt_within2(data, DV_A, DV_B, M_A, M_B)
 \arguments{
 \item{data}{a dataframe containing the variables in the model.}
 
-\item{M_B}{}
+\item{DV_A}{a}
+
+\item{DV_B}{a}
+
+\item{M_A}{a}
+
+\item{M_B}{a}
 }
 \description{
 Fit a within-subject mediation model

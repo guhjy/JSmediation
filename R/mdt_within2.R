@@ -1,10 +1,10 @@
 #' Fit a within-subject mediation model
 #'
 #' @param data a dataframe containing the variables in the model.
-#' @param DV_A
-#' @param DV_B
-#' @param M_A
-#' @param M_B
+#' @param DV_A a
+#' @param DV_B a
+#' @param M_A a
+#' @param M_B a
 #'
 #' @export
 mdt_within2 <- function(data, DV_A, DV_B, M_A, M_B) {
