@@ -3,7 +3,7 @@ is_contrast <- function(x) {
 }
 
 is_centered <- function(x) {
-  # implementation to deal for floating number rounding error
+  # implementation to deal with floating number rounding error
   isTRUE(all.equal(mean(x), 0))
 }
 
