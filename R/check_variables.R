@@ -1,11 +1,21 @@
+# Performs tests on a mediation_model object. Variable coding could impact
+# underlying linear model for mediation model like moderated mediation,
+# check_variables
+# Generic. Used for its side effect.
+# Args:
+#   model: a mediation_model object
 check_variables <- function(model) {
   UseMethod("check_variables")
 }
 
+# Default method for check_variables, do not perform any test.
 check_variables.default <- function(model) {
   NULL
 }
 
+# Method for moderated_mediation class. Checks wether IV, Mediator, or
+# Moderator is either a contrast-coded or a centered variable. Throws a
+# message if it is not the cas.
 check_variables.moderated_mediation <- function(model) {
   IV_n  <- purrr::pluck(model, "params", "IV")
   M_n   <- purrr::pluck(model, "params", "M")
