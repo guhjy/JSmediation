@@ -1,5 +1,5 @@
 #' @export
-add_index.moderated_mediation <- function(mediation_model, stage = NULL, iter = 5000, alpha = .05, ...) {
+add_index.moderated_mediation <- function(mediation_model, iter = 5000, alpha = .05, stage = NULL, ...) {
 
   if(is.null(stage))
     stop(
