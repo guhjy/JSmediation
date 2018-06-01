@@ -122,22 +122,15 @@ mdt_simple.data.frame <- function(data, IV, DV, M) {
          "c'"= create_path(js_models, "X + M -> Y", IV_name))
 
   # bulding mediation model object --------------------------------------------
-  mediation_model <-
-    structure(
-      list(
-        type           = "simple mediation",
-        method         = "joint significant",
-        params         = list("IV" = IV_name,
-                              "DV" = DV_name,
-                              "M"  = M_name),
-        paths          = paths,
-        indirect_index = FALSE,
-        js_models      = js_models,
-        data           = data
-        ),
-      class = c("simple_mediation", "mediation_model")
-    )
-
-  mediation_model
+  mediation_model(
+    type      = "simple mediation",
+    params    = list("IV" = IV_name,
+                     "DV" = DV_name,
+                     "M"  = M_name),
+    paths     = paths,
+    js_models = js_models,
+    data      = data,
+    subclass  = "simple_mediation"
+  )
 }
 

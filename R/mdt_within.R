@@ -136,21 +136,14 @@ mdt_within.data.frame <- function(data, IV, DV, M, grouping) {
          "c'" = create_path(js_models, "1 + M_diff + M_mean -> DV_diff", "(Intercept)"))
 
   # bulding mediation model object --------------------------------------------
-  mediation_model <-
-    structure(
-      list(
-        type           = "within-mediation",
-        method         = "joint significant",
-        params         = list("IV" = IV_name,
-                              "DV" = DV_name,
-                              "M"  = M_name),
-        paths          = paths,
-        indirect_index = FALSE,
-        js_models      = js_models,
-        data           = data
-      ),
-      class = c("within_subject_mediation", "mediation_model")
-    )
-
-  mediation_model
+  mediation_model(
+    type      = "within-subject mediation",
+    params    = list("IV" = IV_name,
+                     "DV" = DV_name,
+                     "M"  = M_name),
+    paths     = paths,
+    js_models = js_models,
+    data      = data_long,
+    subclass  = "within_subject_mediation"
+  )
 }
