@@ -18,6 +18,6 @@
 #' my_model <- add_index(my_model)
 #' }
 #' @export
-add_index <- function(mediation_model, iter = 5000, alpha = .05, stage = NULL) {
+add_index <- function(mediation_model, iter = 5000, alpha = .05, ...) {
   UseMethod("add_index")
 }
