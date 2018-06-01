@@ -4,10 +4,9 @@
 #'
 #' @param mediation_model A mediation model fitted with \code{mediation_model}
 #' method.
-#' @param iter number of iteration for the Monte Carlo CI method.
+#' @param iter Number of simulation for the Monte Carlo CI method.
 #' @param alpha Alpha threshold to use when computing Monte Carlo CI.
-#' @param stage Stage on which you want to compute conditional index for
-#' moderated mediation models.
+#' @param ... Further arguments to be passed to \code{}
 #'
 #' @return An object of the same class as \code{mediation_model}, but with
 #' confidence interval for the indirect effect estimation added for later

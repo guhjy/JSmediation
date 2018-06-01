@@ -10,12 +10,11 @@ add_index(mediation_model, iter = 5000, alpha = 0.05, ...)
 \item{mediation_model}{A mediation model fitted with \code{mediation_model}
 method.}
 
-\item{iter}{number of iteration for the Monte Carlo CI method.}
+\item{iter}{Number of simulation for the Monte Carlo CI method.}
 
 \item{alpha}{Alpha threshold to use when computing Monte Carlo CI.}
 
-\item{stage}{Stage on which you want to compute conditional index for
-moderated mediation models.}
+\item{...}{Further arguments to be passed to \code{}}
 }
 \value{
 An object of the same class as \code{mediation_model}, but with
