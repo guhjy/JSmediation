@@ -8,7 +8,9 @@ Authors@R: c(
     person("Charles", "Judd", role = "aut"),
     person("Arnold", "Ho", role = "dtc"),
     person("Nour", "Kteily", role = "dtc"),
-    person("Jacqueline", "Chen", role = "dtc")
+    person("Jacqueline", "Chen", role = "dtc"),
+    person("Simone", "Dohle", role = "dtc"),
+    person("Michael", "Siegrist", role = "dtc")
     )
 Description: A set of helper functions to conduct joint significant test for 
   mediation analysis.
