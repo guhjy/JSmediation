@@ -40,7 +40,7 @@ check_variables.moderated_mediation <- function(model) {
     message("\nMessage:")
     message(
       "It appears that the following variables are not
-contrast-coded or centred, please make sure it
+contrast-coded or centered, please make sure it
 is intended as regression coefficients depends on
 the variables' coding:"
     )
