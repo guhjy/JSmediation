@@ -15,8 +15,16 @@
 data("dohle_siegrist")
 }
 \description{
-A data set containing data from Experiment 1 from Dohle and
-Siegrist (2014).
+A data set containing data from Dohle and
+Siegrist (2014)'s Experiment 1 that can be used to conduct within-subject
+joint-significant test. In this experiment, authors are intrested in the
+effect of name complexity on willingness to buy a drug. The specific
+hypothesis would be that complex drug name would be percieved as more
+hazardous, which would in turn make someone less likely to buy the drug.
+Because in real life, one have to choose between several drugs, this
+experiment where name complexity was manipulated and where hazardousness
+and willingness to buy were measured was conducted in a within-subject
+design.
 }
 \references{
 Dohle, S., & Siegrist, M. (2014). Fluency of pharmaceutical drug
