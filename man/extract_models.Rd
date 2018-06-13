@@ -4,13 +4,13 @@
 \alias{extract_models}
 \title{Extract models from a mediation object}
 \usage{
-extract_models(mediation_model, index = NULL)
+extract_models(mediation_model, step = NULL)
 }
 \arguments{
 \item{mediation_model}{An object of class \code{mediation_model}.}
 
-\item{index}{An integer or a string corresponding to the index of the model
-to access.}
+\item{step}{An integer or a string corresponding to the model
+to extract (optional).}
 }
 \value{
 Either a list of \code{lm} objects or an \code{lm} object.

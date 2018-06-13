@@ -80,7 +80,7 @@ specific model. Note that `index` allow name of model as well as integer value
 to be requested.
 
 ```{r}
-model_1 <- extract_models(my_model, index = "X -> M")
+model_1 <- extract_models(my_model, step = "X -> M")
 
 plot(model_1, ask = FALSE)
 ```
