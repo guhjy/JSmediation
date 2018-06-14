@@ -6,7 +6,7 @@
 \title{Data set showing within-subject analysis}
 \format{A data frame with 44 rows and 4 variables:
 \describe{
-\item{subject}{Subject number.}
+\item{participant}{Participant number.}
 \item{name}{Name of the drugs ("simple" vs. "complex").}
 \item{hazardousness}{Mean estimated hazardousness.}
 \item{willingness}{Mean willigness to buy.}

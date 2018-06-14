@@ -35,11 +35,8 @@ dohle_siegrist<-
   ) %>%
   drop_na() %>%
   dcast(subject + name ~ measure,
-        value.var = "score")
-
-dohle_siegrist %>%
-  JSmediation::mdt_within(name, hazardousness, willingness, subject) %>%
-  JSmediation::add_index()
+        value.var = "score") %>%
+  rename(participant = subject)
 
 usethis::use_data(dohle_siegrist, overwrite = TRUE)
 
