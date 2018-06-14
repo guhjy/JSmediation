@@ -36,6 +36,7 @@ add_index.simple_mediation <- function(mediation_model, iter = 5000, alpha = .05
     )
 
   mediation_model$indirect_index <- TRUE
+  mediation_model$indirect_index_infos <- indirect_index_infos
 
   mediation_model
 }
