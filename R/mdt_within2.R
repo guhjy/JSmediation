@@ -51,10 +51,10 @@ mdt_within2.data.frame <- function(data, DV_A, DV_B, M_A, M_B) {
   # data wrangling ------------------------------------------------------------
   dataset <-
     data %>%
-    dplyr::mutate(M_diff  = !!M_A_Var - !!M_V_Var ,
-                  M_mean  = (!!M_A_Var + !!M_V_Var) / 2,
-                  M_mean_center = scale(m_mean, scale = FALSE),
-                  DV_diff = !!DV_A_Var - !!DV_B_Var)
+    dplyr::mutate(M_diff  = !!M_A_var - !!M_B_var ,
+                  M_mean  = (!!M_A_var + !!M_B_var) / 2,
+                  M_mean_center = scale(M_mean, scale = FALSE),
+                  DV_diff = !!DV_A_var - !!DV_B_var)
 
   # bulding models ------------------------------------------------------------
   model1 <-
@@ -76,26 +76,20 @@ mdt_within2.data.frame <- function(data, DV_A, DV_B, M_A, M_B) {
   # paths ---------------------------------------------------------------------
   paths <-
     list("a"  = create_path(js_models, "1 -> M_diff", "(Intercept)"),
-         "b"  = create_path(js_models, "1 + M_diff + M_mean -> DV_diff", M_diff_name),
+         "b"  = create_path(js_models, "1 + M_diff + M_mean -> DV_diff", "M_diff"),
          "c"  = create_path(js_models, "1 -> DV_diff", "(Intercept)"),
          "c'" = create_path(js_models, "1 + M_diff + M_mean -> DV_diff", "(Intercept)"))
 
   # bulding mediation model object --------------------------------------------
-  mediation_model <-
-    structure(
-      list(
-        type           = "within-mediation",
-        method         = "joint significant",
-        params         = list("DV_A" = DV_A_name,
-                              "DV_B" = DV_B_name,
-                              "M_A"  = M_A_name,
-                              "M_B"  = M_B_name),
-        paths          = paths,
-        indirect_index = FALSE,
-        js_models      = js_models,
-      ),
-      class = c("within_subject_mediation", "mediation_model")
-    )
-
-  mediation_model
+  mediation_model(
+    type      = "within-subject mediation",
+    params    = list("DV_A" = DV_A_name,
+                     "DV_B" = DV_B_name,
+                     "M_A"  = M_A_name,
+                     "M_B"  = M_B_name),
+    paths     = paths,
+    js_models = js_models,
+    data      = data,
+    subclass  = "within_subject_mediation"
+  )
 }
