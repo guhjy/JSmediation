@@ -16,6 +16,8 @@ dohle_siegrist_raw <- read_delim(
 # y1: willingness simple
 # y2: willingness complex
 
+
+# long-format -------------------------------------------------------------
 dohle_siegrist<-
   dohle_siegrist_raw %>%
   select(-age, -sex, -order) %>%
@@ -40,3 +42,11 @@ dohle_siegrist<-
 
 usethis::use_data(dohle_siegrist, overwrite = TRUE)
 
+# wide-format -------------------------------------------------------------
+dohle_siegrist2 <-
+  melt(dohle_siegrist, c("participant", "name")) %>%
+  mutate(name = str_extract(name, "^.")) %>%
+  dcast(participant ~ variable + name,
+        value.var = "value")
+
+usethis::use_data(dohle_siegrist2, overwrite = TRUE)
