@@ -51,7 +51,7 @@ a moderated mediation model.
 }
 \details{
 This function is an helper to fit linear models needed to test a
-moderated mediation model. The Joint Significant formal approach has been
+moderated mediation model. The join-significant formal approach has been
 described in Muller, Judd, & Yzerbyt (2005).
 
 Three models will be fit:

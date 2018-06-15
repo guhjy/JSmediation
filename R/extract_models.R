@@ -1,11 +1,11 @@
-#' @title Extract models from a mediation object
+#' @title Extract models from a mediation_model object
 #'
 #' @description When conducting a joint significant test, different models are
 #' fitted to the data. This function helps you access the models that have been
 #' used in an object of class \code{mediation_model}.
 #'
-#' @seealso \code{\link{extract_models}} to access to models used for joint
-#' significant test as a data frame.
+#' @seealso \code{\link{extract_models}} to access to models used for
+#' joint-significant test as a data frame.
 #'
 #' @param mediation_model An object of class \code{mediation_model}.
 #' @param step An integer or a string corresponding to the model
@@ -39,8 +39,8 @@ extract_models.mediation_model <- function(mediation_model, step = NULL) {
 #' fitted to the data. This function helps you access the models that have been
 #' used in an object of class \code{mediation_model}.
 #'
-#' @seealso \code{\link{extract_models}} to access to models used for joint
-#' significant test as a list of object of class \code{lm}.
+#' @seealso \code{\link{extract_models}} to access to models used for
+#' joint-significant test as a list of object of class \code{lm}.
 #'
 #' @param mediation_model An object of class \code{mediation_model}.
 #'

@@ -18,6 +18,6 @@ fitted to the data. This function helps you access the models that have been
 used in an object of class \code{mediation_model}.
 }
 \seealso{
-\code{\link{extract_models}} to access to models used for joint
-significant test as a list of object of class \code{lm}.
+\code{\link{extract_models}} to access to models used for
+joint-significant test as a list of object of class \code{lm}.
 }

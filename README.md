@@ -5,7 +5,7 @@ JSmediation
 
 [![Travis build status](https://travis-ci.org/cedricbatailler/JSmediation.svg?branch=master)](https://travis-ci.org/cedricbatailler/JSmediation)
 
-The goal of `JSmediation` is to provide a set of functions to conduct a joint significant test in a context of moderation analysis. Note that `JSmediation` is still under active developement.
+The goal of `JSmediation` is to provide a set of functions to conduct a joint-significant test in a context of moderation analysis. Note that `JSmediation` is still under active developement.
 
 Installation
 ------------
@@ -31,7 +31,7 @@ How to use JSmediation
 library(JSmediation)
 ```
 
-The `JSmediation` package contains several functions as well as an example data set (`ho_et_al`) that can be used as an example. This data set comes from Ho et al. (2017; Exp. 3) and contains variables to test a simple mediation. As a simple example, we will conduct a joint significance test of the indirect effect of discrimination on hypodescent passing by linked fate.
+The `JSmediation` package contains several functions as well as an example data set (`ho_et_al`) that can be used as an example. This data set comes from Ho et al. (2017; Exp. 3) and contains variables to test a simple mediation. As a simple example, we will conduct a joint-significance test of the indirect effect of discrimination on hypodescent passing by linked fate.
 
 We will first recode `condition` variable which is a character to a contrast code using the `build_contrast` function.
 

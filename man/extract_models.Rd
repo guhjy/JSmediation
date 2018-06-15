@@ -2,7 +2,7 @@
 % Please edit documentation in R/extract_models.R
 \name{extract_models}
 \alias{extract_models}
-\title{Extract models from a mediation object}
+\title{Extract models from a mediation_model object}
 \usage{
 extract_models(mediation_model, step = NULL)
 }
@@ -27,6 +27,6 @@ extract_models(my_model)
 
 }
 \seealso{
-\code{\link{extract_models}} to access to models used for joint
-significant test as a data frame.
+\code{\link{extract_models}} to access to models used for
+joint-significant test as a data frame.
 }
