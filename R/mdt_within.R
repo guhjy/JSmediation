@@ -9,14 +9,16 @@
 #'             as dependant variable.
 #' @param grouping an unquoted variable in the data frame which will be used
 #'                    as grouping variable.
+#' @param default_coding should the variable coding be the default? Defaults to
+#' \code{TRUE}.
 #'
 #' @export
-mdt_within <- function(data, IV, DV, M, grouping) {
+mdt_within <- function(data, IV, DV, M, grouping, default_coding = TRUE) {
   UseMethod("mdt_within")
 }
 
 #' @export
-mdt_within.data.frame <- function(data, IV, DV, M, grouping) {
+mdt_within.data.frame <- function(data, IV, DV, M, grouping, default_coding = TRUE) {
 
   # nse -----------------------------------------------------------------------
   IV_var       <- enquo(IV)
@@ -77,8 +79,16 @@ mdt_within.data.frame <- function(data, IV, DV, M, grouping) {
                       value.var = list(DV_name, M_name)) %>%
     tibble::as_tibble()
 
-  if(data_long %>% dplyr::pull(DV_cond_1_name) %>%  mean() >
-     data_long %>% dplyr::pull(DV_cond_2_name) %>%  mean()) {
+  DV_A_sup_B <- rlang::is_true(
+    data_long %>% dplyr::pull(DV_cond_1_name) %>%  mean() >
+      data_long %>% dplyr::pull(DV_cond_2_name) %>%  mean()
+  )
+
+  # little bit hacky:
+  # if A > B and default_coding is true, set A - B, if
+  # B < A and defaults coding is false, set A - B,
+  # else, set B - A.
+  if(DV_A_sup_B == default_coding) {
     DV_diff_name <-
       glue::glue("DV_{IV_cond[[1]]}_{IV_cond[[2]]}")
     M_diff_name <-
