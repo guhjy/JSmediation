@@ -2,7 +2,7 @@
 % Please edit documentation in R/mdt_within2.R
 \name{mdt_within2}
 \alias{mdt_within2}
-\title{Fit a within-subject mediation model}
+\title{Fit a within-participants mediation model (wide-format input)}
 \usage{
 mdt_within2(data, DV_A, DV_B, M_A, M_B)
 }
@@ -18,5 +18,5 @@ mdt_within2(data, DV_A, DV_B, M_A, M_B)
 \item{M_B}{a}
 }
 \description{
-Fit a within-subject mediation model
+Fit a within-participants mediation model (wide-format input)
 }

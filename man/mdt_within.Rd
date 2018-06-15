@@ -2,7 +2,7 @@
 % Please edit documentation in R/mdt_within.R
 \name{mdt_within}
 \alias{mdt_within}
-\title{Fit a within-subject mediation model}
+\title{Fit a within-participants mediation model (long format)}
 \usage{
 mdt_within(data, IV, DV, M, grouping)
 }
@@ -22,5 +22,5 @@ as mediator.}
 as grouping variable.}
 }
 \description{
-Fit a within-subject mediation model
+Fit a within-participants mediation model (long format)
 }

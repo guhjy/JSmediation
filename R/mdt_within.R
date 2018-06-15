@@ -1,4 +1,4 @@
-#' Fit a within-subject mediation model
+#' Fit a within-participants mediation model (long format)
 #'
 #' @param data a dataframe containing the variables in the model.
 #' @param IV an unquoted variable in the data frame which will be used
@@ -137,13 +137,13 @@ mdt_within.data.frame <- function(data, IV, DV, M, grouping) {
 
   # bulding mediation model object --------------------------------------------
   mediation_model(
-    type      = "within-subject mediation",
+    type      = "within-participants mediation",
     params    = list("IV" = IV_name,
                      "DV" = DV_name,
                      "M"  = M_name),
     paths     = paths,
     js_models = js_models,
     data      = data_long,
-    subclass  = "within_subject_mediation"
+    subclass  = "within_participants_mediation"
   )
 }
