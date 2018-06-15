@@ -34,5 +34,6 @@ Imports:
     data.table
 Suggests: 
     knitr,
-    rmarkdown
+    rmarkdown,
+    testthat
 VignetteBuilder: knitr

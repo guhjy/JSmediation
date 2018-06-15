@@ -14,7 +14,6 @@ test_that("used models are correctly specified", {
     data %>%
     mdt_moderated(condition_c, hypodescent, linkedfate, sdo)
 
-  # models --------------------------------------------------------------------
   models <-
     list(formula(hypodescent ~ condition_c * sdo),
          formula(linkedfate ~ condition_c * sdo),
@@ -24,4 +23,25 @@ test_that("used models are correctly specified", {
   models_js <- pluck(js_model, "js_models")
 
   expect_equivalent(models_js, models)
+})
+
+test_that("mdt_moderated does not throw error", {
+  dataset <-
+    dplyr::mutate(ho_et_al,
+                  condition_c =
+                    build_contrast(condition,
+                                   "High discrimination",
+                                   "Low discrimination"),
+                  linkedfate_c =
+                    scale(linkedfate, scale = FALSE),
+                  sdo_c =
+                    scale(sdo, scale = FALSE))
+
+  expect_silent(
+    mdt_moderated(dataset,
+                condition_c,
+                hypodescent,
+                linkedfate_c,
+                sdo_c)
+    )
 })
