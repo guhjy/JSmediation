@@ -161,7 +161,10 @@ mdt_within.data.frame <- function(data, IV, DV, M, grouping, default_coding = TR
   # bulding mediation model object --------------------------------------------
   mediation_model(
     type      = "within-participants mediation",
-    params    = list("IV" = IV_name,
+    params    = list("IV" = glue::glue("{IV_name} (difference: {score})",
+                                       score = ifelse(DV_A_sup_B == default_coding,
+                                                      paste0(IV_cond[[1]], " - ", IV_cond[[2]]),
+                                                      paste0(IV_cond[[2]], " - ", IV_cond[[1]]))),
                      "DV" = DV_name,
                      "M"  = M_name),
     paths     = paths,

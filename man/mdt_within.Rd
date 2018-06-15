@@ -4,7 +4,7 @@
 \alias{mdt_within}
 \title{Fit a within-participants mediation model (long format)}
 \usage{
-mdt_within(data, IV, DV, M, grouping)
+mdt_within(data, IV, DV, M, grouping, default_coding = TRUE)
 }
 \arguments{
 \item{data}{a dataframe containing the variables in the model.}
@@ -20,7 +20,22 @@ as mediator.}
 
 \item{grouping}{an unquoted variable in the data frame which will be used
 as grouping variable.}
+
+\item{default_coding}{should the variable coding be the default? Defaults to
+\code{TRUE}.}
 }
-\description{
-Fit a within-participants mediation model (long format)
+\section{Coding}{
+
+Within-participants mediation models' underlying models uses difference
+scores as DV. Because the function input does not allow the user
+to specify how the difference scores should be computed, \code{mdt_within}
+has to figure the coding by itself.
+
+\code{mdt_within}'s default behavior is to choose a coding where the total
+effect (the effect of \eqn{X} on \eqn{Y}) will be positive and compute
+other difference scores accordingly.
+
+User can change choose to have a negative total effect by using the
+\code{default_coding} argument.
 }
+
