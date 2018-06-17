@@ -60,9 +60,9 @@ add_index.moderated_mediation <- function(mediation_model, iter = 5000, alpha = 
                     Sigma =
                       matrix(
                         c(sea1^2,      0,      0,      0,
-                          0, seb1^2,      0,      0,
-                          0,      0, sea2^2,      0,
-                          0,      0,      0, seb2^2),
+                          0,      seb1^2,      0,      0,
+                          0,           0, sea2^2,      0,
+                          0,           0,      0, seb2^2),
                         nrow = 2
                       ))
 
