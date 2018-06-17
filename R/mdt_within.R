@@ -1,10 +1,10 @@
-#' @title Fit a within-participants mediation model (long format)
+#' @title Fit a within-participant mediation model (long format)
 #'
 #' @description Given a data frame, an IV, a DV, and a mediator, fits
 #' a within-participant mediation model.
 #'
 #' @section Coding:
-#' Within-participants mediation models' underlying models uses difference
+#' Within-participant mediation model's underlying models uses difference
 #' scores as DV. Because the function input does not allow the user
 #' to specify how the difference scores should be computed, \code{mdt_within}
 #' has to figure the coding by itself.
@@ -163,7 +163,7 @@ mdt_within.data.frame <- function(data, IV, DV, M, grouping, default_coding = TR
 
   # bulding mediation model object --------------------------------------------
   mediation_model(
-    type      = "within-participants mediation",
+    type      = "within-participant_mediation",
     params    = list("IV" = glue::glue("{IV_name} (difference: {score})",
                                        score = ifelse(DV_A_sup_B == default_coding,
                                                       paste0(IV_cond[[1]], " - ", IV_cond[[2]]),
@@ -173,6 +173,6 @@ mdt_within.data.frame <- function(data, IV, DV, M, grouping, default_coding = TR
     paths     = paths,
     js_models = js_models,
     data      = data_long,
-    subclass  = "within_participants_mediation"
+    subclass  = "within_participant_mediation"
   )
 }

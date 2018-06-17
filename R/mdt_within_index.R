@@ -1,5 +1,5 @@
 #' @export
-add_index.within_participants_mediation <- function(mediation_model, iter = 5000, alpha = .05, ...) {
+add_index.within_participant_mediation <- function(mediation_model, iter = 5000, alpha = .05, ...) {
 
   a   <- purrr::pluck(mediation_model, "paths", "a", "point_estimate")
   sea <- purrr::pluck(mediation_model, "paths", "a", "se")
@@ -21,7 +21,7 @@ add_index.within_participants_mediation <- function(mediation_model, iter = 5000
   contains_zero <- (CI[[1]] < 0 & CI[[2]] > 0)
 
   indirect_index_infos <-
-    list(type          = "Within-participants indirect effect",
+    list(type          = "Within-participant indirect effect",
          method        = "Monte Carlo",
          estimate      = a * b,
          CI            = CI,

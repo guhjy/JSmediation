@@ -2,7 +2,7 @@
 
 S3method(add_index,moderated_mediation)
 S3method(add_index,simple_mediation)
-S3method(add_index,within_participants_mediation)
+S3method(add_index,within_participant_mediation)
 S3method(apastylr,lm)
 S3method(build_contrast,character)
 S3method(build_contrast,default)

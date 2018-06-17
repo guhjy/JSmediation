@@ -1,4 +1,4 @@
-#' Fit a within-participants mediation model (wide-format input)
+#' Fit a within-participant mediation model (wide-format input)
 #'
 #' @param data a dataframe containing the variables in the model.
 #' @param DV_A a
@@ -82,12 +82,12 @@ mdt_within2.data.frame <- function(data, DV_A, DV_B, M_A, M_B) {
 
   # bulding mediation model object --------------------------------------------
   mediation_model(
-    type      = "within-participants mediation",
+    type      = "within-participant mediation",
     params    = list("DV difference" = glue::glue("{DV_A_name} - {DV_B_name}"),
                      "M difference"  = glue::glue("{M_A_name} - {M_B_name}")),
     paths     = paths,
     js_models = js_models,
     data      = data,
-    subclass  = "within_participants_mediation"
+    subclass  = "within_participant_mediation"
   )
 }

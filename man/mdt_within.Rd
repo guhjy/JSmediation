@@ -2,7 +2,7 @@
 % Please edit documentation in R/mdt_within.R
 \name{mdt_within}
 \alias{mdt_within}
-\title{Fit a within-participants mediation model (long format)}
+\title{Fit a within-participant mediation model (long format)}
 \usage{
 mdt_within(data, IV, DV, M, grouping, default_coding = TRUE)
 }
@@ -30,7 +30,7 @@ a within-participant mediation model.
 }
 \section{Coding}{
 
-Within-participants mediation models' underlying models uses difference
+Within-participant mediation model's underlying models uses difference
 scores as DV. Because the function input does not allow the user
 to specify how the difference scores should be computed, \code{mdt_within}
 has to figure the coding by itself.
