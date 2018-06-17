@@ -1,5 +1,8 @@
 #' @title Fit a within-participants mediation model (long format)
 #'
+#' @description Given a data frame, an IV, a DV, and a mediator, fits
+#' a within-participant mediation model.
+#'
 #' @section Coding:
 #' Within-participants mediation models' underlying models uses difference
 #' scores as DV. Because the function input does not allow the user

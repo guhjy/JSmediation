@@ -24,6 +24,10 @@ as grouping variable.}
 \item{default_coding}{should the variable coding be the default? Defaults to
 \code{TRUE}.}
 }
+\description{
+Given a data frame, an IV, a DV, and a mediator, fits
+a within-participant mediation model.
+}
 \section{Coding}{
 
 Within-participants mediation models' underlying models uses difference
