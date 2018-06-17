@@ -19,5 +19,5 @@ used in an object of class \code{mediation_model}.
 }
 \seealso{
 \code{\link{extract_models}} to access to models used for
-joint-significant test as a list of object of class \code{lm}.
+joint-significance test as a list of object of class \code{lm}.
 }

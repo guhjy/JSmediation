@@ -1,6 +1,6 @@
 #' @title Display models from a mediation object
 #'
-#' @description When conducting a joint-significant test, different models are
+#' @description When conducting a joint-significance test, different models are
 #' fitted to the data. This function helps you see a summary of the models that
 #' have been used in an object of class \code{mediation_model}.
 #'

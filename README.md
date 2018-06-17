@@ -5,7 +5,7 @@ JSmediation
 
 [![Travis build status](https://travis-ci.org/cedricbatailler/JSmediation.svg?branch=master)](https://travis-ci.org/cedricbatailler/JSmediation)
 
-The goal of `JSmediation` is to provide a set of functions to conduct a joint-significant test in a context of moderation analysis. Note that `JSmediation` is still under active developement.
+The goal of `JSmediation` is to provide a set of functions to conduct a joint-significance test in a context of moderation analysis. Note that `JSmediation` is still under active developement.
 
 Installation
 ------------

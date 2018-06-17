@@ -2,7 +2,7 @@
 #'
 #' @description A data set containing data from Dohle and
 #'   Siegrist (2014)'s Experiment 1 that can be used to conduct within-subject
-#'   joint-significant test. In this experiment, authors are intrested in the
+#'   joint-significance test. In this experiment, authors are intrested in the
 #'   effect of name complexity on willingness to buy a drug. The specific
 #'   hypothesis would be that complex drug name would be percieved as more
 #'   hazardous, which would in turn make someone less likely to buy the drug.

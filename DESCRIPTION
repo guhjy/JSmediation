@@ -12,7 +12,7 @@ Authors@R: c(
     person("Simone", "Dohle", role = "dtc"),
     person("Michael", "Siegrist", role = "dtc")
     )
-Description: A set of helper functions to conduct joint-significant tests for 
+Description: A set of helper functions to conduct joint-significance tests for 
   mediation analysis.
 License: MIT + file LICENSE
 Encoding: UTF-8

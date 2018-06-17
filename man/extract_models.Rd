@@ -28,5 +28,5 @@ extract_models(my_model)
 }
 \seealso{
 \code{\link{extract_models}} to access to models used for
-joint-significant test as a data frame.
+joint-significance test as a data frame.
 }

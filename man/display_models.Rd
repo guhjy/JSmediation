@@ -13,7 +13,7 @@ display_models(mediation_model)
 A list of \code{summary.lm} objects.
 }
 \description{
-When conducting a joint-significant test, different models are
+When conducting a joint-significance test, different models are
 fitted to the data. This function helps you see a summary of the models that
 have been used in an object of class \code{mediation_model}.
 }

@@ -5,12 +5,12 @@
 \alias{JSmediation}
 \title{JSmediation}
 \description{
-A set of helper functions to conduct joint-significant test for
+A set of helper functions to conduct joint-significance test for
 mediation analysis.
 }
 \details{
 The main functions of the \pkg{JSmediation} package follow an
-\code{mdt_*} pattern and allow you to conduct a joint-significant test. These
+\code{mdt_*} pattern and allow you to conduct a joint-significance test. These
 function handle fitting the relevant linear model for different kind of
 mediation model.
 

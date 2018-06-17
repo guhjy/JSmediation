@@ -5,7 +5,7 @@
 #' used in an object of class \code{mediation_model}.
 #'
 #' @seealso \code{\link{extract_models}} to access to models used for
-#' joint-significant test as a data frame.
+#' joint-significance test as a data frame.
 #'
 #' @param mediation_model An object of class \code{mediation_model}.
 #' @param step An integer or a string corresponding to the model
@@ -40,7 +40,7 @@ extract_models.mediation_model <- function(mediation_model, step = NULL) {
 #' used in an object of class \code{mediation_model}.
 #'
 #' @seealso \code{\link{extract_models}} to access to models used for
-#' joint-significant test as a list of object of class \code{lm}.
+#' joint-significance test as a list of object of class \code{lm}.
 #'
 #' @param mediation_model An object of class \code{mediation_model}.
 #'
