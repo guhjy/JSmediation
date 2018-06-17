@@ -47,10 +47,10 @@ add_index.moderated_mediation <- function(mediation_model, iter = 5000, alpha = 
     b1   <- purrr::pluck(mediation_model, "paths", "b", "point_estimate")
     seb1 <- purrr::pluck(mediation_model, "paths", "b", "se")
 
-    a2   <- purrr::pluck(mediaction_model, "paths", "a", "point_estimate")
-    sea2 <- purrr::pluck(mediation_model,  "paths", "a", "se")
-    b2   <- purrr::pluck(mediation_model,  "paths", "b * Mod", "point_estimate")
-    seb2 <- purrr::pluck(mediation_model,  "paths", "b * Mod", "se")
+    a2   <- purrr::pluck(mediation_model, "paths", "a", "point_estimate")
+    sea2 <- purrr::pluck(mediation_model, "paths", "a", "se")
+    b2   <- purrr::pluck(mediation_model, "paths", "b * Mod", "point_estimate")
+    seb2 <- purrr::pluck(mediation_model, "paths", "b * Mod", "se")
 
     type <- "Mediated moderation index (Both stages)"
 
