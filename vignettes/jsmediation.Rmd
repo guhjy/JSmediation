@@ -1,5 +1,5 @@
 ---
-title: "mediation analysis with JSmediation"
+title: "Mediation analysis with JSmediation"
 author: "Cédric Batailler"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
@@ -16,18 +16,14 @@ knitr::opts_chunk$set(
 )
 ```
 
-# R implementation
+# Simple mediation
 
 `JSmediation` offers helpers to conduct a joint significant mediation test. 
 With this package, you can type a mediation model the way you think it, 
 `JSmediation` dealing with fitting underlying models.
 
-First, we will load the `JSmediation` package in our environnement so we can use
-its functions.
-
-```{r}
-library(JSmediation)
-```
+In this vignette, we will conduct ajoint-significicant test for a simple 
+mediation scenario.
 
 We will use a data set from Ho, Kteily and Chen (2017). In this experiment, 
 authors hypothised that presenting a text stating that Black-White biracials 
@@ -38,13 +34,24 @@ authors tested if this effect was mediated by the sense of linked fate between
 discriminated Black-White participants and Black participants. This data set 
 is shipped with the `JSmediation` and is called `ho_et_al`.
 
+First, we will load the `JSmediation` package in our environnement so we can use
+its functions.
+
+```{r}
+library(JSmediation)
+```
+
+Now that `JSmediation` is attached, we can load its function, including the 
+`ho_et_al` data set.
+
 ```{r}
 head(ho_et_al)
 ```
 
-The first step to test for a mediation of discrimination on hypodescent by 
-linked fate is to build a new variable which will represent the discrimination
-condition, but with a contrast code. To do so, we will use the `build_contrast` 
+The first thing we can see in this data set is that the `condition` variable is
+coded as text something that JSmediation doesn't support. The first step  will 
+be to build a new variable which will represent the discrimination
+condition with a contrast code. To do so, we will use the `build_contrast` 
 function.
 
 ```{r}
@@ -68,15 +75,15 @@ my_model <-
 ```
 
 We now have an object of class `mediation_model`, we can now wether our data 
-support a simple moderation. 
+support a simple mediation. 
 
 Before looking into the results, we will check for OLS assumptions because 
 underlying models used in a joint significant test are actually linear models.
 
 We will extract one model and plot diagnostic plots using the `plot` method for 
 object of class `lm`. To do so, we will use the `extract_models` method. To use
-this function, we will use the `index` argument which allow us to ask for a 
-specific model. Note that `index` allow name of model as well as integer value
+this function, we will use the `step` argument which allow us to ask for a 
+specific model. Note that `step` allow name of model as well as integer value
 to be requested.
 
 ```{r}
@@ -85,12 +92,29 @@ model_1 <- extract_models(my_model, step = "X -> M")
 plot(model_1, ask = FALSE)
 ```
 
+We will do the same thing for the two other models mdt_simple has fitted.
+
+```{r}
+model_2 <- extract_models(my_model, step = 2)
+
+plot(model_2, ask = FALSE)
+```
+
+```{r}
+model_3 <- extract_models(my_model, step = 3)
+
+plot(model_3, ask = FALSE)
+```
+
+It appears that none of the fitted models violate OLS assumptions.
+
 Now that we check for our assumptions, we can interpret our model. To do so,
 we just have to call for `my_model`. The structure of objects of class 
 `mediation_model` is rather complex but there is a `print` method for these
-objects.
+objects. The `print` method is implicitly called one called for the `my_model`
+object.
 
-```{r}
+```{r, render="asis"}
 my_model
 ```
 
