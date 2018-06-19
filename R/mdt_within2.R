@@ -53,7 +53,7 @@ mdt_within2.data.frame <- function(data, DV_A, DV_B, M_A, M_B) {
     data %>%
     dplyr::mutate(M_diff  = !!M_A_var - !!M_B_var ,
                   M_mean  = (!!M_A_var + !!M_B_var) / 2,
-                  M_mean_center = scale(M_mean, scale = FALSE),
+                  M_mean_center = scale((!!M_A_var + !!M_B_var) / 2, scale = FALSE),
                   DV_diff = !!DV_A_var - !!DV_B_var)
 
   # bulding models ------------------------------------------------------------
