@@ -9,22 +9,17 @@
 #   An object of class "mediation_model".
 
 create_path <- function(model_list, model_name, term_name) {
+
+  model <- purrr::pluck(model_list, model_name)
+  tidy_model <- broom::tidy(model)
+  term_to_keep <- purrr::pluck(tidy_model, "term") == term_name
+
+  tidy_term <- dplyr::filter(tidy_model, term_to_keep)
+
   list(
-    point_estimate =
-      model_list %>%
-        purrr::pluck(model_name) %>%
-        broom::tidy() %>%
-        dplyr::filter(term == term_name) %>%
-        dplyr::pull(estimate),
-    se =
-      model_list %>%
-        purrr::pluck(model_name) %>%
-        broom::tidy() %>%
-        dplyr::filter(term == term_name) %>%
-        dplyr::pull(std.error),
-    APA =
-      model_list %>%
-        purrr::pluck(model_name) %>%
-        apastylr(term_name)
+    point_estimate = purrr::pluck(tidy_term, "estimate"),
+    se = purrr::pluck(tidy_term, "std.error"),
+    APA = apastylr(model, term_name)
   )
 }
+
