@@ -1,14 +1,37 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-JSmediation
-===========
 
-[![Travis build status](https://travis-ci.org/cedricbatailler/JSmediation.svg?branch=master)](https://travis-ci.org/cedricbatailler/JSmediation)
+# JSmediation
 
-The goal of `JSmediation` is to provide a set of functions to conduct a joint-significance test in a context of moderation analysis. Note that `JSmediation` is still under active developement.
+[![CRAN
+status](https://www.r-pkg.org/badges/version/JSmediation)](https://cran.r-project.org/package=JSmediation)
+[![Travis build
+status](https://travis-ci.org/cedricbatailler/JSmediation.svg?branch=master)](https://travis-ci.org/cedricbatailler/JSmediation)
 
-Installation
-------------
+`JSmediation` an R package aiming to provide a set of functions to
+conduct a joint-significance test in a context of mediation analysis.
+Note that `JSmediation` is still under active development.
+
+## Scope
+
+The goal of `JSmediation` is to provide a consistent syntax to conduct
+joint-significance tests. To do so, it provides a family of `mdt_*`
+functions helping one conduct different mediation models.
+
+Current implemented models are:
+
+  - simple mediation (`mdt_simple`)
+  - within-participant mediation (`mdt_within`, but see also
+    `mdt_within_w`)
+  - moderated mediation (`mdt_moderated`)
+
+Every `mdt_*` functions take at least four arguments: `data` (the data
+frame containing the data to be used),`IV` (the unquoted column name of
+the independent variable in the data frame), `DV` (the unquoted column
+name of the dependent variable in the data frame), and `M` (the unquoted
+column name of the mediator in the data frame).
+
+## Installation
 
 <!--
 You can install the released version of JSmediation from [CRAN](https://CRAN.R-project.org) with:
@@ -17,23 +40,30 @@ You can install the released version of JSmediation from [CRAN](https://CRAN.R-p
 install.packages("JSmediation")
 ```
 -->
-You can install the development version from [GitHub](https://github.com/) with:
+
+You can install the development version from
+[GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("cedricbatailler/JSmediation")
+devtools::install_github("cedricbatailler/JSmediation", build_vignettes = TRUE)
 ```
 
-How to use JSmediation
-----------------------
+## How to use JSmediation
 
 ``` r
 library(JSmediation)
 ```
 
-The `JSmediation` package contains several functions as well as an example data set (`ho_et_al`) that can be used as an example. This data set comes from Ho et al. (2017; Exp. 3) and contains variables to test a simple mediation. As a simple example, we will conduct a joint-significance test of the indirect effect of discrimination on hypodescent passing by linked fate.
+The `JSmediation` package contains several functions as well as example
+data sets that can be used as an example. The `ho_et_al` data set comes
+from Ho et al. (2017; Exp. 3) and contains variables to test a simple
+mediation. As a simple example, we will conduct a joint-significance
+test of the indirect effect of discrimination on hypodescent passing by
+linked fate.
 
-We will first recode `condition` variable which is a character to a contrast code using the `build_contrast` function.
+We will first recode `condition` variable which is a character to a
+contrast code using the `build_contrast` function.
 
 ``` r
 data("ho_et_al")
@@ -52,7 +82,8 @@ head(ho_et_al)
 #> 6  9 High discrimination 2.8750      3.750    4.000000        -0.5
 ```
 
-Now, we can conduct a joint significant test using the `mdt_simple` function.
+Now, we can conduct a joint significant test using the `mdt_simple`
+function.
 
 ``` r
 JS_model <- mdt_simple(ho_et_al, 
@@ -93,7 +124,19 @@ JS_model
 #> - X + M -> Y
 ```
 
-References
-----------
+One will have to make sure that both \(a\) and \(b\) are significant to
+conclude that there is a mediation pattern.
 
-Ho, A. K., Kteily, N. S., & Chen, J. M. (2017). “You’re one of us”: Black Americans’ use of hypodescent and its association with egalitarianism. *Journal of Personality and Social Psychology*, *113*(5), 753‑768. doi: 10.1037/pspi0000107
+### References
+
+Ho, A. K., Kteily, N. S., & Chen, J. M. (2017). “You’re one of us”:
+Black Americans’ use of hypodescent and its association with
+egalitarianism. *Journal of Personality and Social Psychology*,
+*113*(5), 753‑768. doi: 10.1037/pspi0000107
+
+## Contributing
+
+Contributions are absolutly welcome. Please note that this project is
+released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md).
+
+By participating in this project you agree to abide by its terms.
