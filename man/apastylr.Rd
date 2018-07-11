@@ -9,10 +9,10 @@ apastylr(model, term)
 \arguments{
 \item{model}{A linear model created using \code{lm()}.}
 
-\item{term}{A character string representing a term in the linear model}
+\item{term}{A character string representing a term in the linear model.}
 }
 \value{
-Ana APA formatted character string.
+An APA formatted character string.
 }
 \description{
 Create an APA formated report from the test of a specific term

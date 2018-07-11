@@ -4,9 +4,9 @@
 #'   in a linear model.
 #'
 #' @param model A linear model created using \code{lm()}.
-#' @param term A character string representing a term in the linear model
+#' @param term A character string representing a term in the linear model.
 #'
-#' @return Ana APA formatted character string.
+#' @return An APA formatted character string.
 #'
 #' @examples
 #'
