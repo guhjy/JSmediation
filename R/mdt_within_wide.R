@@ -7,12 +7,12 @@
 #' @param M_B a
 #'
 #' @export
-mdt_within_w <- function(data, DV_A, DV_B, M_A, M_B) {
-  UseMethod("mdt_within_w")
+mdt_within_wide <- function(data, DV_A, DV_B, M_A, M_B) {
+  UseMethod("mdt_within_wide")
 }
 
 #' @export
-mdt_within_w.data.frame <- function(data, DV_A, DV_B, M_A, M_B) {
+mdt_within_wide.data.frame <- function(data, DV_A, DV_B, M_A, M_B) {
 
   # nse -----------------------------------------------------------------------
   DV_A_var       <- enquo(DV_A)

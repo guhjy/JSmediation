@@ -21,7 +21,7 @@ effect confidence interval.}
 \description{
 Adds confidence interval for the inderct effect to a
 within-participant mediation model fitted with \code{\link{mdt_within}} or
-\code{\link{mdt_within_w}}.
+\code{\link{mdt_within_wide}}.
 }
 \examples{
 ## getting an indirect effect index

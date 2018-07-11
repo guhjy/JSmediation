@@ -22,7 +22,7 @@ Current implemented models are:
 
   - simple mediation (`mdt_simple`)
   - within-participant mediation (`mdt_within`, but see also
-    `mdt_within_w`)
+    `mdt_within_wide`)
   - moderated mediation (`mdt_moderated`)
 
 Every `mdt_*` functions take at least four arguments: `data` (the data

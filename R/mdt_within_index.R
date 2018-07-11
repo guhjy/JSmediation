@@ -2,7 +2,7 @@
 #'
 #' @description Adds confidence interval for the inderct effect to a
 #'   within-participant mediation model fitted with \code{\link{mdt_within}} or
-#'   \code{\link{mdt_within_w}}.
+#'   \code{\link{mdt_within_wide}}.
 #'
 #' @param mediation_model A mediation model of class
 #'   \code{"within_participant_mediation"}.

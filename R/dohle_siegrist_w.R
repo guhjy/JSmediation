@@ -27,5 +27,5 @@
 #' to buy. \emph{Journal of Health Psychology}, \emph{19}(10), 1241‑1249.
 #' doi: 10.1177/1359105313488974
 #'
-#' @usage data("dohle_siegrist_w")
-"dohle_siegrist_w"
+#' @usage data("dohle_siegrist_wide")
+"dohle_siegrist_wide"
