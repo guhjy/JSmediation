@@ -1,3 +1,25 @@
+#' @title add_index method for within-participant mediation
+#'
+#' @description Adds confidence interval for the inderct effect to a
+#'   within-participant mediation model fitted with \code{\link{mdt_within}} or
+#'   \code{\link{mdt_within_w}}.
+#'
+#' @param mediation_model A mediation model of class
+#'   \code{"within_participant_mediation"}.
+#' @param iter Number of simulation to use to compute Monte Carlo indirect
+#'   effect confidence interval.
+#' @param alpha Alpha threshold to use with the confidence interval.
+#' @param ... Further arguments passed to or from other methods.
+#'
+#' @examples
+#' ## getting an indirect effect index
+#' within_model <- mdt_within(data = dohle_siegrist,
+#'                            IV = name, 
+#'                            DV = willingness, 
+#'                            M = hazardousness, 
+#'                            grouping = participant) 
+#' add_index(within_model)
+#'
 #' @export
 add_index.within_participant_mediation <- function(mediation_model, iter = 5000, alpha = .05, ...) {
 

@@ -1,3 +1,26 @@
+#' @title add_index method for simple mediation
+#'
+#' @description Adds confidence interval for the inderct effect to a mediation
+#'   model fitted with \code{\link{mdt_simple}}.
+#'
+#' @param mediation_model A mediation model of class
+#'   \code{"simple_mediation"}.
+#' @param iter Number of simulation to use to compute Monte Carlo indirect
+#'   effect confidence interval.
+#' @param alpha Alpha threshold to use with the confidence interval.
+#' @param ... Further arguments passed to or from other methods.
+#' 
+#' @examples 
+#' ## getting an indirect effect index
+#' ho_et_al$condition_c <- build_contrast(ho_et_al$condition,
+#'                                        "Low discrimination",
+#'                                        "High discrimination")
+#' simple_model <- mdt_simple(data = ho_et_al,
+#'                            IV = condition_c,
+#'                            DV = hypodescent,
+#'                            M = linkedfate) 
+#' add_index(simple_model) 
+#'                                  
 #' @export
 add_index.simple_mediation <- function(mediation_model, iter = 5000, alpha = .05, ...) {
 

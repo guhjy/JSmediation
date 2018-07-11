@@ -8,8 +8,9 @@
 #'
 #' @param mediation_model A mediation model fitted with and \code{mdt_*} family
 #'   function.
-#' @param iter Number of simulation for the Monte Carlo CI method.
-#' @param alpha Alpha threshold to use when computing Monte Carlo CI.
+#' @param iter Number of simulation to use to compute Monte Carlo indirect
+#'   effect confidence interval.
+#' @param alpha Alpha threshold to use with the confidence interval.
 #' @param ... Further arguments to be passed to further methods.
 #'
 #' @return An object of the same class as \code{mediation_model}, but with

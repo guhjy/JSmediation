@@ -10,9 +10,10 @@ add_index(mediation_model, iter = 5000, alpha = 0.05, ...)
 \item{mediation_model}{A mediation model fitted with and \code{mdt_*} family
 function.}
 
-\item{iter}{Number of simulation for the Monte Carlo CI method.}
+\item{iter}{Number of simulation to use to compute Monte Carlo indirect
+effect confidence interval.}
 
-\item{alpha}{Alpha threshold to use when computing Monte Carlo CI.}
+\item{alpha}{Alpha threshold to use with the confidence interval.}
 
 \item{...}{Further arguments to be passed to further methods.}
 }
