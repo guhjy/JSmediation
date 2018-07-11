@@ -43,10 +43,10 @@ dohle_siegrist<-
 usethis::use_data(dohle_siegrist, overwrite = TRUE)
 
 # wide-format -------------------------------------------------------------
-dohle_siegrist2 <-
+dohle_siegrist_w <-
   melt(dohle_siegrist, c("participant", "name")) %>%
   mutate(name = str_extract(name, "^.")) %>%
   dcast(participant ~ variable + name,
         value.var = "value")
 
-usethis::use_data(dohle_siegrist2, overwrite = TRUE)
+usethis::use_data(dohle_siegrist_w, overwrite = TRUE)
