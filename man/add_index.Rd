@@ -2,30 +2,28 @@
 % Please edit documentation in R/add_index.R
 \name{add_index}
 \alias{add_index}
-\title{Add mediation index to a fitted mediation model}
+\title{Add an indirect effect index to a fitted mediation model}
 \usage{
 add_index(mediation_model, iter = 5000, alpha = 0.05, ...)
 }
 \arguments{
-\item{mediation_model}{A mediation model fitted with \code{mediation_model}
-method.}
+\item{mediation_model}{A mediation model fitted with and \code{mdt_*} family
+function.}
 
 \item{iter}{Number of simulation for the Monte Carlo CI method.}
 
 \item{alpha}{Alpha threshold to use when computing Monte Carlo CI.}
 
-\item{...}{Further arguments to be passed to \code{}}
+\item{...}{Further arguments to be passed to further methods.}
 }
 \value{
 An object of the same class as \code{mediation_model}, but with
-confidence interval for the indirect effect estimation added for later
-use.
+confidence interval for the indirect effect estimation added for later use.
 }
 \description{
-Add mediation index to a fitted mediation model.
-}
-\examples{
-\dontrun{
-my_model <- add_index(my_model)
-}
+\code{\link{add_index}} is a generic function that adds indirect
+effect index to a fitted mediation model. This function invokes particular
+methods depending of the class of the mediation model. For example, with a
+model fitted with \code{\link{mdt_simple}}, \code{\link{add_index}} will
+invoke \code{\link{add_index.simple_mediation}}.
 }
