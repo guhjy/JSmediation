@@ -16,7 +16,7 @@
 #' User can change choose to have a negative total effect by using the
 #' \code{default_coding} argument.
 #'
-#' @param data a dataframe containing the variables in the model.
+#' @param data a data frame containing the variables in the model.
 #' @param IV an unquoted variable in the data frame which will be used
 #'             as independant variable.
 #' @param M an unquoted variable in the data frame which will be used

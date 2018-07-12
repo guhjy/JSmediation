@@ -1,7 +1,7 @@
 #' @title Simple mediation model
 #'
 #' @description
-#' Given a dataframe, an IV (\code{IV}), a DV (\code{DV}) and a mediator
+#' Given a data frame, an IV (\code{IV}), a DV (\code{DV}) and a mediator
 #' (\code{M}), \code{mdt_simple} fits a simple mediation model using joint
 #' significance method (Judd, Yzerbyt, & Muller, 2014).
 #'
@@ -40,7 +40,7 @@
 #' and moderation. Handbook of research methods in
 #' social and personality psychology, 2, 653–676.
 #'
-#' @param data a dataframe containing the variables in the model.
+#' @param data a data frame containing the variables in the model.
 #' @param IV an unquoted numeric variable in the data frame which will be used
 #'             as independant variable.
 #' @param M an unquoted numeric variable in the data frame which will be used

@@ -1,6 +1,6 @@
 #' Fit a within-participant mediation model (wide-format input)
 #'
-#' @param data a dataframe containing the variables in the model.
+#' @param data a data frame containing the variables in the model.
 #' @param DV_A a
 #' @param DV_B a
 #' @param M_A a

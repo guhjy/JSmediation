@@ -7,7 +7,7 @@
 mdt_within(data, IV, DV, M, grouping, default_coding = TRUE)
 }
 \arguments{
-\item{data}{a dataframe containing the variables in the model.}
+\item{data}{a data frame containing the variables in the model.}
 
 \item{IV}{an unquoted variable in the data frame which will be used
 as independant variable.}

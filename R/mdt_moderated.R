@@ -1,6 +1,6 @@
 #' @title Fit a moderated mediation model
 #'
-#' @description Given a dataframe, an IV, a DV, a mediator and a moderator, fit
+#' @description Given a data frame, an IV, a DV, a mediator and a moderator, fit
 #'   a moderated mediation model.
 #'
 #' @details This function is an helper to fit linear models needed to test a
@@ -13,7 +13,7 @@
 #'   is mediated and mediation is moderated. \emph{Journal of Personality and
 #'   Social Psychology}, 89(6), 852‑863. doi: 10.1037/0022-3514.89.6.852
 #'
-#' @param data A dataframe containing the variables in the model.
+#' @param data A data frame containing the variables in the model.
 #' @param IV An unquoted variable in the data frame which will be used
 #'   as independant variable.
 #' @param M An unquoted variable in the data frame which will be used

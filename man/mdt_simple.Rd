@@ -7,7 +7,7 @@
 mdt_simple(data, IV, DV, M)
 }
 \arguments{
-\item{data}{a dataframe containing the variables in the model.}
+\item{data}{a data frame containing the variables in the model.}
 
 \item{IV}{an unquoted numeric variable in the data frame which will be used
 as independant variable.}
@@ -43,7 +43,7 @@ components:
     \code{data} argument.}
 }
 \description{
-Given a dataframe, an IV (\code{IV}), a DV (\code{DV}) and a mediator
+Given a data frame, an IV (\code{IV}), a DV (\code{DV}) and a mediator
 (\code{M}), \code{mdt_simple} fits a simple mediation model using joint
 significance method (Judd, Yzerbyt, & Muller, 2014).
 }

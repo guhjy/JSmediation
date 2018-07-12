@@ -7,7 +7,7 @@
 mdt_within_wide(data, DV_A, DV_B, M_A, M_B)
 }
 \arguments{
-\item{data}{a dataframe containing the variables in the model.}
+\item{data}{a data frame containing the variables in the model.}
 
 \item{DV_A}{a}
 

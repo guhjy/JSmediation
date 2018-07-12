@@ -7,7 +7,7 @@
 mdt_moderated(data, IV, DV, M, Mod)
 }
 \arguments{
-\item{data}{A dataframe containing the variables in the model.}
+\item{data}{A data frame containing the variables in the model.}
 
 \item{IV}{An unquoted variable in the data frame which will be used
 as independant variable.}
@@ -46,7 +46,7 @@ components:
     \code{data} argument.}
 }
 \description{
-Given a dataframe, an IV, a DV, a mediator and a moderator, fit
+Given a data frame, an IV, a DV, a mediator and a moderator, fit
 a moderated mediation model.
 }
 \details{
