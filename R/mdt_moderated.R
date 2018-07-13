@@ -1,7 +1,9 @@
 #' @title Fit a moderated mediation model
 #'
-#' @description Given a data frame, an IV, a DV, a mediator and a moderator, fit
-#'   a moderated mediation model.
+#' @description Given a data frame, a predictor (\code{IV}), an outcome
+#'   (\code{DV}), a mediator (\code{M}), and a moderator (\code{Mod}) conducts a
+#'   joint-significant test for moderated mediation (see Yzerbyt, Muller,
+#'   Batailler, & Judd, 2018).
 #'
 #' @details This function is an helper to fit linear models needed to test a
 #'   moderated mediation model. The join-significant formal approach has been
@@ -16,10 +18,10 @@
 #' @param data A data frame containing the variables in the model.
 #' @param IV An unquoted variable in the data frame which will be used
 #'   as independant variable.
-#' @param M An unquoted variable in the data frame which will be used
-#'   as mediator.
 #' @param DV An unquoted variable in the data frame which will be used
 #'   as dependant variable.
+#' @param M An unquoted variable in the data frame which will be used
+#'   as mediator.
 #' @param Mod An unquoted variable in the data frame which will be used
 #'   as moderator.
 #'

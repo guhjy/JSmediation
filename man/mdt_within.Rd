@@ -2,44 +2,123 @@
 % Please edit documentation in R/mdt_within.R
 \name{mdt_within}
 \alias{mdt_within}
-\title{Fit a within-participant mediation model (long format)}
+\title{Joint-significance test for within-participant mediation}
 \usage{
 mdt_within(data, IV, DV, M, grouping, default_coding = TRUE)
 }
 \arguments{
 \item{data}{a data frame containing the variables in the model.}
 
-\item{IV}{an unquoted variable in the data frame which will be used
-as independant variable.}
+\item{IV}{an unquoted variable in the data frame which will be used as
+independant variable.}
 
-\item{DV}{an unquoted variable in the data frame which will be used
-as dependant variable.}
+\item{DV}{an unquoted variable in the data frame which will be used as
+dependant variable.}
 
-\item{M}{an unquoted variable in the data frame which will be used
-as mediator.}
+\item{M}{an unquoted variable in the data frame which will be used as
+mediator.}
 
-\item{grouping}{an unquoted variable in the data frame which will be used
-as grouping variable.}
+\item{grouping}{an unquoted variable in the data frame which will be used as
+grouping variable.}
 
 \item{default_coding}{should the variable coding be the default? Defaults to
 \code{TRUE}.}
 }
-\description{
-Given a data frame, an IV, a DV, and a mediator, fits
-a within-participant mediation model.
+\value{
+Returns an object of class "\code{mediation_model}" object.
+
+  An object of class "\code{mediation_model}" is a least containing at list
+  the components:
+
+  \item{type}{A character string containing the type of model that has been
+    conducted (e.g., \code{"simple mediation"}).}
+  \item{method}{A character string containing the approach that has been
+    used to conduct the mediation analysis (usually
+    \code{"joint significance"}).}
+  \item{params}{A named list of character strings describing variables used 
+    in the model.}
+  \item{paths}{A named list containing information on each relevent path of 
+    the mediation model.}
+  \item{indirect_index}{A boolean indicating wether indirect effect index has
+    been computed. Defaults to \code{FALSE}. See \code{\link{add_index}} to
+    compute mediation index.}
+  \item{indirect_index_infos}{(Optional) An object of class
+    \code{"indirect_index"}. Appears when one apply \code{\link{add_index}}
+    to an object of class \code{"mediation_model"}.}
+  \item{js_models}{A list of objects of class \code{"lm"}. Contains every
+    model used in joint-significance test.}
+  \item{data}{The original data frame that has been been passed through
+    \code{data} argument.}
 }
-\section{Coding}{
+\description{
+Given a data frame, a predictor (\code{IV}), an outcome
+(\code{DV}), a mediator (\code{M}), and a grouping variable (\code{group})
+conducts a joint-significant test for within-participant mediation (see
+Yzerbyt, Muller, Batailler, & Judd, 2018).
+}
+\section{Models}{
+ For within-participant mediation, three models will be used:
+\itemize{
+\item \eqn{Y_{2i} - Y_{1i} = c_{11}}{Y2i - Y1i = c11}
+\item \eqn{M_{2i} - M_{1i} = a_{21}}{M2i - M1i = a21}
+\item \eqn{Y_{2i} - Y_{1i} = c'_{31} + b_{32}(M_{2i} - M_{1i}) +
+  d_{33}[0.5(M_{1i} + M_{2i}) - 0.5(\overline{M_{1} + M_{2}})]}{Y2i - Y1i =
+  c'31 + b32 * (M2i + M1i) + d33 * [0.5 * (M1i + M2i) - 0.5 * mean(M1 + M2)]}
+}
 
-Within-participant mediation model's underlying models uses difference
-scores as DV. Because the function input does not allow the user
-to specify how the difference scores should be computed, \code{mdt_within}
-has to figure the coding by itself.
+with \eqn{Y_{2i} - Y_{1i}}{Y2i - Y1i} the difference score beetween DV
+conditions for the outcome variable for the \emph{i}th observation,
+\eqn{M_{2i} - M_{1i}}{M2i - M1i} the difference score between DV conditions
+for the mediator variable for the \emph{i}th observation, \eqn{M_{1i} +
+  M_{2i}}{M1i + M2i} the sum of mediator variables values for DV conditions
+for the \emph{i}th observation, and \eqn{\overline{M_{1} + M_{2}}}{mean(M1i
+  + M2i)} the mean sum of mediator variables values for DV conditions across
+observations (see Montoya and Hayes, 2011).
 
-\code{mdt_within}'s default behavior is to choose a coding where the total
-effect (the effect of \eqn{X} on \eqn{Y}) will be positive and compute
-other difference scores accordingly.
+Coefficients associated with \eqn{a}, \eqn{b}, \eqn{c}, and \eqn{c'} paths
+are respectively \eqn{a_{21}}{a21}, \eqn{b_{32}}{b32}, \eqn{c_{11}}{c11},
+and \eqn{c'_{31}}{c'31}.
+}
+
+\section{Data formatting}{
+ To be consistant with other \code{mdt_*} family
+functions, \code{mdt_within} takes a long-format data frame as \code{data}
+argument. With this kind of format, each sampled unit has two rows, one for
+the first within-participant condition and one for the second
+within-participant condition. In addition, each row has one observation for
+the outcome and one observation for the mediator (see
+\code{\link{dohle_siegrist}} for an example.
+
+Because such formatting is not the most common among social scientists
+intrested in within-participant mediation, \pkg{JSmediation} contains the
+\code{\link{mdt_within_wide}} function which handles long-formatted data
+input (but is syntax-inconsistant with other \code{mdt_*} family
+functions).
+}
+
+\section{Variable coding}{
+ Within-participant mediation model's underlying
+models uses difference scores as DV (see Models section). Because the
+function input does not allow the user to specify how the difference scores
+should be computed, \code{mdt_within} has a default coding.
+
+\code{mdt_within}'s default behavior is to compute a difference score so
+the total effect (the effect of \eqn{X} on \eqn{Y}) will be positive and
+compute other difference scores accordingly.
 
 User can change choose to have a negative total effect by using the
 \code{default_coding} argument.
+
+Note that \code{DV} and \code{M} have to be numeric.
 }
 
+\references{
+Montoya, A. K., & Hayes, A. F. (2017). Two-condition
+within-participant statistical mediation analysis: A path-analytic
+framework. \emph{Psychological Methods}, \emph{22}(1), 6‑27. doi:
+10.1037/met0000086
+}
+\seealso{
+Other mediation models: \code{\link{mdt_moderated}},
+  \code{\link{mdt_simple}}
+}

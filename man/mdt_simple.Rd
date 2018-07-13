@@ -2,7 +2,7 @@
 % Please edit documentation in R/mdt_simple.R
 \name{mdt_simple}
 \alias{mdt_simple}
-\title{Simple mediation model}
+\title{Joint-significance test for simple mediation}
 \usage{
 mdt_simple(data, IV, DV, M)
 }
@@ -84,6 +84,10 @@ with \eqn{Y_i}{Yi}, outcome value for the \emph{i}th observation,
 \eqn{X_i}{Xi}, predictor value for the \emph{i}th observation, and
 \eqn{M_i}{Mi}, mediator value for the \emph{i}th observation (Baron &
 Kenny, 1986; Judd & Kenny, 1981).
+
+Coefficients associated with \eqn{a}, \eqn{b}, \eqn{c}, and \eqn{c'} paths
+are respectively \eqn{a_{21}}{a21}, \eqn{b_{32}}{b32}, \eqn{c_{11}}{c11},
+and \eqn{c'_{31}}{c'31}.
 }
 
 \section{Variable coding}{
@@ -119,5 +123,6 @@ Treatment Evaluations. \emph{Evaluation Review}, \emph{5}(5), 602‑619. doi:
 10.1177/0193841X8100500502
 }
 \seealso{
-Other mediation models: \code{\link{mdt_moderated}}
+Other mediation models: \code{\link{mdt_moderated}},
+  \code{\link{mdt_within}}
 }

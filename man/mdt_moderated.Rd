@@ -24,30 +24,34 @@ as moderator.}
 \value{
 Returns an object of class "\code{mediation_model}" object.
 
-An object of class "\code{mediation_model}" is a least containing at list the
-components:
+  An object of class "\code{mediation_model}" is a least containing at list
+  the components:
 
   \item{type}{A character string containing the type of model that has been
     conducted (e.g., \code{"simple mediation"}).}
   \item{method}{A character string containing the approach that has been
     used to conduct the mediation analysis (usually
     \code{"joint significance"}).}
-  \item{params}{Score at a 3-item measure of hypodescent}
-  \item{paths}{Score at a 3-item measure of hypodescent}
-  \item{indirect_index}{A boolean indicating wether mediation index has been
-    computed. Defaults to \code{FALSE}. See \code{\link{add_index}} to
+  \item{params}{A named list of character strings describing variables used 
+    in the model.}
+  \item{paths}{A named list containing information on each relevent path of 
+    the mediation model.}
+  \item{indirect_index}{A boolean indicating wether indirect effect index has
+    been computed. Defaults to \code{FALSE}. See \code{\link{add_index}} to
     compute mediation index.}
   \item{indirect_index_infos}{(Optional) An object of class
     \code{"indirect_index"}. Appears when one apply \code{\link{add_index}}
-    method to an object of class \code{"mediation_model"}.}
+    to an object of class \code{"mediation_model"}.}
   \item{js_models}{A list of objects of class \code{"lm"}. Contains every
-    model fitted to apply joint significance approach.}
+    model used in joint-significance test.}
   \item{data}{The original data frame that has been been passed through
     \code{data} argument.}
 }
 \description{
-Given a data frame, an IV, a DV, a mediator and a moderator, fit
-a moderated mediation model.
+Given a data frame, a predictor (\code{IV}), an outcome
+(\code{DV}), a mediator (\code{M}), and a moderator (\code{Mod}) conducts a
+joint-significant test for moderated mediation (see Yzerbyt, Muller,
+Batailler, & Judd, 2018).
 }
 \details{
 This function is an helper to fit linear models needed to test a
@@ -62,5 +66,6 @@ is mediated and mediation is moderated. \emph{Journal of Personality and
 Social Psychology}, 89(6), 852‑863. doi: 10.1037/0022-3514.89.6.852
 }
 \seealso{
-Other mediation models: \code{\link{mdt_simple}}
+Other mediation models: \code{\link{mdt_simple}},
+  \code{\link{mdt_within}}
 }
