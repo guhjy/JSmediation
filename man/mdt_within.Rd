@@ -56,28 +56,54 @@ Given a data frame, a predictor (\code{IV}), an outcome
 conducts a joint-significant test for within-participant mediation (see
 Yzerbyt, Muller, Batailler, & Judd, 2018).
 }
+\details{
+With within-participant mediation analysis, one is intrested in
+  finding if the effect of \eqn{X} on \eqn{Y} goes through a third variable
+  \eqn{M}. The particularity of within-participant mediation analysis lies in
+  the repeated-measure design used. With such design, each sampled unit
+  (e.g., participant) is measured on the dependent variable \eqn{Y} and the
+  mediator \eqn{M} in the two conditions of \eqn{X}. The hypothesis behind
+  this test is that \eqn{X} has an effect on \eqn{M} (\eqn{a}) which has an
+  effect on \eqn{Y} (\eqn{b}), meaning that \eqn{X} has an indrect effect on
+  \eqn{Y} through \eqn{M}.
+
+  As with simple mediation, total effect of \eqn{X} on \eqn{Y} can be
+  conceptually described the following way:
+
+  \deqn{c = c' + ab}
+
+  with \eqn{c} the total effect of \eqn{X} on \eqn{Y}, \eqn{c'} the direct of
+  \eqn{X} on \eqn{Y}, and \eqn{ab} the indirect effect of \eqn{X} on \eqn{Y}
+  through {M} (see Models section).
+
+  To assess if the indirect effect is different from the null, one has to
+  assess the significance against the null for both \eqn{a} (the effect of
+  \eqn{X} on \eqn{M}) for and \eqn{b} (effect of \eqn{M} on \eqn{Y}
+  controlling for the effect of \eqn{X}). Both \eqn{a} and \eqn{b} needs to
+  be simultaneously significant for an indirect effect to be claimed (Judd,
+  Kenny, & McClelland, 2001; Montoya and Hayes, 2011).
+}
 \section{Models}{
  For within-participant mediation, three models will be used:
-\itemize{
-\item \eqn{Y_{2i} - Y_{1i} = c_{11}}{Y2i - Y1i = c11}
-\item \eqn{M_{2i} - M_{1i} = a_{21}}{M2i - M1i = a21}
-\item \eqn{Y_{2i} - Y_{1i} = c'_{31} + b_{32}(M_{2i} - M_{1i}) +
+
+  - \eqn{Y_{2i} - Y_{1i} = c_{11}}{Y2i - Y1i = c11}
+  - \eqn{M_{2i} - M_{1i} = a_{21}}{M2i - M1i = a21}
+  - \eqn{Y_{2i} - Y_{1i} = c'_{31} + b_{32}(M_{2i} - M_{1i}) +
   d_{33}[0.5(M_{1i} + M_{2i}) - 0.5(\overline{M_{1} + M_{2}})]}{Y2i - Y1i =
   c'31 + b32 * (M2i + M1i) + d33 * [0.5 * (M1i + M2i) - 0.5 * mean(M1 + M2)]}
-}
 
-with \eqn{Y_{2i} - Y_{1i}}{Y2i - Y1i} the difference score beetween DV
-conditions for the outcome variable for the \emph{i}th observation,
-\eqn{M_{2i} - M_{1i}}{M2i - M1i} the difference score between DV conditions
-for the mediator variable for the \emph{i}th observation, \eqn{M_{1i} +
+  with \eqn{Y_{2i} - Y_{1i}}{Y2i - Y1i} the difference score beetween DV
+  conditions for the outcome variable for the \emph{i}th observation,
+  \eqn{M_{2i} - M_{1i}}{M2i - M1i} the difference score between DV conditions
+  for the mediator variable for the \emph{i}th observation, \eqn{M_{1i} +
   M_{2i}}{M1i + M2i} the sum of mediator variables values for DV conditions
-for the \emph{i}th observation, and \eqn{\overline{M_{1} + M_{2}}}{mean(M1i
+  for the \emph{i}th observation, and \eqn{\overline{M_{1} + M_{2}}}{mean(M1i
   + M2i)} the mean sum of mediator variables values for DV conditions across
-observations (see Montoya and Hayes, 2011).
+  observations (see Montoya and Hayes, 2011).
 
-Coefficients associated with \eqn{a}, \eqn{b}, \eqn{c}, and \eqn{c'} paths
-are respectively \eqn{a_{21}}{a21}, \eqn{b_{32}}{b32}, \eqn{c_{11}}{c11},
-and \eqn{c'_{31}}{c'31}.
+  Coefficients associated with \eqn{a}, \eqn{b}, \eqn{c}, and \eqn{c'} paths
+  are respectively \eqn{a_{21}}{a21}, \eqn{b_{32}}{b32}, \eqn{c_{11}}{c11},
+  and \eqn{c'_{31}}{c'31}.
 }
 
 \section{Data formatting}{
@@ -113,10 +139,19 @@ Note that \code{DV} and \code{M} have to be numeric.
 }
 
 \references{
-Montoya, A. K., & Hayes, A. F. (2017). Two-condition
-within-participant statistical mediation analysis: A path-analytic
-framework. \emph{Psychological Methods}, \emph{22}(1), 6‑27. doi:
-10.1037/met0000086
+Judd, C. M., Kenny, D. A., & McClelland, G. H. (2001). Estimating
+and testing mediation and moderation in within-subject designs.
+\emph{Psychological Methods}, \emph{6}(2), 115‑134. doi:
+10.1037//1082-989X.6.2.115
+
+Montoya, A. K., & Hayes, A. F. (2017). Two-condition within-participant
+statistical mediation analysis: A path-analytic framework.
+\emph{Psychological Methods}, \emph{22}(1), 6‑27. doi: 10.1037/met0000086
+
+Yzerbyt, V., Muller, D., Batailler, C., & Judd, C. M. (in press). New
+recommendations for testing indirect effects in mediational models: The
+need to report and test component paths. \emph{Journal of Personality and
+Social Psychology}.
 }
 \seealso{
 Other mediation models: \code{\link{mdt_moderated}},

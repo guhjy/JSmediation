@@ -113,14 +113,19 @@ mdt_simple(data = ho_et_al,
 
 }
 \references{
-Baron, R. M., & Kenny, D. A. (1986). The moderator-mediator variable
-distinction in social psychological research: Conceptual, strategic, and
-statistical considerations. \emph{Journal of Personality and Social
-Psychology}, \emph{51}(6), 1173‑1182.doi:10.1037/0022-3514.51.6.1173
+Baron, R. M., & Kenny, D. A. (1986). The moderator-mediator
+variable distinction in social psychological research: Conceptual,
+strategic, and statistical considerations. \emph{Journal of Personality and
+Social Psychology}, \emph{51}(6), 1173‑1182.doi:10.1037/0022-3514.51.6.1173
 
-Judd, C. M., & Kenny, D. A. (1981). Process Analysis: Estimating Mediation in
-Treatment Evaluations. \emph{Evaluation Review}, \emph{5}(5), 602‑619. doi:
-10.1177/0193841X8100500502
+Judd, C. M., & Kenny, D. A. (1981). Process Analysis: Estimating Mediation
+in Treatment Evaluations. \emph{Evaluation Review}, \emph{5}(5), 602‑619.
+doi: 10.1177/0193841X8100500502
+
+Yzerbyt, V., Muller, D., Batailler, C., & Judd, C. M. (in press). New
+recommendations for testing indirect effects in mediational models: The
+need to report and test component paths. \emph{Journal of Personality and
+Social Psychology}.
 }
 \seealso{
 Other mediation models: \code{\link{mdt_moderated}},

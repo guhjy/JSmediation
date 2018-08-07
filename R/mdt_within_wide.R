@@ -5,6 +5,10 @@
 #' @param DV_B a
 #' @param M_A a
 #' @param M_B a
+#' 
+#' @template mediation_model
+#' @template within_details
+#' @template within_models
 #'
 #' @export
 mdt_within_wide <- function(data, DV_A, DV_B, M_A, M_B) {
