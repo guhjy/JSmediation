@@ -24,8 +24,8 @@ use \code{"total"}.}
 \item{...}{Further arguments passed to or from other methods.}
 }
 \description{
-Adds confidence interval for the inderct effect to a mediation
-model fitted with \code{\link{mdt_moderated}}.
+Adds confidence interval for the inderct effect's moderation to
+a moderated mediation model fitted with \code{\link{mdt_moderated}}.
 }
 \examples{
 ## getting a stage 1 moderated indirect effect index
