@@ -18,8 +18,16 @@ fitted to the data. This function helps you see a summary of the models that
 have been used in an object of class \code{mediation_model}.
 }
 \examples{
-\dontrun{
+data(ho_et_al)
+ho_et_al$condition_c <- build_contrast(ho_et_al$condition,
+                                       "Low discrimination",
+                                       "High discrimination")
+my_model <- 
+  mdt_simple(data = ho_et_al,
+             IV = condition_c,
+             DV = hypodescent,
+             M = linkedfate)
+           
 display_models(my_model)
-}
 
 }

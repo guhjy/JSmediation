@@ -49,9 +49,9 @@
 #'   \eqn{M_i}{Mi}, mediator value for the \emph{i}th observation (Baron &
 #'   Kenny, 1986; Judd & Kenny, 1981).
 #'   
-#'   Coefficients associated with \eqn{a}, \eqn{b}, \eqn{c}, and \eqn{c'} paths
-#'   are respectively \eqn{a_{21}}{a21}, \eqn{b_{32}}{b32}, \eqn{c_{11}}{c11},
-#'   and \eqn{c'_{31}}{c'31}.
+#'   Coefficients associated with \eqn{a}, \eqn{aMod} \eqn{b}, \eqn{c}, and
+#'   \eqn{c'} paths are respectively \eqn{a_{21}}{a_21}, \eqn{b_{32}}{b_32},
+#'   \eqn{c_{11}}{c_11}, and \eqn{c'_{31}}{c'_31}.
 #'   
 #' @section Variable coding: Because joint-significance tests uses linear models
 #'   uneder the scene, variables involved in the model have to be numeric.

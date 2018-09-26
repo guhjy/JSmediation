@@ -4,8 +4,8 @@
 \alias{add_index.within_participant_mediation}
 \title{add_index method for within-participant mediation}
 \usage{
-\method{add_index}{within_participant_mediation}(mediation_model, iter = 5000,
-  alpha = 0.05, ...)
+\method{add_index}{within_participant_mediation}(mediation_model,
+  iter = 5000, alpha = 0.05, ...)
 }
 \arguments{
 \item{mediation_model}{A mediation model of class
@@ -23,13 +23,25 @@ Adds confidence interval for the inderct effect to a
 within-participant mediation model fitted with \code{\link{mdt_within}} or
 \code{\link{mdt_within_wide}}.
 }
+\details{
+Indirect effect index for within-participant mediation uses \eqn{a}
+and \eqn{b} estimates and their standard error to compute the \eqn{ab}
+product distribution using Monte Carlo methods (see MacKinnon, Lockwood, &
+Williams, 2004).
+}
 \examples{
 ## getting an indirect effect index
 within_model <- mdt_within(data = dohle_siegrist,
-                           IV = name, 
-                           DV = willingness, 
-                           M = hazardousness, 
-                           grouping = participant) 
+                           IV = name,
+                           DV = willingness,
+                           M = hazardousness,
+                           grouping = participant)
 add_index(within_model)
 
+}
+\references{
+MacKinnon, D. P., Lockwood, C. M., & Williams, J. (2004).
+Confidence Limits for the Indirect Effect: Distribution of the Product and
+Resampling Methods. \emph{Multivariate Behavioral Research}, \emph{39}(1),
+99‑128. doi: 10.1207/s15327906mbr3901_4
 }

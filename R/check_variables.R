@@ -15,7 +15,7 @@ check_variables.default <- function(model) {
 
 # Method for moderated_mediation class. Checks wether IV, Mediator, or
 # Moderator is either a contrast-coded or a centered variable. Throws a
-# message if it is not the cas.
+# message if it is not the case.
 check_variables.moderated_mediation <- function(model) {
   IV_n <- purrr::pluck(model, "params", "IV")
   M_n <- purrr::pluck(model, "params", "M")
@@ -39,13 +39,12 @@ check_variables.moderated_mediation <- function(model) {
   if (length(Var_n_check) != 0) {
     message("\nMessage:")
     message(
-      "It appears that the following variables are not
-contrast-coded or centered, please make sure it
-is intended as regression coefficients depends on
-the variables' coding:"
+"It appears that the following variables are not contrast-coded or centered, 
+please make sure it is intended as regression coefficients depends on the 
+variables' coding:"
     )
     for (var in Var_n_check) {
-      message(glue::glue("- {var}"))
+      message(glue::glue("* {var}"))
     }
   }
 }

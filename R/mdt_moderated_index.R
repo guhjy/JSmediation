@@ -14,6 +14,22 @@
 #'   use \code{"total"}.
 #' @param ... Further arguments passed to or from other methods.
 #'
+#' @details Indirect effect moderation index for within-participant mediation
+#'   uses \eqn{a}, \eqn{a \times Mod}{a * Mod}, \eqn{b} and \eqn{b \times Mod}{b
+#'   * Mod} estimates and their standard error to compute the appropriate index
+#'   product distribution using Monte Carlo methods (see Muller, Judd, &
+#'   Yzerbyt, 2005).
+#'
+#'   \pkg{JSmediation} supports different type of mediated indirect effect
+#'   index: 
+#'   \itemize{ 
+#'     \item{Stage 1:}{compute the product beetween \eqn{a \times Mod}{a
+#'     * Mod} and \eqn{b}.}
+#'     \item{Stage 2:}{compute the product beetween \eqn{a} and \eqn{b \times
+#'     Mod}{b * Mod}.}
+#'     \item{Total:}{compute the sum of Stage 1 and Stage 2 distribution.}
+#'   }
+#'
 #' @examples
 #' ## getting a stage 1 moderated indirect effect index
 #' ho_et_al$condition_c <- build_contrast(ho_et_al$condition,
@@ -27,6 +43,10 @@
 #'                                  M = linkedfate_c,
 #'                                  Mod = sdo_c)
 #' add_index(moderated_model, stage = 1)
+#'
+#' @references Muller, D., Judd, C. M., & Yzerbyt, V. Y. (2005). When moderation
+#'   is mediated and mediation is moderated. \emph{Journal of Personality and
+#'   Social Psychology}, 89(6), 852‑863. doi: 10.1037/0022-3514.89.6.852
 #'
 #' @export
 add_index.moderated_mediation <- function(mediation_model, iter = 5000, alpha = .05, stage = NULL, ...) {
@@ -71,15 +91,13 @@ add_index.moderated_mediation <- function(mediation_model, iter = 5000, alpha = 
     contains_zero <- (CI[[1]] < 0 & CI[[2]] > 0)
     
     indirect_index_infos <-
-      list(type          = type,
-           method        = "Monte Carlo",
-           estimate      = a * b,
-           CI            = CI,
-           alpha         = alpha,
-           iterations    = iter,
-           contains_zero = contains_zero,
-           sampling      = indirect_sampling)
+      indirect_effect(type       = type,
+                      estimate   = a * b,
+                      alpha      = alpha,
+                      iterations = iter,
+                      sampling   = indirect_sampling)
   }
+  
   else if(stage %in% c("total")) {
 
     a1   <- purrr::pluck(mediation_model, "paths", "a * Mod", "point_estimate")
@@ -107,25 +125,22 @@ add_index.moderated_mediation <- function(mediation_model, iter = 5000, alpha = 
                       ))
 
     indirect_sampling <- ab_sampling[ , 1] * ab_sampling[ , 2]
-    CI <- stats::quantile(indirect_sampling, c(alpha / 2, 1 - alpha / 2))
-    contains_zero <- (CI[[1]] < 0 & CI[[2]] > 0)
     
     indirect_index_infos <-
-      list(type          = type,
-           method        = "Monte Carlo",
-           estimate      = a1 * b1 + a2 * b2,
-           CI            = CI,
-           alpha         = alpha,
-           iterations    = iter,
-           contains_zero = contains_zero,
-           sampling      = indirect_sampling)
+      indirect_effect(
+        type          = type,
+        estimate      = a1 * b1 + a2 * b2,
+        alpha         = alpha,
+        iterations    = iter,
+        sampling      = indirect_sampling
+      )
   }
 
 
 
   mediation_model$indirect_index <- TRUE
   mediation_model$indirect_index_infos <-
-    as_indirect_index(indirect_index_infos)
+    indirect_index_infos
 
   mediation_model
 }

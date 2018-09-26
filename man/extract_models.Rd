@@ -4,29 +4,37 @@
 \alias{extract_models}
 \title{Extract models from a mediation_model object}
 \usage{
-extract_models(mediation_model, step = NULL)
+extract_models(mediation_model)
 }
 \arguments{
 \item{mediation_model}{An object of class \code{mediation_model}.}
-
-\item{step}{An integer or a string corresponding to the model
-to extract (optional).}
 }
 \value{
-Either a list of \code{lm} objects or an \code{lm} object.
+A list of \code{lm} objects.
 }
 \description{
 When conducting a joint significant test, different models are
-fitted to the data. This function helps you access the models that have been
-used in an object of class \code{mediation_model}.
+fitted to the data. This function helps you access the models that have
+been used in an object of class \code{mediation_model}.
 }
 \examples{
-\dontrun{
+data(ho_et_al)
+ho_et_al$condition_c <- build_contrast(ho_et_al$condition,
+                                       "Low discrimination",
+                                       "High discrimination")
+my_model <-
+  mdt_simple(data = ho_et_al,
+             IV = condition_c,
+             DV = hypodescent,
+             M = linkedfate)
+
 extract_models(my_model)
-}
 
 }
 \seealso{
-\code{\link{extract_models}} to access to models used for
+\code{\link{extract_model}} to access a specific model used for
 joint-significance test as a data frame.
+
+\code{\link{extract_models}} to access a single model which has been
+used for joint-significance test.
 }

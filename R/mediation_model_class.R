@@ -1,5 +1,4 @@
-# Create an object of class "mediation_model" and performs type check so
-# that every subcomponent is the class it is suppose to be.
+# Create an object of class "mediation_model".
 # Args:
 #   type:
 #   params: List of params involved in the model

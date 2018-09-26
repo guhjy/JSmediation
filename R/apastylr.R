@@ -35,14 +35,21 @@ apastylr.lm <- function(model, term) {
 
   df <-
     model$df.residual
-
+  
   pvalue <-
     summary_statistics$p.value[1]
-
+  
   glue::glue("t({df}) = {t}, p {p}",
-             p = ifelse(pvalue < .001,
-                        "< .001",
-                        sub(".", "= ", format(round(summary_statistics$p.value, 3), nsmall = 3))
+             p = ifelse(
+               pvalue < .001,
+               "< .001",
+               sub(
+                 ".",
+                 "= ",
+                 format(round(summary_statistics$p.value, 3),
+                        nsmall = 3
+                 )
+               )
              ))
-
+  
 }

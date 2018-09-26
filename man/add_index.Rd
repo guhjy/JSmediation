@@ -22,10 +22,10 @@ An object of the same class as \code{mediation_model}, but with index
 added for later use.
 }
 \description{
-\code{\link{add_index}} is a generic function that adds indirect
-effect index to an object created with an \code{mdt_*} family function.
-This function invokes particular methods depending of the class of the
-mediation model. For example, with a model fitted with
+\code{\link{add_index}} is a generic function that adds
+(moderated) indirect effect index to an object created with an \code{mdt_*}
+family function. This function invokes particular methods depending of the
+class of the mediation model. For example, with a model fitted with
 \code{\link{mdt_simple}}, \code{\link{add_index}} will invoke
 \code{\link{add_index.simple_mediation}}.
 }
