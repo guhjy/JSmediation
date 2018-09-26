@@ -7,6 +7,8 @@
 status](https://www.r-pkg.org/badges/version/JSmediation)](https://cran.r-project.org/package=JSmediation)
 [![Travis build
 status](https://travis-ci.org/cedricbatailler/JSmediation.svg?branch=master)](https://travis-ci.org/cedricbatailler/JSmediation)
+[![Coverage
+status](https://codecov.io/gh/cedricbatailler/JSmediation/branch/master/graph/badge.svg)](https://codecov.io/github/cedricbatailler/JSmediation?branch=master)
 
 `JSmediation` is an R package aiming to provide a set of functions to
 conduct a joint-significance test in a context of mediation analysis.
