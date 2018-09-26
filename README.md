@@ -17,8 +17,11 @@ Note that `JSmediation` is still under active development.
 ## Scope
 
 The goal of `JSmediation` is to provide a consistent syntax to conduct
-joint-significance tests. To do so, it provides a family of `mdt_*`
-functions helping one conducting different mediation analysis.
+joint-significance tests. This is motivated by the fact that
+joint-significance tests are less prone to false positive rate inflation
+like bootstrap methods can be (Yzerbyt, Muller, Batailler, & Judd,
+2018). To do so, it provides a family of `mdt_*` functions helping one
+conducting different mediation analysis.
 
 Current implemented models are:
 

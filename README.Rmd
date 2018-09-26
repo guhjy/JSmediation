@@ -16,15 +16,18 @@ knitr::opts_chunk$set(
 
 [![CRAN status](https://www.r-pkg.org/badges/version/JSmediation)](https://cran.r-project.org/package=JSmediation) [![Travis build status](https://travis-ci.org/cedricbatailler/JSmediation.svg?branch=master)](https://travis-ci.org/cedricbatailler/JSmediation)   [![Coverage status](https://codecov.io/gh/cedricbatailler/JSmediation/branch/master/graph/badge.svg)](https://codecov.io/github/cedricbatailler/JSmediation?branch=master)
 
-`JSmediation` is an R package aiming to provide a set of functions to conduct a 
-joint-significance test in a context of mediation analysis. Note that 
-`JSmediation` is still under active development.
+`JSmediation` is an R package aiming to provide a set of functions to conduct a
+mediation analysis joint-significance tests. Note that `JSmediation` is still
+under active development.
 
 ## Scope
 
-The goal of `JSmediation` is to provide a consistent syntax to conduct 
-joint-significance tests. To do so, it provides a family of `mdt_*`
-functions helping one conducting different mediation analysis.
+The goal of `JSmediation` is to provide a consistent syntax to conduct
+joint-significance tests. This is motivated by the fact that joint-significance
+tests perform better in terms of false positive rate control than other tests
+like bootstrap-based methods (Yzerbyt, Muller, Batailler, & Judd, 2018). To do
+so, it provides a family of `mdt_*` functions helping one conducting different
+mediation analysis.
 
 Current implemented models are:
 
@@ -32,8 +35,9 @@ Current implemented models are:
 - within-participant mediation (`mdt_within`, but see also `mdt_within_wide`)
 - moderated mediation (`mdt_moderated`)
 
-Every `mdt_*` functions take at least four arguments: `data` (the data frame 
-containing the data to be used),` IV` (the unquoted column name of the independent variable in the data frame), `DV` (the unquoted column name of the 
+Every `mdt_*` functions take at least four arguments: `data` (the data frame
+containing the data to be used),` IV` (the unquoted column name of the
+independent variable in the data frame), `DV` (the unquoted column name of the
 dependent variable in the data frame), and `M` (the unquoted column name of the
 mediator in the data frame).
 
@@ -52,8 +56,6 @@ You can install the development version from [GitHub](https://github.com/) with:
 # install.packages("devtools")
 devtools::install_github("cedricbatailler/JSmediation", build_vignettes = TRUE)
 ```
-
-
 
 ## How to use JSmediation
 
