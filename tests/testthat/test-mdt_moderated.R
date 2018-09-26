@@ -43,3 +43,24 @@ test_that("mdt_moderated does not throw error", {
                 sdo_c)
     )
 })
+
+test_that("print method for mdt_moderated does not throw error", {
+  dataset <-
+    ho_et_al %>%
+    dplyr::mutate(condition_c =
+                    build_contrast(condition,
+                                   "High discrimination",
+                                   "Low discrimination"),
+                  linkedfate_c =
+                    scale(linkedfate, scale = FALSE),
+                  sdo_c =
+                    scale(sdo, scale = FALSE))
+  
+  expect_silent(
+    mdt_moderated(dataset,
+                  condition_c,
+                  hypodescent,
+                  linkedfate_c,
+                  sdo_c)
+  )
+})
