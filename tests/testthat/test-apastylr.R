@@ -15,5 +15,5 @@ test_that("Correctly reports p < .001", {
 test_that("apastylr throws a warning when `term` des not exists", {
   data(ho_et_al)
   test <- lm(hypodescent ~ linkedfate, ho_et_al)
-  expect_warning(apastylr(test, "somethingelse"))
+  expect_error(apastylr(test, "somethingelse"))
 })

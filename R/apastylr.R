@@ -26,7 +26,8 @@ apastylr.lm <- function(model, term) {
     broom::tidy(model)
 
   if(nrow(summary_statistics[summary_statistics$term == term, ]) == 0)
-     warning(glue::glue("Warning:\n\tCould not find term \"{term}\" in model."))
+     stop(glue::glue("Could not find \"{term}\" term in the model."),
+          call. = FALSE)
 
   summary_statistics <- summary_statistics[summary_statistics$term == term, ]
 
