@@ -60,8 +60,6 @@ add_index.within_participant_mediation <- function(mediation_model, iter = 5000,
                     sampling   = indirect_sampling)
   
   mediation_model$indirect_index <- TRUE
-  mediation_model$indirect_index_infos <-
-    as_indirect_index(indirect_index_infos)
   
   mediation_model
 }
