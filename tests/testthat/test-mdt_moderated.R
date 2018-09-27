@@ -66,3 +66,24 @@ test_that("print method for mdt_moderated does not throw error", {
     )
   )
 })
+
+test_that("print method for mdt_moderated throws message when a variable is not contrast-coded/centered", {
+  dataset <-
+    ho_et_al %>%
+    dplyr::mutate(condition_c =
+                    build_contrast(condition,
+                                   "High discrimination",
+                                   "Low discrimination"),
+                  linkedfate_c =
+                    scale(linkedfate, scale = FALSE))
+  
+  expect_message(
+    print(
+      mdt_moderated(dataset,
+                    condition_c,
+                    hypodescent,
+                    linkedfate_c,
+                    sdo)
+    )
+  )
+})
