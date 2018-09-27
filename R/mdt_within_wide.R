@@ -37,21 +37,35 @@ mdt_within_wide.data.frame <- function(data, DV_A, DV_B, M_A, M_B) {
 
   # type check ----------------------------------------------------------------
 
-  if(!is.numeric(DV_A_data))
-    stop(glue::glue("Warning:
-                    Mediator ({DV_A_name}) must be numeric."))
-
-  if(!is.numeric(DV_B_data))
-    stop(glue::glue("Warning:
-                    Mediator ({DV_B_name}) must be numeric."))
-
-  if(!is.numeric(M_A_data))
-    stop(glue::glue("Warning:
-                    Mediator ({M_A_name}) must be numeric."))
-
-  if(!is.numeric(M_B_data))
-    stop(glue::glue("Warning:
-                    Mediator ({M_B_name}) must be numeric."))
+  Var_n <-
+    list(
+      DV_A_name,
+      DV_B_name,
+      M_A_name,
+      M_B_name
+    )
+  
+  Var_check <-
+    list(
+      DV_A_data,
+      DV_B_data,
+      M_A_data,
+      M_B_data
+    ) %>% 
+    purrr::map_lgl(~ is.numeric(.x))
+  
+  Var_n_check <-
+    Var_n[!Var_check]
+  
+  if (length(Var_n_check) != 0) {
+    message <- "It appears that the following variables are not numeric:"
+    
+    for (var in Var_n_check) {
+      message <- paste0(message, "\n* ", var)
+    }
+    
+    stop(call. = FALSE, message)
+  }
 
   # data wrangling ------------------------------------------------------------
   dataset <-
