@@ -56,15 +56,15 @@ test_that("print method for mdt_moderated does not throw error", {
                   sdo_c =
                     scale(sdo, scale = FALSE))
   
-  expect_output(
-    print(
-      mdt_moderated(dataset,
-                    condition_c,
-                    hypodescent,
-                    linkedfate_c,
-                    sdo_c)
-    )
-  )
+  model <- 
+    mdt_moderated(dataset,
+                  condition_c,
+                  hypodescent,
+                  linkedfate_c,
+                  sdo_c)
+  
+  expect_output(print(model))
+  
 })
 
 test_that("print method for mdt_moderated throws message when a variable is not contrast-coded/centered", {
@@ -77,13 +77,38 @@ test_that("print method for mdt_moderated throws message when a variable is not 
                   linkedfate_c =
                     scale(linkedfate, scale = FALSE))
   
-  expect_message(
-    print(
-      mdt_moderated(dataset,
-                    condition_c,
-                    hypodescent,
-                    linkedfate_c,
-                    sdo)
-    )
-  )
+  model <-
+    mdt_moderated(dataset,
+                  condition_c,
+                  hypodescent,
+                  linkedfate_c,
+                  sdo)
+    
+  expect_message(print(model))
+})
+
+test_that("add_index method for mdt_moderated does not throw error when used as intented", {
+  dataset <-
+    ho_et_al %>%
+    dplyr::mutate(condition_c =
+                    build_contrast(condition,
+                                   "High discrimination",
+                                   "Low discrimination"),
+                  linkedfate_c =
+                    scale(linkedfate, scale = FALSE),
+                  sdo_c =
+                    scale(sdo, scale = FALSE))
+  
+  model <- 
+    mdt_moderated(dataset,
+                  condition_c,
+                  hypodescent,
+                  linkedfate_c,
+                  sdo_c)
+  
+  expect_error(add_index(model))
+  expect_silent(add_index(model, stage = 1))
+  expect_silent(add_index(model, stage = 2))
+  expect_silent(add_index(model, stage = "total"))
+  
 })
