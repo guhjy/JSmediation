@@ -12,22 +12,18 @@ knitr::opts_chunk$set(
   out.width = "100%"
 )
 ```
-# JSmediation
+# JSmediation <img src="man/figures/logo.png" align="right"/>
 
 [![CRAN status](https://www.r-pkg.org/badges/version/JSmediation)](https://cran.r-project.org/package=JSmediation) [![Travis build status](https://travis-ci.org/cedricbatailler/JSmediation.svg?branch=master)](https://travis-ci.org/cedricbatailler/JSmediation)   [![Coverage status](https://codecov.io/gh/cedricbatailler/JSmediation/branch/master/graph/badge.svg)](https://codecov.io/github/cedricbatailler/JSmediation?branch=master)
 
 `JSmediation` is an R package aiming to provide a set of functions to conduct a
-mediation analysis joint-significance tests. Note that `JSmediation` is still
-under active development.
+mediation analysis joint-significance tests. The goal of `JSmediation` is to
+provide a consistent syntax to conduct joint-significance tests. 
 
-## Scope
-
-The goal of `JSmediation` is to provide a consistent syntax to conduct
-joint-significance tests. This is motivated by the fact that joint-significance
-tests perform better in terms of false positive rate control than other tests
-like bootstrap-based methods (Yzerbyt, Muller, Batailler, & Judd, 2018). To do
-so, it provides a family of `mdt_*` functions helping one conducting different
-mediation analysis.
+This is motivated by the fact that joint-significance tests perform better in
+terms of false positive rate control than other tests like bootstrap-based
+methods (Yzerbyt, Muller, Batailler, & Judd, 2018). To do so, it provides a
+family of `mdt_*` functions helping one conducting different mediation analysis.
 
 Current implemented models are:
 
@@ -93,7 +89,7 @@ JS_model <- mdt_simple(ho_et_al,
 JS_model
 ```
 
-One will have to make sure that both $a$ and $b$ are significant to conclude 
+One will have to make sure that both _a_ and _b_ are significant to conclude 
 that there is a mediation pattern.
 
 ### References

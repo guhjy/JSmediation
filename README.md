@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# JSmediation
+# JSmediation <img src="man/figures/logo.png" align="right"/>
 
 [![CRAN
 status](https://www.r-pkg.org/badges/version/JSmediation)](https://cran.r-project.org/package=JSmediation)
@@ -11,17 +11,15 @@ status](https://travis-ci.org/cedricbatailler/JSmediation.svg?branch=master)](ht
 status](https://codecov.io/gh/cedricbatailler/JSmediation/branch/master/graph/badge.svg)](https://codecov.io/github/cedricbatailler/JSmediation?branch=master)
 
 `JSmediation` is an R package aiming to provide a set of functions to
-conduct a joint-significance test in a context of mediation analysis.
-Note that `JSmediation` is still under active development.
+conduct a mediation analysis joint-significance tests. The goal of
+`JSmediation` is to provide a consistent syntax to conduct
+joint-significance tests.
 
-## Scope
-
-The goal of `JSmediation` is to provide a consistent syntax to conduct
-joint-significance tests. This is motivated by the fact that
-joint-significance tests are less prone to false positive rate inflation
-like bootstrap methods can be (Yzerbyt, Muller, Batailler, & Judd,
-2018). To do so, it provides a family of `mdt_*` functions helping one
-conducting different mediation analysis.
+This is motivated by the fact that joint-significance tests perform
+better in terms of false positive rate control than other tests like
+bootstrap-based methods (Yzerbyt, Muller, Batailler, & Judd, 2018). To
+do so, it provides a family of `mdt_*` functions helping one conducting
+different mediation analysis.
 
 Current implemented models are:
 
@@ -129,7 +127,7 @@ JS_model
 #> - X + M -> Y
 ```
 
-One will have to make sure that both \(a\) and \(b\) are significant to
+One will have to make sure that both *a* and *b* are significant to
 conclude that there is a mediation pattern.
 
 ### References
