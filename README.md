@@ -2,6 +2,7 @@
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 # JSmediation <img src="man/figures/logo.png" align="right"/>
+[New recommendations for testing indirect effects in mediational models: The need to report and test component paths 2018](http://www.citeulike.org/user/guhjy/article/14661713)
 
 [![CRAN
 status](https://www.r-pkg.org/badges/version/JSmediation)](https://cran.r-project.org/package=JSmediation)
